@@ -287,17 +287,6 @@ void ReportingLayer::DrawMean()
             glEnd();
         }
     }
-
-    //draw legend
-    glColor3f(0.82f, 0.41f, 0.12f);
-    glBegin(GL_POLYGON);
-    glVertex3f(0.7,0.85,0.0);
-    glVertex3f(0.8,0.85,0.0);
-    glVertex3f(0.8,0.9,0.0);
-    glVertex3f(0.7,0.9,0.0);
-    glEnd();
-    double text = div.at(0);
-
 }
 
 

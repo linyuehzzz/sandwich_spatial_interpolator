@@ -28,7 +28,7 @@ public:
     {
         if (ViewDialog->objectName().isEmpty())
             ViewDialog->setObjectName(QStringLiteral("ViewDialog"));
-        ViewDialog->resize(610, 503);
+        ViewDialog->resize(714, 503);
         openGLWidget = new MyOpenGLWidget(ViewDialog);
         openGLWidget->setObjectName(QStringLiteral("openGLWidget"));
         openGLWidget->setGeometry(QRect(19, 19, 571, 471));

@@ -392,3 +392,183 @@ External WM_DESTROY received for  QWidgetWindow(0x1ba47bf0, name="ViewDialogWind
 External WM_DESTROY received for  QWidgetWindow(0x104e7c18, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1442bb0, name="MainWindowWindow")
 [Warning] [2019-11-27 17:06:32]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
 External WM_DESTROY received for  QWidgetWindow(0x104d3d38, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1442bb0, name="MainWindowWindow")
+ [2019-11-28 08:34:18]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 08:34:23]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 08:34:25]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 08:34:30]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 08:34:30]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 08:34:30]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 08:34:40]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1aec0950, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x15b1dc0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:34:40]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1af07b20, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x15b1dc0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:34:40]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10347888, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x15b1dc0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:34:40]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10242f60, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x15b1dc0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:34:40]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x3e5bc38, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x15b1dc0, name="MainWindowWindow")
+ [2019-11-28 08:46:09]  [DataSource.cpp: Line: 60]  [Function: int __thiscall DataSource::ReadObjectLayer(class QString,int)] 
+Reading object layer...
+ [2019-11-28 08:46:15]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 08:46:21]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 08:46:24]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 08:46:28]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 08:46:29]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 08:46:29]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b346c38, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1a409d30, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1a43e608, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1a36c990, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1a36f1c8, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+[Warning] [2019-11-28 08:46:42]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x7f2d7a8, name="SamplingLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x16f0c68, name="MainWindowWindow")
+ [2019-11-28 08:47:52]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 08:47:57]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 08:48:00]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 08:48:07]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 08:48:07]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 08:48:07]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 08:48:12]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10458b68, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13e21b0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:48:12]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1c181808, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13e21b0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:48:12]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x103afed8, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13e21b0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:48:12]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x102b7f10, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13e21b0, name="MainWindowWindow")
+[Warning] [2019-11-28 08:48:12]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x104598d0, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13e21b0, name="MainWindowWindow")
+ [2019-11-28 08:53:42]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 08:53:47]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 08:53:50]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 08:53:55]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 08:53:55]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 08:53:55]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 08:54:01]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b1ca830, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x130ef38, name="MainWindowWindow")
+[Warning] [2019-11-28 08:54:01]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1bcca870, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x130ef38, name="MainWindowWindow")
+[Warning] [2019-11-28 08:54:01]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b1f4820, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x130ef38, name="MainWindowWindow")
+[Warning] [2019-11-28 08:54:01]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x56f3a10, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x130ef38, name="MainWindowWindow")
+[Warning] [2019-11-28 08:54:01]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x56f2048, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x130ef38, name="MainWindowWindow")
+ [2019-11-28 08:55:24]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 08:55:28]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 08:55:31]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 08:55:35]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 08:55:36]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 08:55:36]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 08:55:56]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd6b4570, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13fac78, name="MainWindowWindow")
+[Warning] [2019-11-28 08:55:56]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd609a18, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13fac78, name="MainWindowWindow")
+[Warning] [2019-11-28 08:55:56]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd80e850, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13fac78, name="MainWindowWindow")
+[Warning] [2019-11-28 08:55:56]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x13539948, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13fac78, name="MainWindowWindow")
+[Warning] [2019-11-28 08:55:56]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd6b3a70, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x13fac78, name="MainWindowWindow")
+ [2019-11-28 09:04:04]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 09:04:09]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 09:04:12]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 09:04:17]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 09:04:17]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 09:04:17]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 09:04:25]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1c75a640, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x14c36d0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:04:25]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1cc0dd00, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x14c36d0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:04:25]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x112493d0, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x14c36d0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:04:25]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b8775c8, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x14c36d0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:04:25]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x110424b0, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x14c36d0, name="MainWindowWindow")
+ [2019-11-28 09:05:02]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 09:05:07]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 09:05:10]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 09:05:17]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 09:05:17]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 09:05:17]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 09:05:34]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1acd29a8, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x10034a0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:05:34]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b759ad0, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x10034a0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:05:34]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd44d510, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x10034a0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:05:34]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd237018, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x10034a0, name="MainWindowWindow")
+[Warning] [2019-11-28 09:05:34]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0xd236f10, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x10034a0, name="MainWindowWindow")
+ [2019-11-28 09:09:52]  [DataSource.cpp: Line: 232]  [Function: int __thiscall DataSource::ReadSamplingLayer(class QString,class QString,int)] 
+Reading sampling layer...
+ [2019-11-28 09:09:58]  [DataSource.cpp: Line: 451]  [Function: int __thiscall DataSource::ReadStratifiedLayer(class QString,int,class QString)] 
+Reading stratified layer...
+ [2019-11-28 09:10:01]  [DataSource.cpp: Line: 742]  [Function: int __thiscall DataSource::ReadReportingLayer(class QString)] 
+Reading reporting layer...
+ [2019-11-28 09:10:05]  [Sandwich.cpp: Line: 36]  [Function: void __thiscall Sandwich::RunModel(void)] 
+'Sandwich' model starting...
+ [2019-11-28 09:10:06]  [DataOutput.cpp: Line: 29]  [Function: void __thiscall DataOutput::WriteTXTFile(int,class ObjectVector *,int,int,int,class QString,int,double,int,double,int)] 
+Writing summary of outputs...
+ [2019-11-28 09:10:06]  [Sandwich.cpp: Line: 71]  [Function: void __thiscall Sandwich::WriteFile(void)] 
+'Sandwich' model finished
+[Warning] [2019-11-28 09:10:18]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10570a58, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1525620, name="MainWindowWindow")
+[Warning] [2019-11-28 09:10:18]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1ba9e0f8, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1525620, name="MainWindowWindow")
+[Warning] [2019-11-28 09:10:18]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x1b72b110, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1525620, name="MainWindowWindow")
+[Warning] [2019-11-28 09:10:18]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10524dd0, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1525620, name="MainWindowWindow")
+[Warning] [2019-11-28 09:10:18]  [qwindowscontext.cpp: Line: 994]  [Function: bool __thiscall QWindowsContext::windowsProc(struct HWND__ *,unsigned int,enum QtWindows::WindowsEventType,unsigned int,long,long *)] 
+External WM_DESTROY received for  QWidgetWindow(0x10524640, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1525620, name="MainWindowWindow")

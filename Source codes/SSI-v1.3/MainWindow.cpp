@@ -379,6 +379,21 @@ void MainWindow::on_run_clicked()
                 this->viewDlg->ui->openGLWidget->code = 5;
                 this->viewDlg->ui->openGLWidget->rptLyr = new ReportingLayer();
                 this->viewDlg->ui->openGLWidget->rptLyr = s->d->rptLyr;
+
+                //legend 1
+                QLabel* legend1_img = new QLabel(this->viewDlg);
+                legend1_img->resize(30, 15);
+                legend1_img->move(600, 19);
+                legend1_img->setAlignment(Qt::AlignLeft);
+                legend1_img->setScaledContents(true);
+                legend1_img->setPixmap(QPixmap(":/res/legend1.png"));
+
+                QLabel* legend1_text = new QLabel(this->viewDlg);
+                legend1_text->move(600, 19);
+                legend1_text->setAlignment(Qt::AlignLeft);
+                legend1_text->setScaledContents(true);
+                legend1_text->setText("This is text");
+
                 this->viewDlg->show();
 
                 //this->viewDlg2->ui->openGLWidget->code = 6;
