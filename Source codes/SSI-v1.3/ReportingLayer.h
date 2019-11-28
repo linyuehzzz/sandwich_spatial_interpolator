@@ -53,6 +53,10 @@ public:
 
     /* Draw the reporting layer */
     void Draw();
+    /* Draw the output layer (mean value) */
+    void DrawMean();
+    /* Draw the output layer (variance) */
+    void DrawVar();
 
     /* Calculate the mean value and the variance of sample mean of each reporting unit */
     void CalculateRUValue(vector<KnowledgeUnit *> k, int size);
@@ -60,7 +64,8 @@ public:
     void CalculateVarianceT(vector<SamplingPt* > s, int size);
 
 private:
-
+    /* Calculate classification intervals */
+    vector<double > EqualInterval(vector<double > data);
     /* Calculate the mean value of a reporting unit */
     double CalculateMean(vector<OGRGeometry *> r, double area, vector<KnowledgeUnit *> k, int size);
     /* Calculate the variance of sample mean of a reporting unit */

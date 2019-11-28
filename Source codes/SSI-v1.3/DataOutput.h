@@ -34,8 +34,6 @@ public:
     void WriteTXTFile(int code_1, ObjectVector* objV, int code_2, int code_3, int n_2, QString field, int n_3, double q, int n_4, double varianceT, int code_4);
     /* Write the interpolated map */
     void WriteSHPFile(vector<ReportingUnit *> r);
-    /* Draw the output layer */
-    void Draw();
 
 };
 

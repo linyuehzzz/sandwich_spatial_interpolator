@@ -19,41 +19,6 @@ ReportingLayer::~ReportingLayer()
 
 
 /// <summary>
-/// Draw the reporting layer
-/// </summary>
-void ReportingLayer::Draw()
-{
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glColor3f(0.0f, 0.3f, 0.0f);
-    glLineWidth(3);
-    for(int i = 0; i < number; i++)
-    {
-        ReportingUnit* ru = runits.at(i);
-        vector<OGRGeometry* > polys = ru->runit;
-        for(int j = 0; j < polys.size(); j++){
-            OGRPolygon* poly = (OGRPolygon*) polys.at(j);
-            OGRLinearRing* bound = poly->getExteriorRing();
-            long count = bound->getNumPoints();
-            glBegin(GL_LINE_STRIP);
-            for(int k = 0; k < count; k++){
-                Point* point = new Point();
-                point->x = bound->getX(k);
-                point->y = bound->getY(k);
-                int width = (int) maxx - minx;
-                int height = (int) maxy - miny;
-                float x = (float)(point->x - minx)/ width * 2 - 1;
-                float y = (float)(point->y - miny)/ height * 2 - 1;
-                glVertex2f(x, y);
-                delete point;
-            }
-            glEnd();
-        }
-    }
-}
-
-
-/// <summary>
 /// Calculate the mean value and the variance of sample mean of each reporting unit
 /// </summary>
 /// <param name="k">        Collection of strata    </param name>
@@ -181,4 +146,216 @@ void ReportingLayer::CalculateVarianceT(vector<SamplingPt* > s, int size)
 
     VarianceT = VarianceT/count;
     this->VairanceT = VarianceT;
+}
+
+
+/// <summary>
+/// Draw the reporting layer
+/// </summary>
+void ReportingLayer::Draw()
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glColor3f(0.0f, 0.3f, 0.0f);
+    glLineWidth(3);
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        vector<OGRGeometry* > polys = ru->runit;
+        for(int j = 0; j < polys.size(); j++){
+            OGRPolygon* poly = (OGRPolygon*) polys.at(j);
+            OGRLinearRing* bound = poly->getExteriorRing();
+            long count = bound->getNumPoints();
+            glBegin(GL_LINE_STRIP);
+            for(int k = 0; k < count; k++){
+                Point* point = new Point();
+                point->x = bound->getX(k);
+                point->y = bound->getY(k);
+                int width = (int) maxx - minx;
+                int height = (int) maxy - miny;
+                float x = (float)(point->x - minx)/ width * 2 - 1;
+                float y = (float)(point->y - miny)/ height * 2 - 1;
+                glVertex2f(x, y);
+                delete point;
+            }
+            glEnd();
+        }
+    }
+}
+
+
+/// <summary>
+/// Equal interval classification
+/// </summary>
+/// <param name="data">    Data for classification      </param name>
+/// <returns>   Dividing points  </returns>
+vector<double > ReportingLayer::EqualInterval(vector<double > data)
+{
+    vector<double> div;
+    int num = data.size();
+
+    // min / itv1
+    double itv1 = data.at(0);
+    for(int i = 0; i < num; i++)
+    {
+        if(itv1 > data.at(i)){
+            itv1 = data.at(i);
+        }
+    }
+
+    // max / itv5
+    double itv5 = data.at(0);
+    for(int i = 0; i < num; i++)
+    {
+        if(itv5 < data.at(i)){
+            itv5 = data.at(i);
+        }
+    }
+
+    double range = itv5 - itv1;
+    double itv = range / 4;
+
+    // itv2 - itv4
+    double itv2 = itv1 + itv;
+    double itv3 = itv1 + 2 * itv;
+    double itv4 = itv1 + 3 * itv;
+
+    div.push_back(itv1);
+    div.push_back(itv2);
+    div.push_back(itv3);
+    div.push_back(itv4);
+    div.push_back(itv5);
+
+    return div;
+}
+
+
+/// <summary>
+/// Draw the output layer (mean value)
+/// </summary>
+void ReportingLayer::DrawMean()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glLineWidth(3);
+    glPolygonMode(GL_FRONT, GL_FILL);
+
+    // get dividing points
+    vector<double > div;
+    vector<double > all_mean;
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        double mean = ru->mean;
+        all_mean.push_back(mean);
+    }
+    div = EqualInterval(all_mean);
+
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        vector<OGRGeometry* > polys = ru->runit;
+        double mean = ru->mean;
+
+        // set colors
+        if(mean >= div.at(0) && mean < div.at(1))
+            glColor3f(1.0f, 0.89f, 0.71f);
+        else if(mean >= div.at(1) && mean < div.at(2))
+            glColor3f(1.0f, 0.84f, 0.0f);
+        else if(mean >= div.at(2) && mean < div.at(3))
+            glColor3f(1.0f, 0.65f, 0.0f);
+        else
+            glColor3f(0.82f, 0.41f, 0.12f);
+
+        for(unsigned int j = 0; j < polys.size(); j++){
+            OGRPolygon* poly = (OGRPolygon*)polys.at(j);
+            OGRLinearRing* bound = poly->getExteriorRing();
+            long long count = bound->getNumPoints();
+            glBegin(GL_POLYGON);
+            for(long long j = 0; j < count; j++){
+                Point* point = new Point();
+                point->x = bound->getX(j);
+                point->y = bound->getY(j);
+                int width = (int) maxx - minx;
+                int height = (int) maxy - miny;
+                float x = (float)(point->x - minx)/ width * 2 - 1;
+                float y = (float)(point->y - miny)/ height * 2 - 1;
+                glVertex2f(x,y);
+                delete point;
+            }
+            glEnd();
+        }
+    }
+
+    //draw legend
+    glColor3f(0.82f, 0.41f, 0.12f);
+    glBegin(GL_POLYGON);
+    glVertex3f(0.7,0.85,0.0);
+    glVertex3f(0.8,0.85,0.0);
+    glVertex3f(0.8,0.9,0.0);
+    glVertex3f(0.7,0.9,0.0);
+    glEnd();
+    double text = div.at(0);
+
+}
+
+
+/// <summary>
+/// Draw the output layer (variance)
+/// </summary>
+void ReportingLayer::DrawVar()
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glLineWidth(3);
+
+    // get dividing points
+    vector<double > div;
+    vector<double > all_varSM;
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        double varSM = ru->varianceSM;
+        all_varSM.push_back(varSM);
+    }
+    div = EqualInterval(all_varSM);
+
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        vector<OGRGeometry* > polys = ru->runit;
+        double varSM = ru->varianceSM;
+
+        // set colors
+        if(varSM >= div.at(0) && varSM < div.at(1))
+            glColor3f(1.0f, 0.89f, 0.71f);
+        else if(varSM >= div.at(1) && varSM < div.at(2))
+            glColor3f(1.0f, 0.84f, 0.0f);
+        else if(varSM >= div.at(2) && varSM < div.at(3))
+            glColor3f(1.0f, 0.65f, 0.0f);
+        else
+            glColor3f(0.82f, 0.41f, 0.12f);
+
+
+        for(unsigned int j = 0; j < polys.size(); j++){
+            OGRPolygon* poly = (OGRPolygon*)polys.at(j);
+            OGRLinearRing* bound = poly->getExteriorRing();
+            long long count = bound->getNumPoints();
+            glBegin(GL_POLYGON);
+            for(long long j = 0; j < count; j++){
+                Point* point = new Point();
+                point->x = bound->getX(j);
+                point->y = bound->getY(j);
+                int width = (int) maxx - minx;
+                int height = (int) maxy - miny;
+                float x = (float)(point->x - minx)/ width * 2 - 1;
+                float y = (float)(point->y - miny)/ height * 2 - 1;
+                glVertex2f(x,y);
+                delete point;
+            }
+            glEnd();
+            glFlush();
+        }
+    }
 }

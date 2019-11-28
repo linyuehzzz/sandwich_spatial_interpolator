@@ -59,6 +59,10 @@ void MyOpenGLWidget::paintGL()
         this->stfV->Draw();
     else if(this->code == 4)
         this->rptLyr->Draw();
+    else if(this->code == 5)
+        this->rptLyr->DrawMean();
+    else if(this->code == 6)
+        this->rptLyr->DrawVar();
 }
 
 

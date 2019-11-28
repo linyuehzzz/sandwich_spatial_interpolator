@@ -134,38 +134,3 @@ void DataOutput::WriteSHPFile(vector<ReportingUnit *> r)
 
     GDALClose(poDS);
 }
-
-
-/// <summary>
-/// Draw the output layer
-/// </summary>
-void DataOutput::Draw()
-{
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glColor3f(0.7f, 0.0f, 0.0f);
-    glLineWidth(3);
-    for(int i = 0; i < number; i++)
-    {
-        ReportingUnit* ku = kunits.at(i);
-        vector<OGRGeometry* > polys = ku->kunit;
-        for(unsigned int j = 0; j < polys.size(); j++){
-            OGRPolygon* poly = (OGRPolygon*)polys.at(j);
-            OGRLinearRing* bound = poly->getExteriorRing();
-            long long count = bound->getNumPoints();
-            glBegin(GL_LINE_STRIP);
-            for(long long j = 0; j < count; j++){
-                Point* point = new Point();
-                point->x = bound->getX(j);
-                point->y = bound->getY(j);
-                int width = (int) maxx - minx;
-                int height = (int) maxy - miny;
-                float x = (float)(point->x - minx)/ width * 2 - 1;
-                float y = (float)(point->y - miny)/ height * 2 - 1;
-                glVertex2f(x,y);
-                delete point;
-            }
-            glEnd();
-        }
-    }
-}

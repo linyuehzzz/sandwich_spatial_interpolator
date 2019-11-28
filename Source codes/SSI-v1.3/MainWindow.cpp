@@ -376,6 +376,15 @@ void MainWindow::on_run_clicked()
                 connect(tRM, SIGNAL(RMStart()), this, SLOT(RMStart()));
                 connect(tRM, SIGNAL(RMEnd()), this, SLOT(RMEnd()));
                 tRM->start();
+                this->viewDlg->ui->openGLWidget->code = 5;
+                this->viewDlg->ui->openGLWidget->rptLyr = new ReportingLayer();
+                this->viewDlg->ui->openGLWidget->rptLyr = s->d->rptLyr;
+                this->viewDlg->show();
+
+                //this->viewDlg2->ui->openGLWidget->code = 6;
+                //this->viewDlg2->ui->openGLWidget->rptLyr = new ReportingLayer();
+                //this->viewDlg2->ui->openGLWidget->rptLyr = s->d->rptLyr;
+                //this->viewDlg2->show();
             }
         }
     }else{
