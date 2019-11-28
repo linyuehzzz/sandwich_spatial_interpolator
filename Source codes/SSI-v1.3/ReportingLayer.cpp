@@ -116,6 +116,78 @@ double ReportingLayer::CalculateVarianceSM(vector<OGRGeometry *> r, double area,
 
 
 /// <summary>
+/// Equal interval classification
+/// </summary>
+/// <param name="data">    Data for classification      </param name>
+vector<double > ReportingLayer::EqualInterval(vector<double > data)
+{
+    vector<double > div;
+    int num = data.size();
+
+    // min / itv1
+    double itv1 = data.at(0);
+    for(int i = 0; i < num; i++)
+    {
+        if(itv1 > data.at(i)){
+            itv1 = data.at(i);
+        }
+    }
+
+    // max / itv5
+    double itv5 = data.at(0);
+    for(int i = 0; i < num; i++)
+    {
+        if(itv5 < data.at(i)){
+            itv5 = data.at(i);
+        }
+    }
+
+    double range = itv5 - itv1;
+    double itv = range / 4;
+
+    // itv2 - itv4
+    double itv2 = itv1 + itv;
+    double itv3 = itv1 + 2 * itv;
+    double itv4 = itv1 + 3 * itv;
+
+    div.push_back(itv1);
+    div.push_back(itv2);
+    div.push_back(itv3);
+    div.push_back(itv4);
+    div.push_back(itv5);
+
+    return div;
+}
+
+
+/// <summary>
+/// Set dividing points of the legends
+/// </summary>
+void ReportingLayer::SetDividingPoints()
+{
+    // Get dividing points (mean)
+    vector<double > all_mean;
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        double mean = ru->mean;
+        all_mean.push_back(mean);
+    }
+    this->DivMean = EqualInterval(all_mean);
+
+    // Get dividing points (varSM)
+    vector<double > all_varSM;
+    for(int i = 0; i < number; i++)
+    {
+        ReportingUnit* ru = runits.at(i);
+        double varSM = ru->varianceSM;
+        all_varSM.push_back(varSM);
+    }
+    this->DivVarSM = EqualInterval(all_varSM);
+}
+
+
+/// <summary>
 /// Calculate the total sample variance of the map
 /// </summary>
 /// <param name="s">        Collection of samples   </param name>
@@ -185,52 +257,6 @@ void ReportingLayer::Draw()
 
 
 /// <summary>
-/// Equal interval classification
-/// </summary>
-/// <param name="data">    Data for classification      </param name>
-/// <returns>   Dividing points  </returns>
-vector<double > ReportingLayer::EqualInterval(vector<double > data)
-{
-    vector<double> div;
-    int num = data.size();
-
-    // min / itv1
-    double itv1 = data.at(0);
-    for(int i = 0; i < num; i++)
-    {
-        if(itv1 > data.at(i)){
-            itv1 = data.at(i);
-        }
-    }
-
-    // max / itv5
-    double itv5 = data.at(0);
-    for(int i = 0; i < num; i++)
-    {
-        if(itv5 < data.at(i)){
-            itv5 = data.at(i);
-        }
-    }
-
-    double range = itv5 - itv1;
-    double itv = range / 4;
-
-    // itv2 - itv4
-    double itv2 = itv1 + itv;
-    double itv3 = itv1 + 2 * itv;
-    double itv4 = itv1 + 3 * itv;
-
-    div.push_back(itv1);
-    div.push_back(itv2);
-    div.push_back(itv3);
-    div.push_back(itv4);
-    div.push_back(itv5);
-
-    return div;
-}
-
-
-/// <summary>
 /// Draw the output layer (mean value)
 /// </summary>
 void ReportingLayer::DrawMean()
@@ -241,17 +267,6 @@ void ReportingLayer::DrawMean()
     glLineWidth(3);
     glPolygonMode(GL_FRONT, GL_FILL);
 
-    // get dividing points
-    vector<double > div;
-    vector<double > all_mean;
-    for(int i = 0; i < number; i++)
-    {
-        ReportingUnit* ru = runits.at(i);
-        double mean = ru->mean;
-        all_mean.push_back(mean);
-    }
-    div = EqualInterval(all_mean);
-
     for(int i = 0; i < number; i++)
     {
         ReportingUnit* ru = runits.at(i);
@@ -259,11 +274,11 @@ void ReportingLayer::DrawMean()
         double mean = ru->mean;
 
         // set colors
-        if(mean >= div.at(0) && mean < div.at(1))
+        if(mean >= DivMean.at(0) && mean < DivMean.at(1))
             glColor3f(1.0f, 0.89f, 0.71f);
-        else if(mean >= div.at(1) && mean < div.at(2))
+        else if(mean >= DivMean.at(1) && mean < DivMean.at(2))
             glColor3f(1.0f, 0.84f, 0.0f);
-        else if(mean >= div.at(2) && mean < div.at(3))
+        else if(mean >= DivMean.at(2) && mean < DivMean.at(3))
             glColor3f(1.0f, 0.65f, 0.0f);
         else
             glColor3f(0.82f, 0.41f, 0.12f);
@@ -300,7 +315,6 @@ void ReportingLayer::DrawVar()
     glLineWidth(3);
 
     // get dividing points
-    vector<double > div;
     vector<double > all_varSM;
     for(int i = 0; i < number; i++)
     {
@@ -308,7 +322,6 @@ void ReportingLayer::DrawVar()
         double varSM = ru->varianceSM;
         all_varSM.push_back(varSM);
     }
-    div = EqualInterval(all_varSM);
 
     for(int i = 0; i < number; i++)
     {
@@ -317,11 +330,11 @@ void ReportingLayer::DrawVar()
         double varSM = ru->varianceSM;
 
         // set colors
-        if(varSM >= div.at(0) && varSM < div.at(1))
+        if(varSM >= DivVarSM.at(0) && varSM < DivVarSM.at(1))
             glColor3f(1.0f, 0.89f, 0.71f);
-        else if(varSM >= div.at(1) && varSM < div.at(2))
+        else if(varSM >= DivVarSM.at(1) && varSM < DivVarSM.at(2))
             glColor3f(1.0f, 0.84f, 0.0f);
-        else if(varSM >= div.at(2) && varSM < div.at(3))
+        else if(varSM >= DivVarSM.at(2) && varSM < DivVarSM.at(3))
             glColor3f(1.0f, 0.65f, 0.0f);
         else
             glColor3f(0.82f, 0.41f, 0.12f);

@@ -44,6 +44,7 @@ void Sandwich::RunModel()
 
         // Calculate the mean value and the variance of sample mean of each reporting unit
         d->rptLyr->CalculateRUValue(d->stfV->kunits, d->stfV->number);
+        d->rptLyr->SetDividingPoints();
         d->rptLyr->CalculateVarianceT(d->splV->spts, d->splV->number);
     }
     else if(this->code_1 == 1){

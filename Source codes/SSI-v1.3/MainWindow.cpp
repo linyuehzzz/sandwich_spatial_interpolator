@@ -376,30 +376,6 @@ void MainWindow::on_run_clicked()
                 connect(tRM, SIGNAL(RMStart()), this, SLOT(RMStart()));
                 connect(tRM, SIGNAL(RMEnd()), this, SLOT(RMEnd()));
                 tRM->start();
-                this->viewDlg->ui->openGLWidget->code = 5;
-                this->viewDlg->ui->openGLWidget->rptLyr = new ReportingLayer();
-                this->viewDlg->ui->openGLWidget->rptLyr = s->d->rptLyr;
-
-                //legend 1
-                QLabel* legend1_img = new QLabel(this->viewDlg);
-                legend1_img->resize(30, 15);
-                legend1_img->move(600, 19);
-                legend1_img->setAlignment(Qt::AlignLeft);
-                legend1_img->setScaledContents(true);
-                legend1_img->setPixmap(QPixmap(":/res/legend1.png"));
-
-                QLabel* legend1_text = new QLabel(this->viewDlg);
-                legend1_text->move(600, 19);
-                legend1_text->setAlignment(Qt::AlignLeft);
-                legend1_text->setScaledContents(true);
-                legend1_text->setText("This is text");
-
-                this->viewDlg->show();
-
-                //this->viewDlg2->ui->openGLWidget->code = 6;
-                //this->viewDlg2->ui->openGLWidget->rptLyr = new ReportingLayer();
-                //this->viewDlg2->ui->openGLWidget->rptLyr = s->d->rptLyr;
-                //this->viewDlg2->show();
             }
         }
     }else{
@@ -473,7 +449,35 @@ void MainWindow::RMEnd()
         currentValue = 100;
     progress->setValue(currentValue);//进度达到最大值
     progress->close();
-    QMessageBox::information(this, tr("Status"), tr("Successfully conducted the model!"), QMessageBox::Ok);
+    QMessageBox::information(this, tr("Status"),
+                             tr("Successfully conducted the model!"),
+                             QMessageBox::Ok);
+
+    this->viewDlg->ui->openGLWidget->code = 5;
+    this->viewDlg->ui->openGLWidget->rptLyr = new ReportingLayer();
+    this->viewDlg->ui->openGLWidget->rptLyr = s->d->rptLyr;
+
+    //legend 1
+    QLabel* legend1_img = new QLabel(this->viewDlg);
+    legend1_img->resize(30, 15);
+    legend1_img->move(600, 19);
+    legend1_img->setAlignment(Qt::AlignLeft);
+    legend1_img->setScaledContents(true);
+    legend1_img->setPixmap(QPixmap(":/res/legend1.png"));
+
+    //QLabel* legend1_text = new QLabel(this->viewDlg);
+    //legend1_text->move(640, 19);
+    //legend1_text->setAlignment(Qt::AlignLeft);
+    //legend1_text->setScaledContents(true);
+    double legend1 = s->d->rptLyr->DivMean.at(4);
+    legend1_img->setText(QString::number(legend1,'f', 2));
+
+    this->viewDlg->show();
+
+    //this->viewDlg2->ui->openGLWidget->code = 6;
+    //this->viewDlg2->ui->openGLWidget->rptLyr = new ReportingLayer();
+    //this->viewDlg2->ui->openGLWidget->rptLyr = s->d->rptLyr;
+    //this->viewDlg2->show();
 }
 
 

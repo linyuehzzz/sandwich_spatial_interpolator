@@ -51,6 +51,10 @@ public:
     double maxx;
     double maxy;
 
+    // dividing points
+    vector<double > DivMean;
+    vector<double > DivVarSM;
+
     /* Draw the reporting layer */
     void Draw();
     /* Draw the output layer (mean value) */
@@ -60,6 +64,8 @@ public:
 
     /* Calculate the mean value and the variance of sample mean of each reporting unit */
     void CalculateRUValue(vector<KnowledgeUnit *> k, int size);
+    /* Set dividing points of the legends */
+    void SetDividingPoints();
     /* Calculate the total sample variance of the map */
     void CalculateVarianceT(vector<SamplingPt* > s, int size);
 
