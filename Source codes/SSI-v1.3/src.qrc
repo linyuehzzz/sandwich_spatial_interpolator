@@ -12,6 +12,9 @@
         <file>res/Create-01.png</file>
         <file>res/Save-01.png</file>
         <file>res/sandwich.png</file>
-        <file>res/legend1.png</file>
+        <file>res/Legend1.png</file>
+        <file>res/Legend2.png</file>
+        <file>res/Legend3.png</file>
+        <file>res/Legend4.png</file>
     </qresource>
 </RCC>

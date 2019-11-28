@@ -275,13 +275,13 @@ void ReportingLayer::DrawMean()
 
         // set colors
         if(mean >= DivMean.at(0) && mean < DivMean.at(1))
-            glColor3f(1.0f, 0.89f, 0.71f);
+            glColor3f(0.98f, 0.69f, 0.25f);
         else if(mean >= DivMean.at(1) && mean < DivMean.at(2))
-            glColor3f(1.0f, 0.84f, 0.0f);
+            glColor3f(0.97f, 0.58f, 0.11f);
         else if(mean >= DivMean.at(2) && mean < DivMean.at(3))
-            glColor3f(1.0f, 0.65f, 0.0f);
+            glColor3f(0.95f, 0.35f, 0.16f);
         else
-            glColor3f(0.82f, 0.41f, 0.12f);
+            glColor3f(0.94f, 0.25f, 0.21f);
 
         for(unsigned int j = 0; j < polys.size(); j++){
             OGRPolygon* poly = (OGRPolygon*)polys.at(j);
@@ -331,14 +331,13 @@ void ReportingLayer::DrawVar()
 
         // set colors
         if(varSM >= DivVarSM.at(0) && varSM < DivVarSM.at(1))
-            glColor3f(1.0f, 0.89f, 0.71f);
+            glColor3f(0.98f, 0.69f, 0.25f);
         else if(varSM >= DivVarSM.at(1) && varSM < DivVarSM.at(2))
-            glColor3f(1.0f, 0.84f, 0.0f);
+            glColor3f(0.97f, 0.58f, 0.11f);
         else if(varSM >= DivVarSM.at(2) && varSM < DivVarSM.at(3))
-            glColor3f(1.0f, 0.65f, 0.0f);
+            glColor3f(0.95f, 0.35f, 0.16f);
         else
-            glColor3f(0.82f, 0.41f, 0.12f);
-
+            glColor3f(0.94f, 0.25f, 0.21f);
 
         for(unsigned int j = 0; j < polys.size(); j++){
             OGRPolygon* poly = (OGRPolygon*)polys.at(j);

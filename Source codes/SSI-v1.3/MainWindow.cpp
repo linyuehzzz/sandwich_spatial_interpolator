@@ -447,37 +447,92 @@ void MainWindow::RMEnd()
     timer->stop();
     if(currentValue != 100)
         currentValue = 100;
-    progress->setValue(currentValue);//进度达到最大值
+    progress->setValue(currentValue);
     progress->close();
     QMessageBox::information(this, tr("Status"),
                              tr("Successfully conducted the model!"),
                              QMessageBox::Ok);
 
+    //Draw mean value
     this->viewDlg->ui->openGLWidget->code = 5;
     this->viewDlg->ui->openGLWidget->rptLyr = new ReportingLayer();
     this->viewDlg->ui->openGLWidget->rptLyr = s->d->rptLyr;
 
+    //Display legend
+    QLabel* legend_title = new QLabel(this->viewDlg);
+    legend_title->move(625, 19);
+    legend_title->setAlignment(Qt::AlignCenter);
+    legend_title->setScaledContents(true);
+    legend_title->setText("Sandwich Mean");
+
     //legend 1
     QLabel* legend1_img = new QLabel(this->viewDlg);
-    legend1_img->resize(30, 15);
-    legend1_img->move(600, 19);
+    legend1_img->resize(15, 40);
+    legend1_img->move(600, 55);
     legend1_img->setAlignment(Qt::AlignLeft);
     legend1_img->setScaledContents(true);
-    legend1_img->setPixmap(QPixmap(":/res/legend1.png"));
+    legend1_img->setPixmap(QPixmap(":/res/Legend1.png"));
 
-    //QLabel* legend1_text = new QLabel(this->viewDlg);
-    //legend1_text->move(640, 19);
-    //legend1_text->setAlignment(Qt::AlignLeft);
-    //legend1_text->setScaledContents(true);
-    double legend1 = s->d->rptLyr->DivMean.at(4);
-    legend1_img->setText(QString::number(legend1,'f', 2));
+    QLabel* legend1_text = new QLabel(this->viewDlg);
+    legend1_text->move(625, 44);
+    legend1_text->setAlignment(Qt::AlignLeft);
+    legend1_text->setScaledContents(true);
+    double legend1 = s->d->rptLyr->DivMean.at(0);
+    legend1_text->setText(QString::number(legend1,'f', 2));
+
+    //legend 2
+    QLabel* legend2_img = new QLabel(this->viewDlg);
+    legend2_img->resize(15, 40);
+    legend2_img->move(600, 95);
+    legend2_img->setAlignment(Qt::AlignLeft);
+    legend2_img->setScaledContents(true);
+    legend2_img->setPixmap(QPixmap(":/res/Legend2.png"));
+
+    QLabel* legend2_text = new QLabel(this->viewDlg);
+    legend2_text->move(625, 84);
+    legend2_text->setAlignment(Qt::AlignLeft);
+    legend2_text->setScaledContents(true);
+    double legend2 = s->d->rptLyr->DivMean.at(1);
+    legend2_text->setText(QString::number(legend2,'f', 2));
+
+    //legend 3
+    QLabel* legend3_img = new QLabel(this->viewDlg);
+    legend3_img->resize(15, 40);
+    legend3_img->move(600, 135);
+    legend3_img->setAlignment(Qt::AlignLeft);
+    legend3_img->setScaledContents(true);
+    legend3_img->setPixmap(QPixmap(":/res/Legend3.png"));
+
+    QLabel* legend3_text = new QLabel(this->viewDlg);
+    legend3_text->move(625, 124);
+    legend3_text->setAlignment(Qt::AlignLeft);
+    legend3_text->setScaledContents(true);
+    double legend3 = s->d->rptLyr->DivMean.at(2);
+    legend3_text->setText(QString::number(legend3,'f', 2));
+
+    //legend 4
+    QLabel* legend4_img = new QLabel(this->viewDlg);
+    legend4_img->resize(15, 40);
+    legend4_img->move(600, 175);
+    legend4_img->setAlignment(Qt::AlignLeft);
+    legend4_img->setScaledContents(true);
+    legend4_img->setPixmap(QPixmap(":/res/Legend4.png"));
+
+    QLabel* legend4_text = new QLabel(this->viewDlg);
+    legend4_text->move(625, 164);
+    legend4_text->setAlignment(Qt::AlignLeft);
+    legend4_text->setScaledContents(true);
+    double legend4 = s->d->rptLyr->DivMean.at(3);
+    legend4_text->setText(QString::number(legend4,'f', 2));
+
+    QLabel* legend5_text = new QLabel(this->viewDlg);
+    legend5_text->move(625, 204);
+    legend5_text->setAlignment(Qt::AlignLeft);
+    legend5_text->setScaledContents(true);
+    double legend5 = s->d->rptLyr->DivMean.at(4);
+    legend5_text->setText(QString::number(legend5,'f', 2));
 
     this->viewDlg->show();
-
-    //this->viewDlg2->ui->openGLWidget->code = 6;
-    //this->viewDlg2->ui->openGLWidget->rptLyr = new ReportingLayer();
-    //this->viewDlg2->ui->openGLWidget->rptLyr = s->d->rptLyr;
-    //this->viewDlg2->show();
 }
 
 
