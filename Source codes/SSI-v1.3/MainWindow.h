@@ -108,7 +108,6 @@ private:
     SSHLayerManager* stratifiedLayerManager;
     // Layer View
     ViewDialog* viewDlg;
-    ViewDialog* viewDlg2;
 
     /* Setup the initial value of combo box */
     void SetComboBoxValue();
