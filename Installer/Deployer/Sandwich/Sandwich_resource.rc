@@ -4,7 +4,7 @@
 #  include <windows.h>
 # endif
 
-IDI_ICON1	ICON	DISCARDABLE	"C:\\Yue\\OneDrive - The Ohio State University\\Research\\CAS-IREIS\\2019-05 SSI a novel software for spatial interpolation of a spatially stratified heterogeneous population\\SSI\\Source codes\\SSI-v1.3\\sandwich.ico"
+IDI_ICON1	ICON	DISCARDABLE	"C:\\Yue\\OneDrive - The Ohio State University\\research\\CAS-IREIS\\2019-05 SSI a novel software for spatial interpolation of a spatially stratified heterogeneous population\\SSI\\Source codes\\Sandwich-v1.5\\sandwich.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0

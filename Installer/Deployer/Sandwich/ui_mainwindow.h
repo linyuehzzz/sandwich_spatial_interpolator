@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -195,28 +195,28 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "SSI", 0));
-        label->setText(QApplication::translate("MainWindow", "Data type", 0));
-        run->setText(QApplication::translate("MainWindow", "Run and Export", 0));
-        groupBox->setTitle(QApplication::translate("MainWindow", "Input layers", 0));
-        label_2->setText(QApplication::translate("MainWindow", "SSH Layer", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Population Layer", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Sandwich", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "Data type", Q_NULLPTR));
+        run->setText(QApplication::translate("MainWindow", "Run and Export", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("MainWindow", "Input layers", Q_NULLPTR));
+        label_2->setText(QApplication::translate("MainWindow", "SSH Layer", Q_NULLPTR));
+        label_3->setText(QApplication::translate("MainWindow", "Population Layer", Q_NULLPTR));
         objLyr->setText(QString());
         rptLyr->setText(QString());
-        view_3->setText(QApplication::translate("MainWindow", "View", 0));
-        view_4->setText(QApplication::translate("MainWindow", "View", 0));
-        view_1->setText(QApplication::translate("MainWindow", "View", 0));
-        view_2->setText(QApplication::translate("MainWindow", "View", 0));
+        view_3->setText(QApplication::translate("MainWindow", "View", Q_NULLPTR));
+        view_4->setText(QApplication::translate("MainWindow", "View", Q_NULLPTR));
+        view_1->setText(QApplication::translate("MainWindow", "View", Q_NULLPTR));
+        view_2->setText(QApplication::translate("MainWindow", "View", Q_NULLPTR));
         splLyr->setText(QString());
         stfLyr->setText(QString());
-        label_4->setText(QApplication::translate("MainWindow", "Sampling Layer", 0));
-        label_5->setText(QApplication::translate("MainWindow", "Reporting Layer", 0));
-        del_1->setText(QApplication::translate("MainWindow", "Delete", 0));
-        del_2->setText(QApplication::translate("MainWindow", "Delete", 0));
-        del_3->setText(QApplication::translate("MainWindow", "Delete", 0));
-        del_4->setText(QApplication::translate("MainWindow", "Delete", 0));
-        label_6->setText(QApplication::translate("MainWindow", "Please add this reference in your study when applying SSI: Wang, J.-F., Haining, R., Liu, T.-J., Li, L.-F., & Jiang, C.-S. (2013). Sandwich Estimation for Multi-Unit Reporting on a Stratified Heterogeneous Surface. Environment and Planning A: Economy and Space, 45(10), 2515\342\200\2232534. https://doi.org/10.1068/a44710", 0));
-        label_7->setText(QApplication::translate("MainWindow", "Developers: Yue Lin, liny@lreis.ac.cn; Chengdong Xu, xucd@lreis.ac.cn; Jinfeng Wang, wangjf@lreis.ac.cn", 0));
+        label_4->setText(QApplication::translate("MainWindow", "Sampling Layer", Q_NULLPTR));
+        label_5->setText(QApplication::translate("MainWindow", "Reporting Layer", Q_NULLPTR));
+        del_1->setText(QApplication::translate("MainWindow", "Delete", Q_NULLPTR));
+        del_2->setText(QApplication::translate("MainWindow", "Delete", Q_NULLPTR));
+        del_3->setText(QApplication::translate("MainWindow", "Delete", Q_NULLPTR));
+        del_4->setText(QApplication::translate("MainWindow", "Delete", Q_NULLPTR));
+        label_6->setText(QApplication::translate("MainWindow", "Please add this reference in your study when applying SSI: Wang, J.-F., Haining, R., Liu, T.-J., Li, L.-F., & Jiang, C.-S. (2013). Sandwich Estimation for Multi-Unit Reporting on a Stratified Heterogeneous Surface. Environment and Planning A: Economy and Space, 45(10), 2515\342\200\2232534. https://doi.org/10.1068/a44710", Q_NULLPTR));
+        label_7->setText(QApplication::translate("MainWindow", "Developers: Yue Lin, liny@lreis.ac.cn; Chengdong Xu, xucd@lreis.ac.cn; Jinfeng Wang, wangjf@lreis.ac.cn", Q_NULLPTR));
     } // retranslateUi
 
 };
