@@ -48,8 +48,8 @@ If there are any questions or suggestions (or anything else), please feel free t
 
 **Email**: liny@lreis.ac.cn (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang)
 
-State Key Laboratory of Resources and Environmental Information System
-Institute of Geographic Sciences and Natural Resources Research
-Chinese Academy of Sciences
+State Key Laboratory of Resources and Environmental Information System  
+Institute of Geographic Sciences and Natural Resources Research  
+Chinese Academy of Sciences  
 Beijing, 100101, China
 
