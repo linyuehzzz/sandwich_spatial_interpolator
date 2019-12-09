@@ -1,6 +1,6 @@
 # Sandwich: a novel software for spatial interpolation of spatially stratified heterogeneous populations
 
-**Sandwich** is a cross-platform open-source spatial interpolation tool that is designed based on [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
+**Sandwich** is a cross-platform open-source spatial interpolation tool that supports [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
 
 
 Here's something you need to know/do before you run the source codes of **Sandwich**.
