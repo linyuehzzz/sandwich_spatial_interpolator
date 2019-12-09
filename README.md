@@ -4,7 +4,7 @@
 
 Here's what you need to know/do before you run the source codes of **Sandwich**.
 
-### Configuration settings
+## Configuration settings
 --------
 Configuration settings in the development of **Sandwich**:
 
@@ -17,7 +17,7 @@ Compiler | MSVC 2015 (32-bit) |
 | UI| Qt Designer |
 | Support Library | GDAL-2.2.1, OpenGL |
 
-### Configuration steps
+## Configuration steps
 --------
 To run the source code of SSI (in Windows, for example), please follow the steps below.
   - **Step 1**: Download [Visual C++ 2015 Redistributable Update 3](https://my.visualstudio.com/Downloads?PId=6542) and [Visual C++ Build Tools 2015 Update 3](https://my.visualstudio.com/Downloads?PId=6542). Install the first package by default. For the second one, use “custom install” to install the version that corresponds to that of your Windows.
@@ -25,7 +25,7 @@ To run the source code of SSI (in Windows, for example), please follow the steps
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
   - Step 4: Make sure that the folder **gdal_2.1.1** is put in the same parent folder with **Sandwich-v1.5**. Click Sandwich.pro and run the code in Qt Creator.
 
-### Citation
+## Citation
 --------
 Please cite the following reference if you use the codes. We are also working on an article about this particular software😎.
 ```
@@ -41,7 +41,7 @@ Please cite the following reference if you use the codes. We are also working on
 }
 ```
 
-### Contacts
+## Contacts
 --------
 If there are any questions or suggestions (or anything else), please feel free to let us know!
 
