@@ -44,7 +44,7 @@ Please cite the following reference if you use the codes. We are also working on
 
 Contacts
 --------
-If there are any questions or suggestions (or anything else), please feel free to let us know!
+If there are any questions or suggestions (or anything else you want to talk about concerning this project), please feel free to let us know!
 
 **Email**: liny@lreis.ac.cn (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang*)
 
