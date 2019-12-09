@@ -20,7 +20,7 @@ Compiler | MSVC 2015 (32-bit) |
 
 Configuration steps
 --------
-To run the source code of SSI (in Windows, for example), please follow the steps below.
+To run the source code of **Sandwich** (in Windows, for example), please follow the steps below.
   - **Step 1**: Download [Visual C++ 2015 Redistributable Update 3](https://my.visualstudio.com/Downloads?PId=6542) and [Visual C++ Build Tools 2015 Update 3](https://my.visualstudio.com/Downloads?PId=6542). Install the first package by default. For the second one, use “custom install” to install the version that corresponds to that of your Windows.
   - **Step 2**: Download [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk), and install the feature “Debugging Tools for Windows”.
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
