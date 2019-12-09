@@ -16,7 +16,7 @@ Configuration settings in the development of **Sandwich**:
 | Integrated development environment (IDE)|Qt Creator 4.0.3 (Community)
 Compiler | MSVC 2015 (32-bit) |
 | UI| Qt Designer |
-| Support Library | GDAL-2.2.1, OpenGL |
+| Support library | GDAL-2.2.1, OpenGL |
 
 Configuration steps
 --------
