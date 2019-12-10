@@ -1,6 +1,6 @@
 # Sandwich: a novel software for spatial interpolation of spatially stratified heterogeneous populations
 
-**Sandwich** is a cross-platform open-source spatial interpolation tool that is designed based on [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
+**Sandwich** is a cross-platform open-source spatial interpolation tool that supports [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
 
 
 Here's something you need to know/do before you run the source codes of **Sandwich**.
@@ -16,11 +16,11 @@ Configuration settings in the development of **Sandwich**:
 | Integrated development environment (IDE)|Qt Creator 4.0.3 (Community)
 Compiler | MSVC 2015 (32-bit) |
 | UI| Qt Designer |
-| Support Library | GDAL-2.2.1, OpenGL |
+| Support library | GDAL-2.2.1, OpenGL |
 
 Configuration steps
 --------
-To run the source code of SSI (in Windows, for example), please follow the steps below.
+To run the source code of **Sandwich** (in Windows, for example), please follow the steps below.
   - **Step 1**: Download [Visual C++ 2015 Redistributable Update 3](https://my.visualstudio.com/Downloads?PId=6542) and [Visual C++ Build Tools 2015 Update 3](https://my.visualstudio.com/Downloads?PId=6542). Install the first package by default. For the second one, use “custom install” to install the version that corresponds to that of your Windows.
   - **Step 2**: Download [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk), and install the feature “Debugging Tools for Windows”.
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
@@ -44,7 +44,7 @@ Please cite the following reference if you use the codes. We are also working on
 
 Contacts
 --------
-If there are any questions or suggestions (or anything else), please feel free to let us know!
+If there are any questions or suggestions (or anything else you want to talk about concerning this project), please feel free to let us know!
 
 **Email**: liny@lreis.ac.cn (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang*)
 
