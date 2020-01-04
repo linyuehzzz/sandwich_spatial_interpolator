@@ -73,6 +73,7 @@ void MyOpenGLWidget::paintGL()
 /// <param name="height">   Height  </param name>
 void MyOpenGLWidget::resizeGL(int width, int height)
 {
-    glViewport(0, 0, width, height);
+    glViewport(0, 0, (GLint)width, (GLint)height);
     glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
 }

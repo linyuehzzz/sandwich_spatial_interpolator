@@ -33,7 +33,6 @@ void SamplingVector::Draw()
 {
     glColor3f(1.0f, 0.0f, 1.0f);
     glPointSize(6);
-
     glBegin(GL_POINTS);
     for(int i = 0; i < number; i++)
     {
@@ -44,8 +43,8 @@ void SamplingVector::Draw()
         point->y = p->getY();
         int width = (int) maxx - minx;
         int height = (int) maxy - miny;
-        float x = (float)(point->x - minx)/ width * 2 - 1;
-        float y = (float)(point->y - miny)/ height * 2 - 1;
+        float x = (float)((point->x - minx)/ width * 2 - 1) * 0.95;
+        float y = (float)((point->y - miny)/ height * 2 - 1) * 0.95;
         glVertex2f(x,y);
 
         delete point;

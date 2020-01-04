@@ -245,8 +245,8 @@ void ReportingLayer::Draw()
                 point->y = bound->getY(k);
                 int width = (int) maxx - minx;
                 int height = (int) maxy - miny;
-                float x = (float)(point->x - minx)/ width * 2 - 1;
-                float y = (float)(point->y - miny)/ height * 2 - 1;
+                float x = (float)((point->x - minx)/ width * 2 - 1) * 0.95;
+                float y = (float)((point->y - miny)/ height * 2 - 1) * 0.95;
                 glVertex2f(x, y);
                 delete point;
             }
@@ -294,8 +294,8 @@ void ReportingLayer::DrawMean()
                 point->y = bound->getY(j);
                 int width = (int) maxx - minx;
                 int height = (int) maxy - miny;
-                float x = (float)(point->x - minx)/ width * 2 - 1;
-                float y = (float)(point->y - miny)/ height * 2 - 1;
+                float x = (float)((point->x - minx)/ width * 2 - 1) * 0.95;
+                float y = (float)((point->y - miny)/ height * 2 - 1) * 0.95;
                 glVertex2f(x,y);
                 delete point;
             }
@@ -350,8 +350,8 @@ void ReportingLayer::DrawVar()
                 point->y = bound->getY(j);
                 int width = (int) maxx - minx;
                 int height = (int) maxy - miny;
-                float x = (float)(point->x - minx)/ width * 2 - 1;
-                float y = (float)(point->y - miny)/ height * 2 - 1;
+                float x = (float)((point->x - minx)/ width * 2 - 1) * 0.95;
+                float y = (float)((point->y - miny)/ height * 2 - 1) * 0.95;
                 glVertex2f(x,y);
                 delete point;
             }
