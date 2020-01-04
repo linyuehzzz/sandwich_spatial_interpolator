@@ -76,3 +76,51 @@ External WM_DESTROY received for  QWidgetWindow(0x1c56aab8, name="SamplingLayerM
 External WM_DESTROY received for  QWidgetWindow(0x9852fe0, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x114b2c0, name="MainWindowWindow")
 [Warning] [2020-01-04 15:36:09]  [: Line: 0]  [Function: ] 
 External WM_DESTROY received for  QWidgetWindow(0xb218200, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x114b2c0, name="MainWindowWindow")
+ [2020-01-04 15:39:30]  [: Line: 0]  [Function: ] 
+Reading object layer...
+ [2020-01-04 15:39:43]  [: Line: 0]  [Function: ] 
+Reading sampling layer...
+ [2020-01-04 15:39:50]  [: Line: 0]  [Function: ] 
+Reading stratified layer...
+ [2020-01-04 15:39:54]  [: Line: 0]  [Function: ] 
+Reading reporting layer...
+ [2020-01-04 15:40:03]  [: Line: 0]  [Function: ] 
+'Sandwich' model starting...
+ [2020-01-04 15:40:04]  [: Line: 0]  [Function: ] 
+Writing summary of outputs...
+ [2020-01-04 15:40:04]  [: Line: 0]  [Function: ] 
+'Sandwich' model finished
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x10408200, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1b27c8b0, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1ae89b68, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1ac1dd50, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1aa08d80, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+[Warning] [2020-01-04 15:40:16]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1a881d68, name="SamplingLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x7d5e98, name="MainWindowWindow")
+ [2020-01-04 15:40:45]  [: Line: 0]  [Function: ] 
+Reading sampling layer...
+ [2020-01-04 15:40:51]  [: Line: 0]  [Function: ] 
+Reading stratified layer...
+ [2020-01-04 15:40:55]  [: Line: 0]  [Function: ] 
+Reading reporting layer...
+ [2020-01-04 15:41:04]  [: Line: 0]  [Function: ] 
+'Sandwich' model starting...
+ [2020-01-04 15:41:04]  [: Line: 0]  [Function: ] 
+Writing summary of outputs...
+ [2020-01-04 15:41:05]  [: Line: 0]  [Function: ] 
+'Sandwich' model finished
+[Warning] [2020-01-04 15:41:09]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0xbcbd500, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1023208, name="MainWindowWindow")
+[Warning] [2020-01-04 15:41:09]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1a47b890, name="QProgressDialogClassWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1023208, name="MainWindowWindow")
+[Warning] [2020-01-04 15:41:09]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0xbd94918, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1023208, name="MainWindowWindow")
+[Warning] [2020-01-04 15:41:09]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0x1a47aeb8, name="SSHLayerManagerWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1023208, name="MainWindowWindow")
+[Warning] [2020-01-04 15:41:09]  [: Line: 0]  [Function: ] 
+External WM_DESTROY received for  QWidgetWindow(0xf769c80, name="ViewDialogWindow") , parent:  QWindow(0x0) , transient parent:  QWidgetWindow(0x1023208, name="MainWindowWindow")
