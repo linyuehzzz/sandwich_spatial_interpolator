@@ -28,7 +28,7 @@ To run the source code of **Sandwich** (in Windows, for example), please follow 
 
 Citation
 --------
-Please cite the following reference if you use the codes. We are also working on an article about this particular software😎.
+Please cite the following reference if you use the codes. We are also working on an article about this particular software (already submitted to [Journal of Statistical Software](https://www.jstatsoft.org/index))😎.
 ```
 @article{Wang+Haining+Liu+Li+Jiang:2013,
     author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
