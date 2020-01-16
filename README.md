@@ -24,11 +24,11 @@ To run the source code of **Sandwich** (in Windows, for example), please follow 
   - **Step 1**: Download [Visual C++ 2015 Redistributable Update 3](https://my.visualstudio.com/Downloads?PId=6542) and [Visual C++ Build Tools 2015 Update 3](https://my.visualstudio.com/Downloads?PId=6542). Install the first package by default. For the second one, use “custom install” to install the version that corresponds to that of your Windows.
   - **Step 2**: Download [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk), and install the feature “Debugging Tools for Windows”.
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
-  - **Step 4**: Make sure that the folder **gdal_2.1.1** is put in the same parent folder with **Sandwich-v1.5**. Click Sandwich.pro and run the code in Qt Creator.
+  - **Step 4**: Make sure that the folder **gdal_2.1.1** is put in the same parent folder with **Sandwich-v1.7**. Click Sandwich.pro and run the code in Qt Creator.
 
 Citation
 --------
-Please cite the following reference if you use the codes. We are also working on an article about this particular software (already submitted to [Journal of Statistical Software](https://www.jstatsoft.org/index))😎.
+Please cite the following reference if you use the codes. We are also working on an article about this particular software😎.
 ```
 @article{Wang+Haining+Liu+Li+Jiang:2013,
     author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
