@@ -1,0 +1,24 @@
+Sandwich << 2020-01-05:10:27:03
+----------------------------------------------------------------------------------------------
+*****************SUMMARY OF LAYERS*****************
+----------------------------------------------------------------------------------------------
+
+DATA TYPE:  Vector
+POPULATION LAYER 
+Population size:  326
+-------------------------------------------------------------------
+SAMPLING LAYER 
+Input option:   Create
+Sampling method:    Stratified random sampling (proportion allocation)
+Sampling weight:    Population
+Sample size:    88
+Total variance of samples: 16334.2
+-------------------------------------------------------------------
+SSH LAYER 
+Number of strata: 5
+Geodetector q-statistic:    0.847942
+-------------------------------------------------------------------
+REPORTING LAYER 
+Number of the reporting units: 10
+
+
