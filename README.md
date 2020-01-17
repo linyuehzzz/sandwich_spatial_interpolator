@@ -26,6 +26,10 @@ To run the source code of **Sandwich** (in Windows, for example), please follow 
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
   - **Step 4**: Make sure that the folder **gdal_2.1.1** is put in the same parent folder with **Sandwich-v1.7**. Click Sandwich.pro and run the code in Qt Creator.
 
+Software
+--------
+The **Sandwich** software, test dataset and expected outputs can be found under the **Replication materials** fold.
+
 Citation
 --------
 Please cite the following reference if you use the codes. We are also working on an article about this particular software😎.
