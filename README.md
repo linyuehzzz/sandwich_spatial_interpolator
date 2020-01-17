@@ -28,7 +28,7 @@ To run the source code of **Sandwich** (in Windows, for example), please follow 
 
 Software
 --------
-The **Sandwich** software, test dataset and expected outputs can be found under the **Replication Materials** fold.
+The **Sandwich** software, test dataset and expected outputs can be found under the **Replication materials** fold.
 
 Citation
 --------
