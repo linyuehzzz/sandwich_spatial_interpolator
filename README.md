@@ -3,7 +3,7 @@
 **Sandwich** is a cross-platform open-source spatial interpolation tool that supports [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
 
 
-Here's something you need to know/do before you run the source codes of **Sandwich**.
+Here's something you need to know/do before you run the source code of **Sandwich**.
 
 Configuration settings
 --------
@@ -32,7 +32,7 @@ The **Sandwich** software, test dataset and expected outputs can be found under 
 
 Citation
 --------
-Please cite the following reference if you use the codes. We are also working on an article about this particular software😎.
+Please cite the following reference if you use the code. We are also working on an article about this particular software😎.
 ```
 @article{Wang+Haining+Liu+Li+Jiang:2013,
     author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
