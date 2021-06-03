@@ -1,0 +1,25 @@
+Package: rsandwich
+Version: 0.1.0
+Date: 2021-06-01
+Title: rsandwich: Spatial Interpolation of Spatially Stratified
+        Heterogeneous Populations
+Authors@R: c(person("Yue Lin", "Developer", role = c("aut", "cre"),
+                     email = "Joe.Developer@some.domain.net"),
+              person("Chengdong Xu", "Developer", role = c("aut","ctb"),
+                     email = "xucd@lreis.ac.cn"),
+              person("A.", "User", role = "ctb",
+                     email = "A.User@whereever.net"))
+Author: Yue Lin [aut, cre],
+  Chengdong Xu [aut],
+  A. User [ctb]
+Maintainer: Joe Developer <Joe.Developer@some.domain.net>
+Depends: R (>= 4.0.4)
+Suggests: MASS
+Description: A (one paragraph) description of what
+  the package does and why it may be useful.
+License: GPL (>= 2)
+URL: https://www.r-project.org, http://www.another.url
+BugReports: https://pkgname.bugtracker.url
+LazyData: true
+NeedsCompilation: no
+Packaged: 2021-06-01 19:53:54 UTC; 10716
