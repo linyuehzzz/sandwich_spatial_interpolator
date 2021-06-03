@@ -4,25 +4,27 @@
 \alias{sandwich}
 \title{Perform Sandwich model-based mapping}
 \usage{
-sandwich(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr)
+\code{sandwich(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr)}
 }
 \arguments{
-\item{sampling.lyr}{a POINT \code{sf} object used as the sampling layer. It should contain an attribute that is to be interpolated.}
+\item{sampling.lyr}{POINT \code{sf} object used as the sampling layer. It should contain an attribute that is to be interpolated.}
 
-\item{ssh.lyr}{a POLYGON \code{sf} object used as the SSH layer.}
+\item{ssh.lyr}{POLYGON \code{sf} object used as the SSH layer.}
 
-\item{reporting.lyr}{a POLYGON \code{sf} object used as the reporting layer.}
+\item{reporting.lyr}{POLYGON \code{sf} object used as the reporting layer.}
 
-\item{sampling.attr}{name of the attribute in the sampling layer to be interpolated.}
+\item{sampling.attr}{Name of the attribute in the sampling layer to be interpolated.}
 }
 \description{
 \code{sandwich} estimate the mean value of an attribute and its standard error for each reporting unit using the Sandwich method documented by Wang et al. (2013).
 }
 \examples{
 library(sf)
+# Load data
 data("hs.sampling")
 data("hs.ssh")
 data("hs.reporting")
+# Run Sandwich model
 sandwich(hs.sampling, hs.ssh, hs.reporting, "Population")
 
 }

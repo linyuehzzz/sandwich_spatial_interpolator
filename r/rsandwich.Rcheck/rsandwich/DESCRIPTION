@@ -1,26 +1,30 @@
 Package: rsandwich
 Version: 0.1.0
 Date: 2021-06-01
-Title: rsandwich: Spatial Interpolation of Spatially Stratified
-        Heterogeneous Populations
+Title: rsandwich: Spatial Interpolation based on Spatial Stratified
+        Heterogeneity
 Authors@R: c(person("Yue Lin", "Developer", role = c("aut", "cre"),
-                     email = "Joe.Developer@some.domain.net"),
+                     email = "lin.3326@osu.edu"),
               person("Chengdong Xu", "Developer", role = c("aut","ctb"),
                      email = "xucd@lreis.ac.cn"),
-              person("A.", "User", role = "ctb",
+              person("A.", "Developer", role = c("aut","ctb"),
                      email = "A.User@whereever.net"))
 Author: Yue Lin [aut, cre],
-  Chengdong Xu [aut],
-  A. User [ctb]
-Maintainer: Joe Developer <Joe.Developer@some.domain.net>
-Depends: R (>= 4.0.4)
-Suggests: MASS
-Description: A (one paragraph) description of what
-  the package does and why it may be useful.
+  Chengdong Xu [aut, ctb],
+  Jinfeng Wang [aut, ctb]
+Maintainer: Yue Lin <lin.3326@osu.edu>
+Depends: R (>= 3.5.0), sf, ggplot2
+Suggests: rmarkdown, knitr, MASS
+Description: This package enables the implementation of Sandwich model-based mapping in R. 
+    It provides functions to output the summarized statistics, the interpolated surface, 
+    and the standard error and confidence interval maps.
 License: GPL (>= 2)
-URL: https://www.r-project.org, http://www.another.url
-BugReports: https://pkgname.bugtracker.url
-LazyData: true
+URL: http://www.sssampling.cn/,
+        https://github.com/linyuehzzz/sandwich_spatial_interpolator
+BugReports: https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues
+LazyData: false
+RoxygenNote: 7.1.1
+VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2021-06-01 19:53:54 UTC; 10716
-Built: R 4.0.4; ; 2021-06-01 19:53:58 UTC; windows
+Packaged: 2021-06-03 15:03:48 UTC; 10716
+Built: R 4.0.4; ; 2021-06-03 15:03:54 UTC; windows
