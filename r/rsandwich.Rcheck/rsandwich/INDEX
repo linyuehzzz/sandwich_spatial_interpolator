@@ -1,6 +1,0 @@
-hs                      Heshun human population dataset
-plot.mean               Plot Sandwich estimates
-q                       Plot Sandwich estimates
-rsandwich               'rsandwich': Spatial Interpolation based on
-                        Spatial Stratified Heterogeneity
-sandwich                Perform Sandwich model-based mapping
