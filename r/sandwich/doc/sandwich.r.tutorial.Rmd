@@ -1,0 +1,116 @@
+---
+title: "A Tutorial for the `sandwich` R Package"
+author: "Yue Lin, Chengdong Xu, Jinfeng Wang"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    fig_caption: true
+    self_contained: yes
+    check_title: FALSE
+fontsize: 11pt
+documentclass: article
+vignette: >
+  %\VignetteIndexEntry{A Tutorial for the `sandwich` R Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+# knitr::opts_chunk$set(
+#   collapse = TRUE,
+#   comment = "#>"
+# )
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
+```
+
+The `sandwich` package implements the Sandwich model-based mappling^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.] based on the spatial stratified heterogeneity (SSH) theory^[Wang, J. F., Zhang, T. L., & Fu, B. J. (2016). A measure of spatial stratified heterogeneity. *Ecological Indicators*, 67, 250-256.]. It consists of sampling, SSH, and reporting layers. The goal of this model is to estimate the mean value of the sampling attribute and its standard error for each reporting unit leveraging the known distribution of the samples in the SSH layer. Since the Sandwich model does not rely on the spatial dependence of the population, when the spatial dependence is weak, Sandwich is still applicable as long as one properly stratifies the geospatial surface. Figure 1 is an overview of the Sandwich model structure.
+
+![Figure 1. Structure of the Sandwich model.](./figs/structure.png){width=50%}
+
+## Loading package
+To use the `sandwich` package, first install it using `install.packages()`, and then load the installed package into your environment using `library()`.
+```{r}
+# install.packages("sandwich")
+library("sandwich")
+```
+
+
+## Loading data
+The Sandwich model typically takes three inputs: sampling, SSH, and reporting layers. To successfully run the model, all the input data should be `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) objects. As an example, here, we import a built-in dataset collected in Heshun county, China. The `load.shp` function can help prepare a shapefile into a `sf` object.
+```{r}
+hs.sampling = load.shp("./data", "hs.sampling.shapefile")
+hs.ssh = load.shp("./data", "hs.ssh.shapefile")
+# here's another candidate SSH layer
+hs.ssh2 = load.shp("./data", "hs.ssh2.shapefile")
+hs.reporting = load.shp("./data", "hs.reporting.shapefile")
+```
+
+We use `ggplot2` to visualize this dataset.
+```{r fig.align="center", fig.width=4, fig.height=3}
+# sampling layer
+ggplot(data=hs.sampling) + geom_sf(aes(color=Population))
+# SSH layer
+ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill='Strata 1')
+# another SSH layer
+ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill='Strata 2')
+# reporting layer
+ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE))
+```
+
+
+## Selection of the SSH layer(s)
+The accuracy of the Sandwich model is determined by the SSH layer. For an ideal SSH layer, values of the target attribute are expected to be homogeneous within each stratum and differ between the strata. To determine a proper SSH layer for the Sandwich model, the geographical detector model^[Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. *International Journal of Geographical Information Science*, 24(1), 107-127.] is applied to quantify the SSH of the target attribute with regard to the candidate stratification(s). 
+
+First, we combine the sampling and the candidate SSH layers to a single data frame.
+```{r}
+hs.join = geodetector.data(hs.sampling, hs.ssh, "STR_1")
+hs.join = geodetector.data(hs.join, hs.ssh2, "STR_2")
+hs.join
+```
+
+The factor detector *q*-statistic in the geographical detector model indicates the SSH of the sampling attribute in terms of a given stratification. The range of the *q*-statistic is between 0 and 1; a higher value of *q* denotes a higher level of SSH. Comparing the *q*-statistics derived under different stratification can help selecting a proper SSH layer for Sandwich model-based mapping.
+```{r}
+geodetector.factor(hs.join, "Population", c("STR_1", "STR_2"))
+```
+
+The output of `geodetector.factor` above implies that `hs.ssh` (*q*=.912) has a higher determinant power over the attribute compared to `hs.ssh2` (*q*=.394). Therefore, it will be more reasonable to select `hs.ssh` as the SSH layer for Sandwich model-based mapping.
+
+The interaction detector in the geographical detector model quantifies whether a combination of two stratifications enhances the SSH of the sampling attribute. The *q*-statistic derived under a combination of different stratifications indicates whether the determinant power is significantly raised by the combined effect of two candidate SSH layers. This provides useful information of the potential optimization of existing candidate SSH layers.
+```{r}
+geodetector.interaction(hs.join, "Population", c("STR_1", "STR_2"))
+```
+
+Since the combined *q*-statistic of `hs.ssh` and `hs.ssh2` (*q*=.920) is approximately the same as that of `hs.ssh` (*q*=.912) alone, we can optimize the SSH layer of the Sandwich model by combining `hs.ssh` and `hs.ssh2` or simply use `hs.ssh` as the SSH layer. For the purpose of simplicity, we will use `hs.ssh` alone as the SSH layer in the subsequent modeling.
+
+
+## Running the Sandwich model
+The Sandwich model-based mapping is performed using the `sandwich.model()` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
+```{r}
+hs.sw = sandwich.model(hs.sampling, hs.ssh, hs.reporting, "Population")
+hs.sw
+```
+
+The Sandwich estimates and the standard error can be visualized using `plot.mean()` and `plot.se()`.
+```{r fig.align="center", fig.width=4, fig.height=3}
+# mean
+plot.mean(hs.sw)
+# standard error
+plot.se(hs.sw)
+```
+
+The confidence interval for the population mean in each reporting unit is computed using the `sandwich.confint()` function. Here, we show an example of constructing a 95% confidence interval.
+```{r}
+hs.sw.con = sandwich.confint(hs.sw, level=.95)
+```
+
+The lower and upper bounds of the confidence interval can be visualized using the `plot.ci()` function.
+```{r fig.align="center", fig.width=8, fig.height=3}
+plot.ci(hs.sw.con)
+```
+
+To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv()` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
+```{r}
+hs.cv = sandwich.cv(hs.sampling, hs.ssh, hs.reporting, "Population", k=5)
+hs.cv
+```
