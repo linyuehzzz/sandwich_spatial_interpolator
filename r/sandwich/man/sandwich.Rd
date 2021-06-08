@@ -3,7 +3,7 @@
 \docType{package}
 \name{sandwich}
 \alias{sandwich}
-\title{\code{sandwich}: Spatial Interpolation based on Spatial Stratified Heterogeneity}
+\title{\code{sandwich}: Spatial Interpolation Based on Spatial Stratified Heterogeneity}
 \description{
 The package \code{sandwich} provides tools to interpolate a spatially stratified heterogeneous population with high accuracy, even when its spatial autocorrelation is weak. These tools allow the calculation of critical summarized statistics such as Geodetector \emph{q}. They also enable the visualization of the interpolated surface as well as the standard error and confidence interval maps.
 }

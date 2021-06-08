@@ -9,7 +9,7 @@ sandwich.confint(object, level=.95)
 \arguments{
 \item{object}{An \code{sf} object generated from the \code{sandwich.model} function.}
 
-\item{level}{The confidence level required.}
+\item{level}{The confidence level required. By default, \code{level} = .95.}
 }
 \description{
 \code{sandwich.confint} calculates the confidence interval of estimated mean value for each reporting unit.

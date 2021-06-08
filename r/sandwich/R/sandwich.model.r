@@ -37,7 +37,7 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
     stop("Attribute name not found in the sampling layer.")
   }
 
-  #---------------- Calculating sample means and SEs for SSH layer ----------------------
+  #---------------- Calculating sample means and SEs for SSH layer -------------
   ssh.lyr$mean = 0
   ssh.lyr$se = 0
   ssh.lyr$df = 0
@@ -49,15 +49,14 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
     ssh.lyr[i,]$df = nrow(z.pts) - 1
   }
 
-  #---------------- Calculating values and SEs for reporting layer -----------------
+  #---------------- Calculating values and SEs for reporting layer -------------
   reporting.lyr$mean = 0
   reporting.lyr$se = 0
   reporting.lyr$df = 0
   for (i in 1:(nrow(reporting.lyr))){
     z.mean = z.se = 0
     for (j in 1:(nrow(ssh.lyr))){
-      if (st_intersects(st_geometry(ssh.lyr[j,]), st_geometry(reporting.lyr[i,]),
-                        sparse = FALSE)[1]){
+      if (st_intersects(st_geometry(ssh.lyr[j,]), st_geometry(reporting.lyr[i,]), sparse = FALSE)[1]){
         r.poly = st_intersection(st_geometry(ssh.lyr[j,]), st_geometry(reporting.lyr[i,]))
         r.w = as.numeric(st_area(r.poly)) / as.numeric(st_area(reporting.lyr[i,]))
         reporting.lyr[i,]$mean = reporting.lyr[i,]$mean + r.w * ssh.lyr[j,]$mean

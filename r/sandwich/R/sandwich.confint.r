@@ -4,7 +4,7 @@
 #' \code{sandwich.confint} calculates the confidence interval of estimated mean value for each reporting unit.
 #'
 #' @param object An \code{sf} object generated from the \code{sandwich.model} function.
-#' @param level The confidence level required.
+#' @param level The confidence level required. By default, \code{level} = .95.
 #'
 #' @usage sandwich.confint(object, level=.95)
 #'
