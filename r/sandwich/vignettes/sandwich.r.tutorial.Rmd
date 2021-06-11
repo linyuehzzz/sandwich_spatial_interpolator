@@ -109,6 +109,7 @@ The lower and upper bounds of the confidence interval can be visualized using th
 plot.ci(hs.sw.con)
 ```
 
+## Model validation
 To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv()` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
 ```{r}
 hs.cv = sandwich.cv(hs.sampling, hs.ssh, hs.reporting, "Population", k=5)

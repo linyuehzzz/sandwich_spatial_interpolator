@@ -13,7 +13,7 @@
 #' @references
 #' Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534. doi:\link[https://doi.org/10.1068/a44710]{10.1068/a44710}
 #'
-#' @import sf
+#' @import sf, lwgeom
 #' @importFrom st_geometry, st_geometry_type, st_intersection, st_intersects, mean, sqrt, var
 #' @name sandwich.model
 #' @export
@@ -27,11 +27,13 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
   if (st_geometry_type(sampling.lyr, by_geometry=FALSE) != "POINT"){
     stop("Geometry type of the sampling layer should be POINT.")
   }
-  if (st_geometry_type(ssh.lyr, by_geometry=FALSE) != "POLYGON"){
-    stop("Geometry type of the SSH layer should be POLYGON.")
+  if (st_geometry_type(ssh.lyr, by_geometry=FALSE) != "POLYGON" &
+      st_geometry_type(ssh.lyr, by_geometry=FALSE) != "MULTIPOLYGON"){
+    stop("Geometry type of the SSH layer should be POLYGON or MULTIPOLYGON.")
   }
-  if (st_geometry_type(reporting.lyr, by_geometry=FALSE) != "POLYGON"){
-    stop("Geometry type of the reporting layer should be POLYGON.")
+  if (st_geometry_type(reporting.lyr, by_geometry=FALSE) != "POLYGON" &
+      st_geometry_type(reporting.lyr, by_geometry=FALSE) != "MULTIPOLYGON"){
+    stop("Geometry type of the reporting layer should be POLYGON or MULTIPOLYGON.")
   }
   if (!is.element(sampling.attr, names(sampling.lyr))){
     stop("Attribute name not found in the sampling layer.")
@@ -43,10 +45,12 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
   ssh.lyr$df = 0
   for (i in 1:(nrow(ssh.lyr))){
     z.pts = st_intersection(sampling.lyr, ssh.lyr[i,])
-    ssh.lyr[i,]$mean = mean(z.pts[[sampling.attr]])
-    z.v = var(z.pts[[sampling.attr]])
-    ssh.lyr[i,]$se = sqrt(z.v / nrow(z.pts))
-    ssh.lyr[i,]$df = nrow(z.pts) - 1
+    if (nrow(z.pts) != 0){
+      ssh.lyr[i,]$mean = mean(z.pts[[sampling.attr]])
+      z.v = var(z.pts[[sampling.attr]])
+      ssh.lyr[i,]$se = sqrt(z.v / nrow(z.pts))
+      ssh.lyr[i,]$df = nrow(z.pts) - 1
+    }
   }
 
   #---------------- Calculating values and SEs for reporting layer -------------
@@ -60,7 +64,7 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
         r.poly = st_intersection(st_geometry(ssh.lyr[j,]), st_geometry(reporting.lyr[i,]))
         r.w = as.numeric(st_area(r.poly)) / as.numeric(st_area(reporting.lyr[i,]))
         reporting.lyr[i,]$mean = reporting.lyr[i,]$mean + r.w * ssh.lyr[j,]$mean
-        reporting.lyr[i,]$se = reporting.lyr[i,]$se + r.w ^2 * ssh.lyr[j,]$mean ^2
+        reporting.lyr[i,]$se = reporting.lyr[i,]$se + r.w ^2 * ssh.lyr[j,]$se ^2
         reporting.lyr[i,]$df = reporting.lyr[i,]$df + ssh.lyr[j,]$df
       }
       reporting.lyr[i,]$se = sqrt(reporting.lyr[i,]$se)
