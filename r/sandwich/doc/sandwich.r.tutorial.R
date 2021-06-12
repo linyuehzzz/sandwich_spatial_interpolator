@@ -18,13 +18,17 @@ hs.reporting = load.shp("./data", "hs.reporting.shapefile")
 
 ## ----fig.align="center", fig.width=4, fig.height=3----------------------------
 # sampling layer
-ggplot(data=hs.sampling) + geom_sf(aes(color=Population))
+ggplot(data=hs.sampling) + geom_sf(aes(color=Population)) + 
+  ggtitle("Sampling Layer") + theme(plot.title=element_text(hjust=0.5))
 # SSH layer
-ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill='Strata 1')
+ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill="Code") + 
+  ggtitle("SSH Layer A") + theme(plot.title=element_text(hjust=0.5))
 # another SSH layer
-ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill='Strata 2')
+ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill="Code") + 
+  ggtitle("SSH Layer B") + theme(plot.title=element_text(hjust=0.5))
 # reporting layer
-ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE))
+ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE)) + labs(fill="Code") +
+  ggtitle("Reporting Layer") + theme(plot.title=element_text(hjust=0.5))
 
 ## -----------------------------------------------------------------------------
 hs.join = geodetector.data(hs.sampling, hs.ssh, "STR_1")
@@ -49,6 +53,7 @@ plot.se(hs.sw)
 
 ## -----------------------------------------------------------------------------
 hs.sw.con = sandwich.confint(hs.sw, level=.95)
+hs.sw.con
 
 ## ----fig.align="center", fig.width=8, fig.height=3----------------------------
 plot.ci(hs.sw.con)

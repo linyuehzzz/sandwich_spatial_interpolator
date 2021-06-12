@@ -25,11 +25,13 @@ sandwich.cv <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr, k=1
   if (st_geometry_type(sampling.lyr, by_geometry=FALSE) != "POINT"){
     stop("Geometry type of the sampling layer should be POINT.")
   }
-  if (st_geometry_type(ssh.lyr, by_geometry=FALSE) != "POLYGON"){
-    stop("Geometry type of the SSH layer should be POLYGON.")
+  if (st_geometry_type(ssh.lyr, by_geometry=FALSE) != "POLYGON" &
+      st_geometry_type(ssh.lyr, by_geometry=FALSE) != "MULTIPOLYGON"){
+    stop("Geometry type of the SSH layer should be POLYGON or MULTIPOLYGON.")
   }
-  if (st_geometry_type(reporting.lyr, by_geometry=FALSE) != "POLYGON"){
-    stop("Geometry type of the reporting layer should be POLYGON.")
+  if (st_geometry_type(reporting.lyr, by_geometry=FALSE) != "POLYGON" &
+      st_geometry_type(reporting.lyr, by_geometry=FALSE) != "MULTIPOLYGON"){
+    stop("Geometry type of the reporting layer should be POLYGON or MULTIPOLYGON.")
   }
   if (!is.element(sampling.attr, names(sampling.lyr))){
     stop("Attribute name not found in the sampling layer.")
@@ -50,7 +52,7 @@ sandwich.cv <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr, k=1
     # perform sandwich model
     out = sandwich.model(dev, ssh.lyr, reporting.lyr, sampling.attr)
     # calculate MSE
-    val.join = st_join(val, out)
+    val.join = suppressMessages(st_join(val, out))
     st_geometry(val.join) = NULL
     val.join = as.data.frame(val.join)
     new.attr.name = paste(names(folds)[i], sampling.attr, sep=".")

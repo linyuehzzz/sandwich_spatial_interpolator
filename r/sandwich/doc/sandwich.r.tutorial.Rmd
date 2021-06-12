@@ -49,13 +49,17 @@ hs.reporting = load.shp("./data", "hs.reporting.shapefile")
 We use `ggplot2` to visualize this dataset.
 ```{r fig.align="center", fig.width=4, fig.height=3}
 # sampling layer
-ggplot(data=hs.sampling) + geom_sf(aes(color=Population))
+ggplot(data=hs.sampling) + geom_sf(aes(color=Population)) + 
+  ggtitle("Sampling Layer") + theme(plot.title=element_text(hjust=0.5))
 # SSH layer
-ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill='Strata 1')
+ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill="Code") + 
+  ggtitle("SSH Layer A") + theme(plot.title=element_text(hjust=0.5))
 # another SSH layer
-ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill='Strata 2')
+ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill="Code") + 
+  ggtitle("SSH Layer B") + theme(plot.title=element_text(hjust=0.5))
 # reporting layer
-ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE))
+ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE)) + labs(fill="Code") +
+  ggtitle("Reporting Layer") + theme(plot.title=element_text(hjust=0.5))
 ```
 
 
@@ -69,7 +73,7 @@ hs.join = geodetector.data(hs.join, hs.ssh2, "STR_2")
 hs.join
 ```
 
-The factor detector *q*-statistic in the geographical detector model indicates the SSH of the sampling attribute in terms of a given stratification. The range of the *q*-statistic is between 0 and 1; a higher value of *q* denotes a higher level of SSH. Comparing the *q*-statistics derived under different stratification can help selecting a proper SSH layer for Sandwich model-based mapping.
+The factor detector *q*-statistic in the geographical detector model indicates the SSH of the sampling attribute in terms of a given stratification. The range of the *q*-statistic is between 0 and 1; a higher value of *q* denotes a higher level of SSH. Comparing the *q*-statistics derived under different stratifications can help selecting a proper SSH layer for Sandwich model-based mapping.
 ```{r}
 geodetector.factor(hs.join, "Population", c("STR_1", "STR_2"))
 ```
@@ -81,17 +85,17 @@ The interaction detector in the geographical detector model quantifies whether a
 geodetector.interaction(hs.join, "Population", c("STR_1", "STR_2"))
 ```
 
-Since the combined *q*-statistic of `hs.ssh` and `hs.ssh2` (*q*=.920) is approximately the same as that of `hs.ssh` (*q*=.912) alone, we can optimize the SSH layer of the Sandwich model by combining `hs.ssh` and `hs.ssh2` or simply use `hs.ssh` as the SSH layer. For the purpose of simplicity, we will use `hs.ssh` alone as the SSH layer in the subsequent modeling.
+Since the combined *q*-statistic of `hs.ssh` and `hs.ssh2` (*q*=.920) is approximately the same as that of using `hs.ssh` alone (*q*=.912), we can optimize the SSH layer of the Sandwich model by combining `hs.ssh` and `hs.ssh2` or simply use `hs.ssh` as the SSH layer. For the purpose of simplicity, we will use `hs.ssh` alone as the SSH layer in the subsequent modeling.
 
 
 ## Running the Sandwich model
-The Sandwich model-based mapping is performed using the `sandwich.model()` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
+The Sandwich model-based mapping is performed using the `sandwich.model` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
 ```{r}
 hs.sw = sandwich.model(hs.sampling, hs.ssh, hs.reporting, "Population")
 hs.sw
 ```
 
-The Sandwich estimates and the standard error can be visualized using `plot.mean()` and `plot.se()`.
+The Sandwich estimates and the standard error can be visualized using `plot.mean` and `plot.se()`.
 ```{r fig.align="center", fig.width=4, fig.height=3}
 # mean
 plot.mean(hs.sw)
@@ -99,18 +103,19 @@ plot.mean(hs.sw)
 plot.se(hs.sw)
 ```
 
-The confidence interval for the population mean in each reporting unit is computed using the `sandwich.confint()` function. Here, we show an example of constructing a 95% confidence interval.
+The confidence interval for the population mean in each reporting unit is computed using the `sandwich.confint` function. Here, we show an example of constructing a 95% confidence interval.
 ```{r}
 hs.sw.con = sandwich.confint(hs.sw, level=.95)
+hs.sw.con
 ```
 
-The lower and upper bounds of the confidence interval can be visualized using the `plot.ci()` function.
+The lower and upper bounds of the confidence interval can be visualized using the `plot.ci` function.
 ```{r fig.align="center", fig.width=8, fig.height=3}
 plot.ci(hs.sw.con)
 ```
 
 ## Model validation
-To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv()` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
+To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
 ```{r}
 hs.cv = sandwich.cv(hs.sampling, hs.ssh, hs.reporting, "Population", k=5)
 hs.cv
