@@ -111,7 +111,7 @@ hs.sw.con
 
 The lower and upper bounds of the confidence interval can be visualized using the `plot.ci` function.
 ```{r fig.align="center", fig.width=8, fig.height=3}
-plot.ci(hs.sw.con)
+
 ```
 
 ## Model validation

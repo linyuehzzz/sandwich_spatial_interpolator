@@ -45,7 +45,7 @@ sandwich.model <- function(sampling.lyr, ssh.lyr, reporting.lyr, sampling.attr){
   ssh.lyr$df = 0
   for (i in 1:(nrow(ssh.lyr))){
     z.pts = suppressMessages(st_intersection(sampling.lyr, ssh.lyr[i,]))
-    if (nrow(z.pts) != 0){
+    if (nrow(z.pts) > 1){
       ssh.lyr[i,]$mean = mean(z.pts[[sampling.attr]])
       z.v = var(z.pts[[sampling.attr]])
       ssh.lyr[i,]$se = sqrt(z.v / nrow(z.pts))

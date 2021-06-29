@@ -26,6 +26,7 @@ sandwich.confint <- function(object, level=.95){
 
   #---------------- Calculate confidence intervals ----------------------
   t = qt(level, object$df)
+  t[is.nan(t)] = 0
   object$ci.low = object$mean - t * object$se
   object$ci.up = object$mean + t * object$se
   object

@@ -27,6 +27,6 @@ plot.mean <- function(object){
   }
 
   #---------------- Plot Sandwich estimates ----------------------
-  ggplot(data=object) + geom_sf(aes(fill=mean)) + labs(fill='Mean') + ggtitle("Mean") + theme(plot.title=element_text(hjust=0.5))
+  ggplot(data=object) + geom_sf(aes(fill=mean)) + labs(fill='Mean') + ggtitle("Mean") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
 
 }

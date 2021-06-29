@@ -27,6 +27,6 @@ plot.se <- function(object){
   }
 
   #---------------- Plot Sandwich standard errors ----------------------
-  ggplot(data=object) + geom_sf(aes(fill=se)) + labs(fill='S.E.') + ggtitle("Standard Error") + theme(plot.title=element_text(hjust=0.5))
+  ggplot(data=object) + geom_sf(aes(fill=se)) + labs(fill='S.E.') + ggtitle("Standard Error") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
 
 }
