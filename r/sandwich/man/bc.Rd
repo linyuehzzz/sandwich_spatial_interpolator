@@ -15,6 +15,6 @@ The \code{bc} dataset consists of three \code{sf} objects:
 library(sf)
 library(ggplot2)
 data("bc.sampling")
-summary(bc.sampling$Shushu)
+summary(bc.sampling$Incidence_)
 ggplot(data=bc.sampling) + geom_sf(aes(color=Incidence_))
 }
