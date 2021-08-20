@@ -7,7 +7,7 @@
 plot.mean(object)
 }
 \arguments{
-\item{object}{An \code{sf} object generated from the \code{sandwich} function.}
+\item{object}{An \code{sf} object generated from the \code{sandwich.model} function.}
 }
 \description{
 \code{plot.mean} plots the mean value of an attribute for each reporting unit estimated by the Sandwich model.

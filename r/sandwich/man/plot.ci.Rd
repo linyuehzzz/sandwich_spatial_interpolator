@@ -7,8 +7,8 @@
 plot.ci(object)
 }
 \arguments{
-\item{object}{An \code{sf} object generated from the \code{sandwich.confint} function.}
+\item{object}{An \code{sf} object generated from the \code{sandwich.ci} function.}
 }
 \description{
-\code{plot.ci} plots the lower and upper bounds of the confidence interval of estimated mean value for each reporting unit.
+\code{plot.ci} plots the lower and upper bounds of the confidence interval for the mean value of each reporting unit.
 }

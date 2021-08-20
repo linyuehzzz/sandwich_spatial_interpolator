@@ -7,7 +7,7 @@
 plot.se(object)
 }
 \arguments{
-\item{object}{An \code{sf} object generated from the \code{sandwich} function.}
+\item{object}{An \code{sf} object generated from the \code{sandwich.model} function.}
 }
 \description{
 \code{plot.se} plots the standard error of estimated mean value for each reporting unit.

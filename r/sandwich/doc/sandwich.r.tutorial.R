@@ -1,8 +1,4 @@
 ## ----setup, include = FALSE---------------------------------------------------
-# knitr::opts_chunk$set(
-#   collapse = TRUE,
-#   comment = "#>"
-# )
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
 
 ## -----------------------------------------------------------------------------
@@ -10,55 +6,35 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", 
 library("sandwich")
 
 ## -----------------------------------------------------------------------------
-hs.sampling = load.shp("./data", "hs.sampling.shapefile")
-hs.ssh = load.shp("./data", "hs.ssh.shapefile")
-# here's another candidate SSH layer
-hs.ssh2 = load.shp("./data", "hs.ssh2.shapefile")
-hs.reporting = load.shp("./data", "hs.reporting.shapefile")
-
-## ----fig.align="center", fig.width=4, fig.height=3----------------------------
-# sampling layer
-ggplot(data=hs.sampling) + geom_sf(aes(color=Population)) + 
-  ggtitle("Sampling Layer") + theme(plot.title=element_text(hjust=0.5))
-# SSH layer
-ggplot(data=hs.ssh) + geom_sf(aes(fill=STR_1)) + labs(fill="Code") + 
-  ggtitle("SSH Layer A") + theme(plot.title=element_text(hjust=0.5))
-# another SSH layer
-ggplot(data=hs.ssh2) + geom_sf(aes(fill=STR_2)) + labs(fill="Code") + 
-  ggtitle("SSH Layer B") + theme(plot.title=element_text(hjust=0.5))
-# reporting layer
-ggplot(data=hs.reporting) + geom_sf(aes(fill=CODE)) + labs(fill="Code") +
-  ggtitle("Reporting Layer") + theme(plot.title=element_text(hjust=0.5))
+bc.sampling = load.shp("./data", "bc_sampling")
+bc.ssh = load.shp("./data", "bc_ssh")
+bc.reporting = load.shp("./data", "bc_reporting")
 
 ## -----------------------------------------------------------------------------
-hs.join = geodetector.data(hs.sampling, hs.ssh, "STR_1")
-hs.join = geodetector.data(hs.join, hs.ssh2, "STR_2")
-hs.join
+bc.join = ssh.data(bc.sampling, bc.ssh, "Class")
+bc.join
 
 ## -----------------------------------------------------------------------------
-geodetector.factor(hs.join, "Population", c("STR_1", "STR_2"))
+ssh.test(bc.join, "Incidence", "Class", test="factor")
 
 ## -----------------------------------------------------------------------------
-geodetector.interaction(hs.join, "Population", c("STR_1", "STR_2"))
-
-## -----------------------------------------------------------------------------
-hs.sw = sandwich.model(hs.sampling, hs.ssh, hs.reporting, "Population")
-hs.sw
+bc.sw = sandwich.model(bc.sampling, bc.ssh, bc.reporting, "Incidence")
+bc.sw
 
 ## ----fig.align="center", fig.width=4, fig.height=3----------------------------
 # mean
-plot.mean(hs.sw)
+plot.mean(bc.sw)
 # standard error
-plot.se(hs.sw)
+plot.se(bc.sw)
 
 ## -----------------------------------------------------------------------------
-hs.sw.con = sandwich.confint(hs.sw, level=.95)
-hs.sw.con
+bc.sw.ci = sandwich.ci(bc.sw, level=.95)
+bc.sw.ci
 
 ## ----fig.align="center", fig.width=8, fig.height=3----------------------------
-plot.ci(hs.sw.con)
+plot.ci(bc.sw.ci)
 
 ## -----------------------------------------------------------------------------
-hs.cv = sandwich.cv(hs.sampling, hs.ssh, hs.reporting, "Population", k=5)
-hs.cv
+bc.cv = sandwich.cv(bc.sampling, bc.ssh, bc.reporting, "Incidence", k=5)
+bc.cv
 

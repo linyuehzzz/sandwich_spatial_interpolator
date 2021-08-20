@@ -3,7 +3,7 @@
 #' @description
 #' \code{plot.mean} plots the mean value of an attribute for each reporting unit estimated by the Sandwich model.
 #'
-#' @param object An \code{sf} object generated from the \code{sandwich} function.
+#' @param object An \code{sf} object generated from the \code{sandwich.model} function.
 #'
 #' @usage plot.mean(object)
 #'
