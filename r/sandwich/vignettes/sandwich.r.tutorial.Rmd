@@ -62,13 +62,13 @@ hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
 head(hs.join)
 ```
 
-The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sampling data in terms of different stratifications. This function takes a data frame generated from the `ssh.data.shp` (or `ssh.data.txt`, which will be introduced later) function (argument `object`), where the field names of the sampling attribute (argument `y`) and the strata ID(s) (argument `x`) need to be specified. In this example, the output of `ssh.test` implies that the original candidate SSH layer (*q* = .912) has a higher determinant power over the attribute (population density) compared to hs.ssh2 (*q* = .394). Therefore, compared to `hs.ssh2`, it will be more reasonable to select the original one as the SSH layer for subsequent interpolation.
+The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sampling data in terms of different stratifications. This function takes a data frame generated from the `ssh.data.shp` (or `ssh.data.txt`, which will be introduced later) function (argument `object`), where the field names of the sampling attribute (argument `y`) and the strata ID(s) (argument `x`) need to be specified. In this example, the output of `ssh.test` implies that the original candidate SSH layer (*q* = .91) has a higher determinant power over the attribute (population density) compared to hs.ssh2 (*q* = .39). Therefore, compared to `hs.ssh2`, it will be more reasonable to select the original one as the SSH layer for subsequent interpolation.
 ```{r}
 # Calculate the geographical detector q-statistic
 ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="factor")
 ```
 
-The `ssh.test` function implements the interaction detector in the geographical detector model by specifying `test="interaction"`. The result of our example shows that the combined *q*-statistic of the original candidate SSH layer and `hs.ssh2` (*q* = .920) is approximately the same as that of using the original one alone (*q* = .912). Therefore, we can either optimize the SSH layer by combining two SSH layers or simply use the original one. For the purpose of simplicity, we will use the original one alone as the SSH layer in the subsequent modeling.
+The `ssh.test` function implements the interaction detector in the geographical detector model by specifying `test="interaction"`. The result of our example shows that the combined *q*-statistic of the original candidate SSH layer and `hs.ssh2` (*q* = .92) is approximately the same as that of using the original one alone (*q* = .91). Therefore, we can either optimize the SSH layer by combining two SSH layers or simply use the original one. For the purpose of simplicity, we will use the original one alone as the SSH layer in the subsequent modeling.
 ```{r}
 # Calculate the interaction detector
 ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interaction")
@@ -143,6 +143,7 @@ head(bc.data[[1]])
 head(bc.data[[2]])
 ```
 
+
 ### Selection of the SSH layer(s)
 First, we use the `ssh.data.txt` function to convert the input data for evaluation.
 ```{r}
@@ -151,6 +152,33 @@ bc.join <- ssh.data.txt(object=bc.data)
 head(bc.join)
 ```
 
+The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sample regarding the urban-rural classification. In this example, the output of `ssh.test` implies a relatively high level of SSH in the distribution of breast cancer incidence concerning the given stratification (*q* = .52). Therefore, it is reasonable to select the urban-rural classification as the SSH layer for subsequent interpolation.
+```{r}
+# Calculate the geographical detector q-statistic
+ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
+```
 
 
+### Running the Sandwich model
+The Sandwich model-based mapping is performed using the `sandwich.model` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
+```{r}
+# Perform the SSH based spatial interpolation
+bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
+head(bc.sw)
+```
 
+The confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
+```{r}
+# Calculate the confidence intervals of the interpolation estimates
+bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
+head(bc.sw.ci)
+```
+
+
+### Model validation
+To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
+```{r}
+# Perform k-fold cross validation
+bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", ssh.id.col="SSHID", reporting.id.col="GBCODE", ssh.weights=list(c(1,2), c("W1","W2")))
+head(bc.cv)
+```

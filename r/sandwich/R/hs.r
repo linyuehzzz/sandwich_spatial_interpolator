@@ -1,4 +1,4 @@
-#' Heshun human population dataset
+#' Heshun human population
 #'
 #' The \code{hs} dataset consists of four \code{sf} objects:
 #' \itemize{

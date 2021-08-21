@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.ci.r
 \name{plot.ci}
 \alias{plot.ci}
-\title{Plot confidence interval of the Sandwich estimates}
+\title{Plot confidence interval for the mean}
 \usage{
 plot.ci(object)
 }

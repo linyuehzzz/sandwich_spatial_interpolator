@@ -7,9 +7,9 @@
 load.data.txt(path, sampling_ssh.file, reporting_ssh.file)
 }
 \arguments{
-\item{sampling_ssh.file}{Name of the file linking sampling and SSH layers. Each row denotes a sampling unit. Two columns need to be included in this file: value of the sampling attribute and the stratum each sampling unit falling into.}
+\item{sampling_ssh.file}{Name of the file linking sampling and SSH layers. Each row denotes a sampling unit. At least two columns need to be included in this file: value of the sampling attribute and the stratum each sampling unit falling into.}
 
-\item{reporting_ssh.file}{Name of the file linking reporting and SSH layers. Each row denotes a reporting unit. The weight $W_{rh}$ should be specified in each column.}
+\item{reporting_ssh.file}{Name of the file linking reporting and SSH layers. Each row denotes a reporting unit. The weights of each stratum should be specified in the columns.}
 
 \item{path}{Directory of the shapefile.}
 }

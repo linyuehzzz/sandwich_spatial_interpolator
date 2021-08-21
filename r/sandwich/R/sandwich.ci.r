@@ -1,9 +1,9 @@
-#' @title Calculate confidence interval of the Sandwich estimates
+#' @title Calculate confidence interval for the mean
 #'
 #' @description
-#' \code{sandwich.ci} calculates the confidence interval of estimated mean value for each reporting unit.
+#' \code{sandwich.ci} calculates the confidence interval for the mean value of each reporting unit.
 #'
-#' @param object An \code{sf} object generated from the \code{sandwich.model} function.
+#' @param object An \code{sf} object or a data frame generated from the \code{sandwich.model} function.
 #' @param level The confidence level required. By default, \code{level} = .95.
 #'
 #' @usage sandwich.ci(object, level=.95)

@@ -1,7 +1,7 @@
 #' @title Prepare text data for Geodetector
 #'
 #' @description
-#' \code{ssh.data.txt} joins a candidate SSH layer to an existing layer.
+#' \code{ssh.data.txt} prepare the input from text files for the geographical detector model.
 #'
 #' @usage ssh.data.txt(object)
 #'
@@ -10,7 +10,7 @@
 #' @seealso \link[https://cran.r-project.org/package=geodetector]{geodetector R package}
 #' @import sf, dplyr
 #' @importFrom select, st_join, st_geometry, st_geometry_type
-#' @name ssh.data.shp
+#' @name ssh.data.txt
 #' @export
 #
 # ---- End of roxygen documentation ----

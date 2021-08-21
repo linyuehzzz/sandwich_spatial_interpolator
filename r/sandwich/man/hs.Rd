@@ -3,7 +3,7 @@
 \docType{data}
 \name{hs}
 \alias{hs}
-\title{Heshun human population dataset}
+\title{Heshun human population}
 \description{
 The \code{hs} dataset consists of four \code{sf} objects:
 \itemize{

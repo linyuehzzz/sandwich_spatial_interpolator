@@ -9,7 +9,7 @@
 #' @param sampling.attr A \code{string} denoting the name of the attribute in the sampling layer to be interpolated.
 #' @param type A \code{string} denoting the type of input data. \code{type="shp"} denotes shapefiles, and \code{type="txt"} denotes text files. By default, \code{type="shp"}.
 #' @param ssh.id.col A \code{string} denoting the column that specifies which stratum each sampling unit falls into in the file linking sampling and SSH layers.
-#' @param ssh.weights A \code{list} that specifies the strata in the SSH layer and and their corresponding columns of weights in the file linking reporting and SSH layers.
+#' @param ssh.weights A \code{list} that specifies the strata in the SSH layer and their corresponding columns of weights in the file linking reporting and SSH layers.
 #'
 #' @references
 #' Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534. doi:\link[https://doi.org/10.1068/a44710]{10.1068/a44710}
@@ -118,7 +118,7 @@ sandwich.model <- function(object, sampling.attr, type="shp", ssh.id.col=NULL, s
       for (j in 1:(length(ssh.weights[[2]]))){
         k = which(ssh[[ssh.id.col]] == ssh.weights[[1]][j])
         r.w = reporting_ssh[i,][[ssh.weights[[2]][j]]]
-        if (r.w != 0){
+        if (r.w != 0 & !is.na(r.w != 0)){
           reporting_ssh[i,]$mean = reporting_ssh[i,]$mean + r.w * ssh[k,]$mean
           reporting_ssh[i,]$se = reporting_ssh[i,]$se + r.w ^2 * ssh[k,]$se ^2
           reporting_ssh[i,]$df = reporting_ssh[i,]$df + ssh[k,]$df

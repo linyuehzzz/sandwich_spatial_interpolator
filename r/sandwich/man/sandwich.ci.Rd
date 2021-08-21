@@ -2,15 +2,15 @@
 % Please edit documentation in R/sandwich.ci.r
 \name{sandwich.ci}
 \alias{sandwich.ci}
-\title{Calculate confidence interval of the Sandwich estimates}
+\title{Calculate confidence interval for the mean}
 \usage{
 sandwich.ci(object, level=.95)
 }
 \arguments{
-\item{object}{An \code{sf} object generated from the \code{sandwich.model} function.}
+\item{object}{An \code{sf} object or a data frame generated from the \code{sandwich.model} function.}
 
 \item{level}{The confidence level required. By default, \code{level} = .95.}
 }
 \description{
-\code{sandwich.ci} calculates the confidence interval of estimated mean value for each reporting unit.
+\code{sandwich.ci} calculates the confidence interval for the mean value of each reporting unit.
 }

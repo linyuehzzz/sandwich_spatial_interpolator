@@ -1,4 +1,4 @@
-#' @title Plot confidence interval of the Sandwich estimates
+#' @title Plot confidence interval for the mean
 #'
 #' @description
 #' \code{plot.ci} plots the lower and upper bounds of the confidence interval for the mean value of each reporting unit.

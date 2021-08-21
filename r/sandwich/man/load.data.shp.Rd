@@ -13,7 +13,7 @@ load.data.shp(path, sampling.file, ssh.file, reporting.file)
 
 \item{ssh.file}{Name of the SSH layer, minus extension (.shp). The SSH layer should be a polygon feature.}
 
-\item{reporting.file}{Name of the reporting layer, minus extension (.shp). The reporting llayer should be a polygon feature.}
+\item{reporting.file}{Name of the reporting layer, minus extension (.shp). The reporting layer should be a polygon feature.}
 }
 \description{
 \code{load.data.shp} converts shapefiles into a list of \code{sf} objects.

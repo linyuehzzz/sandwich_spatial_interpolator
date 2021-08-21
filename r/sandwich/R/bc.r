@@ -1,18 +1,11 @@
 #' Breast cancer incidence in mainland China
 #'
-#' The \code{bc} dataset consists of three \code{sf} objects:
+#' The \code{bc} dataset consists of two \code{csv} files:
 #' \itemize{
-#' \item\code{bc.sampling}: Breast cancer incidence at 271 sampling units in mainland China, which serves as the sampling layer.
-#' \item\code{bc.ssh}: A classification map with 20 strata that serves as a candidate SSH layer.
-#' \item\code{bc.reporting}: The administrative division of 32 provices in mainland China that served as the reporting layer.}
+#' \item\code{bc_sampling_ssh}: Breast cancer incidence at 242 sampling units in mainland China, where the SSH stratum (\code{"SSHID"}) and reporting unit (\code{"GBCODE"}) that each sample falls into are specified. The sampling attribute is \code{"Incidence"}.
+#' \item\code{bc_reporting_ssh}: The county-level administrative divisions in mainland China (\code{"GBCODE"}), where the weights of each intersecting stratum (\code{"W1"} and \code{"W2"}) are specified.}
 #'
 #' @import sf
 #' @docType data
 #' @name bc
-#' @examples
-#' library(sf)
-#' library(ggplot2)
-#' data("bc.sampling")
-#' summary(bc.sampling$Incidence)
-#' ggplot(data=bc.sampling) + geom_sf(aes(color=Incidence))
 NULL

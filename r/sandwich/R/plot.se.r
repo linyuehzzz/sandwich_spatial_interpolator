@@ -1,7 +1,7 @@
 #' @title Plot standard error of the Sandwich estimates
 #'
 #' @description
-#' \code{plot.se} plots the standard error of estimated mean value for each reporting unit.
+#' \code{plot.se} plots the standard error of the estimated mean value for each reporting unit.
 #'
 #' @param object An \code{sf} object generated from the \code{sandwich.model} function.
 #'
