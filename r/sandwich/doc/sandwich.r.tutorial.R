@@ -77,7 +77,8 @@ ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 
 ## -----------------------------------------------------------------------------
 # Perform the SSH based spatial interpolation
-bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
+bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
+                        ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw)
 
 ## -----------------------------------------------------------------------------
@@ -87,6 +88,8 @@ head(bc.sw.ci)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation
-bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", ssh.id.col="SSHID", reporting.id.col="GBCODE", ssh.weights=list(c(1,2), c("W1","W2")))
+bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
+                     ssh.id.col="SSHID", reporting.id.col="GBCODE", 
+                     ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.cv)
 

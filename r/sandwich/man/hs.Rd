@@ -7,10 +7,10 @@
 \description{
 The \code{hs} dataset consists of four \code{sf} objects:
 \itemize{
-\item\code{hs.sampling}: Human population of 326 sampling villages within the Heshun region, China, which serves as the sampling layer.
+\item\code{hs.sampling}: Human population of 312 sampling villages within the Heshun region, China, which serves as the sampling layer.
 \item\code{hs.ssh}: A zonation map with 5 strata that serves as a candidate SSH layer.
 \item\code{hs.ssh2}: A zonation map with 6 strata that serves as another candidate SSH layer.
-\item\code{hs.reporting}: The administrative division of 10 towns in Heshun county that served as the reporting layer.}
+\item\code{hs.reporting}: The administrative division of 10 townships in Heshun county that served as the reporting layer.}
 }
 \examples{
 library(sf)

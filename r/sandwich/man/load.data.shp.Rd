@@ -7,7 +7,7 @@
 load.data.shp(path, sampling.file, ssh.file, reporting.file)
 }
 \arguments{
-\item{path}{Directory of the shapefile.}
+\item{path}{Directory of the shapefiles.}
 
 \item{sampling.file}{Name of the sampling layer, minus extension (.shp). The sampling layer should be a point feature that contains an attribute that is to be interpolated.}
 

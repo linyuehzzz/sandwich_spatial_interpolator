@@ -34,10 +34,10 @@ library("sandwich")
 
 
 ## Synthetic human population in Heshun County, China
-The first case study interpolates the human population density in Heshun County, China based on a synthetic sample of 326 units. A zonation consists of 5 spatially contiguous strata is used as a candidate SSH layer. The administrative division of 10 towns in Heshun County is used as the reporting layer. The sampling, SSH, and reporting layers are all in the shapefile format.
+The first case study interpolates the human population density in Heshun County, China based on a synthetic sample of 312 units. A zonation consists of 5 spatially contiguous strata is used as a candidate SSH layer. The administrative division of 10 towns in Heshun County is used as the reporting layer. The sampling, SSH, and reporting layers are all in the shapefile format.
 
 ### Loading data
-To successfully run the model, the `load.data.shp` function is used to prepare the shapefiles of sampling, SSH, and reporting layers into a list of `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) object for model input.
+To successfully run the model, the `load.data.shp` function is used to prepare the shapefiles of sampling, SSH, and reporting layers into a list of `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) objects for model input.
 ```{r}
 # Input data from shapefiles
 hs.data <- load.data.shp(path="./data", sampling.file="hs.sampling.shapefile", 
@@ -163,7 +163,8 @@ ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 The Sandwich model-based mapping is performed using the `sandwich.model` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
 ```{r}
 # Perform the SSH based spatial interpolation
-bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
+bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
+                        ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw)
 ```
 
@@ -179,6 +180,8 @@ head(bc.sw.ci)
 To evaluate the overall accuracy of the Sandwich model, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
 ```{r}
 # Perform k-fold cross validation
-bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", ssh.id.col="SSHID", reporting.id.col="GBCODE", ssh.weights=list(c(1,2), c("W1","W2")))
+bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
+                     ssh.id.col="SSHID", reporting.id.col="GBCODE", 
+                     ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.cv)
 ```
