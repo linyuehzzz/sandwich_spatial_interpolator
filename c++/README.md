@@ -50,7 +50,7 @@ Contacts
 --------
 If there are any questions or suggestions (or anything else you want to talk about concerning this project), please feel free to let us know!
 
-**Email**: liny@lreis.ac.cn (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang*)
+**Email**: lin.3326@osu.edu (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang*)
 
 State Key Laboratory of Resources and Environmental Information System  
 Institute of Geographic Sciences and Natural Resources Research  
