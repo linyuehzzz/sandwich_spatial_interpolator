@@ -76,6 +76,22 @@ head(bc.join)
 ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 
 ## -----------------------------------------------------------------------------
+library(ggpubr)
+library(dplyr)   
+p = ggerrorplot(bc.data[[1]], x = "SSHID", y = "Incidence", 
+            desc_stat = "mean_sd", color = "black",
+            add = "violin", add.params = list(color = "darkgray")
+            )
+
+p + scale_x_discrete(labels=c("1" = "Urban", "2" = "Rural")) + 
+  theme(axis.title.x = element_blank())
+
+bc.data[[1]] %>%                                        
+  group_by(SSHID) %>%                         
+  summarise_at(vars(Incidence),              
+               list(name = mean))               
+
+## -----------------------------------------------------------------------------
 # Perform the SSH based spatial interpolation
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
@@ -91,5 +107,5 @@ head(bc.sw.ci)
 bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
                      ssh.id.col="SSHID", reporting.id.col="GBCODE", 
                      ssh.weights=list(c(1,2), c("W1","W2")))
-head(bc.cv)
+bc.cv
 

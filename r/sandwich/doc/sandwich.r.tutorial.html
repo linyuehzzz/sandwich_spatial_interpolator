@@ -12,7 +12,7 @@
 
 <meta name="author" content="Yue Lin, Chengdong Xu, Jinfeng Wang" />
 
-<meta name="date" content="2021-08-23" />
+<meta name="date" content="2021-08-25" />
 
 <title>A Tutorial for the sandwich R Package</title>
 
@@ -318,7 +318,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">A Tutorial for the <code>sandwich</code> R Package</h1>
 <h4 class="author">Yue Lin, Chengdong Xu, Jinfeng Wang</h4>
-<h4 class="date">2021-08-23</h4>
+<h4 class="date">2021-08-25</h4>
 
 
 <div id="TOC">
@@ -470,7 +470,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># Perform k-fold cross validation</span></a>
 <a class="sourceLine" id="cb17-2" title="2">hs.cv &lt;-<span class="st"> </span><span class="kw">sandwich.cv</span>(<span class="dt">object=</span>hs.data, <span class="dt">sampling.attr=</span><span class="st">&quot;Population&quot;</span>, <span class="dt">k=</span><span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;shp&quot;</span>)</a>
 <a class="sourceLine" id="cb17-3" title="3">hs.cv</a></code></pre></div>
-<pre><code>## [1] 102.7645</code></pre>
+<pre><code>## [1] 103.2055</code></pre>
 </div>
 </div>
 <div id="breast-cancer-incidence-in-mainland-china" class="section level2">
@@ -524,21 +524,21 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb19-5" title="5"><span class="co"># Sampling-SSH</span></a>
 <a class="sourceLine" id="cb19-6" title="6"><span class="kw">head</span>(bc.data[[<span class="dv">1</span>]])</a></code></pre></div>
 <pre><code>##   GBCODE Incidence SSHID        X        Y
-## 1 110100     42.00     1 115.9642 39.86494
-## 2 120100     44.16     1 117.3913 39.01184
-## 3 120200     25.69     2 117.4309 40.00251
-## 4 130129      9.37     2 114.2797 37.61767
-## 5 130181     35.68     1 115.2870 37.91756
-## 6 130227     20.06     2 118.3576 40.23177</code></pre>
+## 1 110100        42     1 115.9642 39.86494
+## 2 120100        44     1 117.3913 39.01184
+## 3 120225        26     2 117.4309 40.00251
+## 4 130129         9     2 114.2797 37.61767
+## 5 130181        36     1 115.2870 37.91756
+## 6 130227        20     2 118.3576 40.23177</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="co"># Reporting-SSH</span></a>
 <a class="sourceLine" id="cb21-2" title="2"><span class="kw">head</span>(bc.data[[<span class="dv">2</span>]])</a></code></pre></div>
-<pre><code>##   GBCODE     W1     W2
-## 1 110000 0.8596 0.1404
-## 2 110100 0.8736 0.1264
-## 3 110101 1.0000 0.0000
-## 4 110102 1.0000 0.0000
-## 5 110103 1.0000 0.0000
-## 6 110104 1.0000 0.0000</code></pre>
+<pre><code>##   GBCODE        W1        W2
+## 1 110100 0.8736000 0.1264000
+## 2 110112 0.6115000 0.3885000
+## 3 110113 0.5378000 0.4622000
+## 4 110221 0.5245597 0.4754403
+## 5 110224 0.5245597 0.4754403
+## 6 110226 0.5245597 0.4754403</code></pre>
 </div>
 <div id="selection-of-the-ssh-layers-1" class="section level3">
 <h3>Selection of the SSH layer(s)</h3>
@@ -547,54 +547,74 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <a class="sourceLine" id="cb23-2" title="2">bc.join &lt;-<span class="st"> </span><span class="kw">ssh.data.txt</span>(<span class="dt">object=</span>bc.data)</a>
 <a class="sourceLine" id="cb23-3" title="3"><span class="kw">head</span>(bc.join)</a></code></pre></div>
 <pre><code>##   GBCODE Incidence SSHID        X        Y
-## 1 110100     42.00     1 115.9642 39.86494
-## 2 120100     44.16     1 117.3913 39.01184
-## 3 120200     25.69     2 117.4309 40.00251
-## 4 130129      9.37     2 114.2797 37.61767
-## 5 130181     35.68     1 115.2870 37.91756
-## 6 130227     20.06     2 118.3576 40.23177</code></pre>
+## 1 110100        42     1 115.9642 39.86494
+## 2 120100        44     1 117.3913 39.01184
+## 3 120225        26     2 117.4309 40.00251
+## 4 130129         9     2 114.2797 37.61767
+## 5 130181        36     1 115.2870 37.91756
+## 6 130227        20     2 118.3576 40.23177</code></pre>
 <p>The factor detector <em>q</em>-statistic in the geographical detector model is applied through the <code>ssh.test</code> function to measure the SSH of the sample regarding the urban-rural classification. In this example, the output of <code>ssh.test</code> implies a relatively high level of SSH in the distribution of breast cancer incidence concerning the given stratification (<em>q</em> = .52). Therefore, it is reasonable to select the urban-rural classification as the SSH layer for subsequent interpolation.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="co"># Calculate the geographical detector q-statistic</span></a>
 <a class="sourceLine" id="cb25-2" title="2"><span class="kw">ssh.test</span>(<span class="dt">object=</span>bc.join, <span class="dt">y=</span><span class="st">&quot;Incidence&quot;</span>, <span class="dt">x=</span><span class="st">&quot;SSHID&quot;</span>, <span class="dt">test=</span><span class="st">&quot;factor&quot;</span>, <span class="dt">type=</span><span class="st">&quot;txt&quot;</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ##       q-statistic      p-value
-## SSHID   0.5175302 7.379257e-11</code></pre>
+## SSHID   0.5165114 7.219864e-11</code></pre>
+<p>We can visualize the mean and standard deviation of the sampled breast cancer incidence in each stratum.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">library</span>(ggpubr)</a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">library</span>(dplyr)   </a>
+<a class="sourceLine" id="cb27-3" title="3">p =<span class="st"> </span><span class="kw">ggerrorplot</span>(bc.data[[<span class="dv">1</span>]], <span class="dt">x =</span> <span class="st">&quot;SSHID&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Incidence&quot;</span>, </a>
+<a class="sourceLine" id="cb27-4" title="4">            <span class="dt">desc_stat =</span> <span class="st">&quot;mean_sd&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>,</a>
+<a class="sourceLine" id="cb27-5" title="5">            <span class="dt">add =</span> <span class="st">&quot;violin&quot;</span>, <span class="dt">add.params =</span> <span class="kw">list</span>(<span class="dt">color =</span> <span class="st">&quot;darkgray&quot;</span>)</a>
+<a class="sourceLine" id="cb27-6" title="6">            )</a>
+<a class="sourceLine" id="cb27-7" title="7"></a>
+<a class="sourceLine" id="cb27-8" title="8">p <span class="op">+</span><span class="st"> </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;1&quot;</span> =<span class="st"> &quot;Urban&quot;</span>, <span class="st">&quot;2&quot;</span> =<span class="st"> &quot;Rural&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb27-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.title.x =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAAV1BMVEUAAAAAADoAAGYAOpAAZrY6AAA6ADo6kNtmAABmADpmkJBmtrZmtv+QOgCQZgCQkGaQ2/+pqam2ZgC225C2/7a2///bkDrb////tmb/25D//7b//9v///+jpfDyAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAJ1klEQVR4nO2diXbjKBBFla3jnk5mYs+04zj+/+8cIcmLbMSrggIj9bunO6uL5QYhBEhuDiRIc+8C1A4FASgIQEEACgJQECBO0B+klYIAFASgIAAFASgIQEEACgJQEICCABQEoCDAHQSt1ynRpaEgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEKC9ovZ6VoTsI6v7NBgoCUBCAggAUBKAgQLiqXy9N8+y+2DXNw4c0KsySBO2ePg/7VWto19rZXRiioI7v99f24/bxd//F5lkUhViQoK8fQ5v5enk7dKYkUYgFCdo9/rdqmtejqR0FXbFtWiXf789D9zN0Qo0jIcclCXoYGs5IEIpCLElQd0y1HRAPMT+9kdYOO2k/+5XzsuNpfpJtO1Ds5HCgOEF7heFO8+6ExkuN/FE9FASgIAAFASgIQEEACgJQEICCABQEoCDAel77O4oLWp8+zAMKAlAQgIIAFAQoLag/gc3oNFZc0OjTDKAgAAUBKAhAQQAKAlAQgIIAhQUdR4jzGSmWFnTzRe1QEICCAGUFrb1fVg0FASgIUFTQevKbeqEgQElB49HhTMaKRQUFv60UCgIUFHR9TM3jGCspCP6gRigIUE6QR8ccDFEQgIIAxQR5ZczA0Liq+1Xz9Ll5VUaJWISg3cPH9ulzv4KG9IL8g54ZDIUuq+puDXO3iF3cWiiIkjFhYl6C3B2GTtCOgs74WtCm/S+PEjF1LNV/jHn6oG3zdvGz3lbqw00mPcxLkDuLjU20Zpyg5HtWlyLohu68f0i+6zmgoXZDoKrbp79bQcn3zS9GkOtwds15GPT148P9aPTkhYhnd4S64tq76VFV+w65e6RShzu0OmeJz+64ctCEflkb1+Mgx2kcdDznJwq6biRN8LeVcT0Ochw7m+7IujnErqMw1waa8K/rYlTYfgT09fJ6/LbnLa2Tvmki19FVGxoX1j31bjwO6lpQ2mn+pv4zFuRhkzpQvK3+TXTNhmSCEh5u4umDbwVVbGhU2O/3vtOxvJr31P02ei6CNtCMLyqIr+qe6HoNjcdBeLL1NiqI9+DxCarWkG+gqIsK4q23L3oWgtwjE/VRIfzV9kbXamg8YdYIm5BQ0MSB4xdUqaHxIdbYnsUm6uyPrtRQzoXDqRpPRP9xgiYrPBVdpaF8K6vTh8ykoBoNZVtZDdR2MrpGQ7lWVkN1nY6u0FCmldVgTQPR9RnKs7IarmcoujpDcGUVR90C/ASjazOEVlYlUdeEjy+0bFSZoQzjINR+0LpaXYbMBYHqDRczCU2wMKeSni7E0q7FUN1EgmwM2Vi+upp3Q8Qd7oQShnoSPyaGjJqhbz5oG3ual5RJJsigfhkE3Sw9i6LURRJufUitYJYW1F+ERQ4UxSVKm26TkkHQMKO4jeuD5OVJm9EWB9sY8gwUYfvxrmwpSqNYNIqv49roNGY0DlLVJG1dVh5o0oRsBOmKolrZj6uk3dMIjQTlyzOqjoZP4bkYSb9Gr2ooi5G2/UoQcfaS3lObtKCqBF05SVVkIUhbgrQtoOjVt7fGJikKbwOWRdUjaMJFiqLgNmBZlLorTNsjG/fKaEcm12IV9EFraAC/wktoG7As6qBuQml7ZL2vkZUgxlFoG7Aw6nDncZCu1lpHcBuwIOqgNJS2R3b864g2oYuxmpPOdS0W/GX82UkeaTZpryhr2g7H8y+LzIbYbQOWl1e8gS/HaVubhuU2YGmZ06dcrdaFBOmYbgOOabVTBNIymitE2fQYbwMu8ae1XVZEts23AVsUH3TO6RmMEwz+NsM24LzrNRmWpcV7dcy2ASd0EviSSpyUzWgi0y7XSEU4LM/iiUkq2qiYawDBa+TJ2awuBVPpBo7dqT/q2R2qZiR7caarKIkgz/aX7/dWyrZ5TrglU1oh8eukGR+slt9CqZxudk65qVfQMuQt7Q6TBjiVtuWk3haOrsnlKWnytZl2wqm0F2iJDxYIOdD0U3eZuISpuEWO0aMpIh5uYrPccJ+1AZTK7thHpzzcZKoAyrlSZY7qZh6TSr9IlnqI+Uugq3HidHt0DuFUtv0oKPkBS74SKGus96PvB7zJhCKONyUkP6LLUwRlhdUdUExX6csjPA46TqAlP+TtpgjqLQnK18cJ8uQSSmN4PI4TE//sjusyjD7Jw6IakEUTynexOlGE9fmjJkz5+vkKitw8GNFFRw3XPAlp00iIOhVCP1dEQShIH6LXU4ugqNnGiBB9IbVnMcu8QTFyBEUIMkklPupYjLjpanVExBW1RSoJUaFyCMK0ASWuxazyFhTEPqzI1bxN3qKSmAeWmQ+yjBpIWVXUvFo1J50w5WoXZUCuu65SJu3toiwovpFtboIUioSFVGx/kXNPQcX2aSlSMYoyw2yLmSChWQoyUqTfxCnm7oIsFMkSmK2gVEW2W3JtoswpMeSctaDomYEcoymDqBzEHGeqkLkL0jeirJe8aVGZyLDT74IFCFLUOvWOw8xRGZHekqlPeSGCJJWPO+MtRhASEDtmWpCgkIT4IeWiBJlshbxiWYIMtkJeszRBvq2QSZf9yxOUthXyhgUKGm+FTJ01WqSgi62QyROPCxW0Hn9OYJmCjmYMJq4XKugQt1fUw7IFGSS0WEFODgUFiNpt7GHRgizSoSAABQGWK2hNQWEoCEBBYQofYlHP7rgrZTtps1syy1FUkNlNvQUpKsjotvCilBVk8mCBshQVlP7sjvLcT5A46r7wEAOwkwbwNI8oOpKe4UCx8LWY2bM7ymF0P8diL1YpCEFBAAoCUBCAghAUBKAgAAUBKAhAQUWgIAAFASgIQEEACgJQEICCABQEoCBApKDlkyYojUJ52mRDQUVSqTLP+QqaFRQEoCAABQEoCEBBgMyCju+OvHn67D73e9Xy5NSPgCffz1v+TtYjFiSoy2n63Zgp6Pkyw1uqF7T/+U/z+O/LXy/DYbBpj4c3V+5fq0b6JtzCnFZdum9djr/PGdUuaNW2oq+Xh4/+fcvcltBt+81+5d7t9nJ/X1JO7tNJkMvxIqPqBb0e39Nt+/h7//OjP+CGHyc3oSEn96Z6Z0Ft0hcZVS/o7Whi2DC7ay5qk55TfxY7ptYJGlI9Z6SntKBuz777uG1cj2Qp6Nn5d9mNBY0y0pN7oDjsPt8MPcOpBXVffFkL6t/2dCRonJGe3IL6+xdcbzAUt+uDnj67Gz92podY96fYdN1x3611qY4z0pNb0H7lyr1pSzkIcnv22+L2f9Pm1VqQO3N9v7v/zbkFnTPSk/1arOs83el2KK4bBw1dw8NH+/c2FtS9d24rpPl10QedM9LDi1UABQEoCEBBAAoCUBCAggAUBKAgAAUB/gcwx7ZqDw8oWwAAAABJRU5ErkJggg==" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">bc.data[[<span class="dv">1</span>]] <span class="op">%&gt;%</span><span class="st">                                        </span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(SSHID) <span class="op">%&gt;%</span><span class="st">                         </span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="st">  </span><span class="kw">summarise_at</span>(<span class="kw">vars</span>(Incidence),              </a>
+<a class="sourceLine" id="cb28-4" title="4">               <span class="kw">list</span>(<span class="dt">name =</span> mean))               </a></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+##   SSHID  name
+##   &lt;int&gt; &lt;dbl&gt;
+## 1     1  31.6
+## 2     2  17.5</code></pre>
 </div>
 <div id="running-the-sandwich-model-1" class="section level3">
 <h3>Running the Sandwich model</h3>
 <p>The Sandwich model-based mapping is performed using the <code>sandwich.model</code> function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1"><span class="co"># Perform the SSH based spatial interpolation</span></a>
-<a class="sourceLine" id="cb27-2" title="2">bc.sw &lt;-<span class="st"> </span><span class="kw">sandwich.model</span>(<span class="dt">object=</span>bc.data, <span class="dt">sampling.attr=</span><span class="st">&quot;Incidence&quot;</span>, <span class="dt">type=</span><span class="st">&quot;txt&quot;</span>, </a>
-<a class="sourceLine" id="cb27-3" title="3">                        <span class="dt">ssh.id.col=</span><span class="st">&quot;SSHID&quot;</span>, <span class="dt">ssh.weights=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="st">&quot;W1&quot;</span>,<span class="st">&quot;W2&quot;</span>)))</a>
-<a class="sourceLine" id="cb27-4" title="4"><span class="kw">head</span>(bc.sw)</a></code></pre></div>
-<pre><code>##   GBCODE     W1     W2     mean        se  df
-## 1 110000 0.8596 0.1404 29.57456 0.7901899 240
-## 2 110100 0.8736 0.1264 29.77116 0.7960269 240
-## 3 110101 1.0000 0.0000 31.54616 0.8492559 124
-## 4 110102 1.0000 0.0000 31.54616 0.8492559 124
-## 5 110103 1.0000 0.0000 31.54616 0.8492559 124
-## 6 110104 1.0000 0.0000 31.54616 0.8492559 124</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="co"># Perform the SSH based spatial interpolation</span></a>
+<a class="sourceLine" id="cb30-2" title="2">bc.sw &lt;-<span class="st"> </span><span class="kw">sandwich.model</span>(<span class="dt">object=</span>bc.data, <span class="dt">sampling.attr=</span><span class="st">&quot;Incidence&quot;</span>, <span class="dt">type=</span><span class="st">&quot;txt&quot;</span>, </a>
+<a class="sourceLine" id="cb30-3" title="3">                        <span class="dt">ssh.id.col=</span><span class="st">&quot;SSHID&quot;</span>, <span class="dt">ssh.weights=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="st">&quot;W1&quot;</span>,<span class="st">&quot;W2&quot;</span>)))</a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="kw">head</span>(bc.sw)</a></code></pre></div>
+<pre><code>##   GBCODE        W1        W2     mean        se  df
+## 1 110100 0.8736000 0.1264000 29.78768 0.7965111 240
+## 2 110112 0.6115000 0.3885000 26.11263 0.6894776 240
+## 3 110113 0.5378000 0.4622000 25.07924 0.6604525 240
+## 4 110221 0.5245597 0.4754403 24.89360 0.6552986 240
+## 5 110224 0.5245597 0.4754403 24.89360 0.6552986 240
+## 6 110226 0.5245597 0.4754403 24.89360 0.6552986 240</code></pre>
 <p>The confidence interval for the population mean in each reporting unit is computed using the <code>sandwich.ci</code> function. Here, we show an example of constructing a 95% confidence interval.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="co"># Calculate the confidence intervals of the interpolation estimates</span></a>
-<a class="sourceLine" id="cb29-2" title="2">bc.sw.ci &lt;-<span class="st"> </span><span class="kw">sandwich.ci</span>(<span class="dt">object=</span>bc.sw, <span class="dt">level=</span>.<span class="dv">95</span>)</a>
-<a class="sourceLine" id="cb29-3" title="3"><span class="kw">head</span>(bc.sw.ci)</a></code></pre></div>
-<pre><code>##   GBCODE     W1     W2     mean        se  df   ci.low    ci.up
-## 1 110000 0.8596 0.1404 29.57456 0.7901899 240 28.01797 31.13115
-## 2 110100 0.8736 0.1264 29.77116 0.7960269 240 28.20307 31.33925
-## 3 110101 1.0000 0.0000 31.54616 0.8492559 124 29.86524 33.22708
-## 4 110102 1.0000 0.0000 31.54616 0.8492559 124 29.86524 33.22708
-## 5 110103 1.0000 0.0000 31.54616 0.8492559 124 29.86524 33.22708
-## 6 110104 1.0000 0.0000 31.54616 0.8492559 124 29.86524 33.22708</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="co"># Calculate the confidence intervals of the interpolation estimates</span></a>
+<a class="sourceLine" id="cb32-2" title="2">bc.sw.ci &lt;-<span class="st"> </span><span class="kw">sandwich.ci</span>(<span class="dt">object=</span>bc.sw, <span class="dt">level=</span>.<span class="dv">95</span>)</a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="kw">head</span>(bc.sw.ci)</a></code></pre></div>
+<pre><code>##   GBCODE        W1        W2     mean        se  df   ci.low    ci.up
+## 1 110100 0.8736000 0.1264000 29.78768 0.7965111 240 28.21863 31.35672
+## 2 110112 0.6115000 0.3885000 26.11263 0.6894776 240 24.75443 27.47083
+## 3 110113 0.5378000 0.4622000 25.07924 0.6604525 240 23.77822 26.38027
+## 4 110221 0.5245597 0.4754403 24.89360 0.6552986 240 23.60272 26.18447
+## 5 110224 0.5245597 0.4754403 24.89360 0.6552986 240 23.60272 26.18447
+## 6 110226 0.5245597 0.4754403 24.89360 0.6552986 240 23.60272 26.18447</code></pre>
 </div>
 <div id="model-validation-1" class="section level3">
 <h3>Model validation</h3>
 <p>To evaluate the overall accuracy of the Sandwich model, a <em>k</em>-fold cross validation can be performed using the <code>sandwich.cv</code> function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="co"># Perform k-fold cross validation</span></a>
-<a class="sourceLine" id="cb31-2" title="2">bc.cv &lt;-<span class="st"> </span><span class="kw">sandwich.cv</span>(<span class="dt">object=</span>bc.data, <span class="dt">sampling.attr=</span><span class="st">&quot;Incidence&quot;</span>, <span class="dt">k=</span><span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;txt&quot;</span>, </a>
-<a class="sourceLine" id="cb31-3" title="3">                     <span class="dt">ssh.id.col=</span><span class="st">&quot;SSHID&quot;</span>, <span class="dt">reporting.id.col=</span><span class="st">&quot;GBCODE&quot;</span>, </a>
-<a class="sourceLine" id="cb31-4" title="4">                     <span class="dt">ssh.weights=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="st">&quot;W1&quot;</span>,<span class="st">&quot;W2&quot;</span>)))</a>
-<a class="sourceLine" id="cb31-5" title="5"><span class="kw">head</span>(bc.cv)</a></code></pre></div>
-<pre><code>## [1] 8.359135</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co"># Perform k-fold cross validation</span></a>
+<a class="sourceLine" id="cb34-2" title="2">bc.cv &lt;-<span class="st"> </span><span class="kw">sandwich.cv</span>(<span class="dt">object=</span>bc.data, <span class="dt">sampling.attr=</span><span class="st">&quot;Incidence&quot;</span>, <span class="dt">k=</span><span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;txt&quot;</span>, </a>
+<a class="sourceLine" id="cb34-3" title="3">                     <span class="dt">ssh.id.col=</span><span class="st">&quot;SSHID&quot;</span>, <span class="dt">reporting.id.col=</span><span class="st">&quot;GBCODE&quot;</span>, </a>
+<a class="sourceLine" id="cb34-4" title="4">                     <span class="dt">ssh.weights=</span><span class="kw">list</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="kw">c</span>(<span class="st">&quot;W1&quot;</span>,<span class="st">&quot;W2&quot;</span>)))</a>
+<a class="sourceLine" id="cb34-5" title="5">bc.cv</a></code></pre></div>
+<pre><code>## [1] 8.707461</code></pre>
 </div>
 </div>
 <div class="footnotes">
