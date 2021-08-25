@@ -33,8 +33,8 @@ library("sandwich")
 ```
 
 
-## Synthetic human population in Heshun County, China
-The first case study interpolates the human population density in Heshun County, China based on a synthetic sample of 312 units. A zonation consists of 5 spatially contiguous strata is used as a candidate SSH layer. The administrative division of 10 towns in Heshun County is used as the reporting layer. The sampling, SSH, and reporting layers are all in the shapefile format.
+## Human population in Heshun County, China
+The first case study interpolates the human population density in Heshun County, China based on a sample of 167 units. A zonation consists of 5 spatially contiguous strata is used as a candidate SSH layer. The administrative division of 10 townships in Heshun County is used as the reporting layer. The sampling, SSH, and reporting layers are all in the shapefile format.
 
 ### Loading data
 To successfully run the model, the `load.data.shp` function is used to prepare the shapefiles of sampling, SSH, and reporting layers into a list of `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) objects for model input.
