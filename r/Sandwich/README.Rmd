@@ -13,52 +13,60 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Sandwich
+# Sandwich: Spatial interpolation based on spatial stratified heterogeneity
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions)
+<!-- [![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions) -->
 <!-- badges: end -->
 
-The goal of Sandwich is to ...
+`Sandwich` is an R package for spatial interpolation based on the [spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/) theory. You can find more details about the method [here](https://journals.sagepub.com/doi/10.1068/a44710). 
 
 ## Installation
+Using the `Sandwich` package requires a recent version of R to be installed on your computer. The easiest way is to install it through [CRAN](https://cran.r-project.org/) , which stands for the Comprehensive R Archive Network.
 
-You can install the released version of Sandwich from [CRAN](https://CRAN.R-project.org) with:
+- For Windows, visit <https://cran.r-project.org/bin/windows/base/>.
+- For macOS, visit <https://cran.r-project.org/bin/macosx/>.
+- For Linux, visit <https://cran.r-project.org/doc/manuals/r-release/R-admin.html>.
 
+
+Once R is installed, you can proceed to install the RStudio Integrated Development Environment (IDE) to have a much improved environment to work with R. [Here](https://www.rstudio.com/products/rstudio/) is detailed description of RStudio. It is free to download on <https://www.rstudio.com/products/rstudio/download/#download>.
+
+Now you have the base R and a nice IDE installed on your computer, you can navigate to the console window (in RStudio, the bottom left panel) and install the `Sandwich` package from source code by executing the following lines of code:
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 library(devtools)
 install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+## Installation
 
-``` r
-# install.packages("devtools")
-devtools::install_github("yuelinnnnnnn/sandwich_spatial_interpolator")
+
+
+## Citation
+Please cite the following reference if you use the code. We are also working on an article about this particular software.
 ```
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(Sandwich)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
+@article{Wang+Haining+Liu+Li+Jiang:2013,
+    author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
+    title ={Sandwich Estimation for Multi-Unit Reporting on a Stratified Heterogeneous Surface},
+    journal = {Environment and Planning A: Economy and Space},
+    volume = {45},
+    number = {10},
+    pages = {2515-2534},
+    year = {2013},
+    doi = {10.1068/a44710}
+}
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+## Contacts
+If there are any questions or suggestions (or anything else you want to talk about concerning this project), please feel free to let us know! If you have found a bug, you can also file an [issue](https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues).
 
-You can also embed plots, for example:
+**Email**: lin.3326\@osu.edu (Ms Yue Lin), xucd\@lreis.ac.cn (Dr Chengdong Xu), wangjf\@lreis.ac.cn (Dr Jinfeng Wang*)
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+State Key Laboratory of Resources and Environmental Information System  
+Institute of Geographic Sciences and Natural Resources Research  
+Chinese Academy of Sciences  
+Beijing, 100101, China
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+

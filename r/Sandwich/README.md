@@ -1,95 +1,78 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Sandwich
+# Sandwich: Spatial interpolation based on spatial stratified heterogeneity
 
 <!-- badges: start -->
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions)
+<!-- [![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions) -->
 <!-- badges: end -->
 
-The goal of Sandwich is to …
+`Sandwich` is an R package for spatial interpolation based on the
+[spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/)
+theory. You can find more details about the method
+[here](https://journals.sagepub.com/doi/10.1068/a44710).
 
 ## Installation
 
-You can install the released version of Sandwich from
-[CRAN](https://CRAN.R-project.org) with:
+Using the `Sandwich` package requires a recent version of R to be
+installed on your computer. The easiest way is to install it through
+[CRAN](https://cran.r-project.org/) , which stands for the Comprehensive
+R Archive Network.
+
+  - For Windows, visit <https://cran.r-project.org/bin/windows/base/>.
+  - For macOS, visit <https://cran.r-project.org/bin/macosx/>.
+  - For Linux, visit
+    <https://cran.r-project.org/doc/manuals/r-release/R-admin.html>.
+
+Once R is installed, you can proceed to install the RStudio Integrated
+Development Environment (IDE) to have a much improved environment to
+work with R. [Here](https://www.rstudio.com/products/rstudio/) is
+detailed description of RStudio. It is free to download on
+<https://www.rstudio.com/products/rstudio/download/#download>.
+
+Now you have the base R and a nice IDE installed on your computer, you
+can navigate to the console window (in RStudio, the bottom left panel)
+and install the `Sandwich` package from source code by executing the
+following lines of code:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 library(devtools)
 install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+## Installation
 
-``` r
-# install.packages("devtools")
-devtools::install_github("yuelinnnnnnn/sandwich_spatial_interpolator")
-```
+## Citation
 
-## Example
+Please cite the following reference if you use the code. We are also
+working on an article about this particular software.
 
-This is a basic example which shows you how to solve a common problem:
+    @article{Wang+Haining+Liu+Li+Jiang:2013,
+        author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
+        title ={Sandwich Estimation for Multi-Unit Reporting on a Stratified Heterogeneous Surface},
+        journal = {Environment and Planning A: Economy and Space},
+        volume = {45},
+        number = {10},
+        pages = {2515-2534},
+        year = {2013},
+        doi = {10.1068/a44710}
+    }
 
-``` r
-library(Sandwich)
-#> Loading required package: sf
-#> Warning: package 'sf' was built under R version 4.0.5
-#> Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
-#> Loading required package: ggplot2
-#> Warning: package 'ggplot2' was built under R version 4.0.5
-#> Loading required package: gridExtra
-#> Warning: package 'gridExtra' was built under R version 4.0.5
-#> Loading required package: geodetector
-#> Warning: package 'geodetector' was built under R version 4.0.5
-#> Loading required package: dplyr
-#> Warning: package 'dplyr' was built under R version 4.0.5
-#> 
-#> Attaching package: 'dplyr'
-#> The following object is masked from 'package:gridExtra':
-#> 
-#>     combine
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-#> Loading required package: caret
-#> Warning: package 'caret' was built under R version 4.0.5
-#> Loading required package: lattice
-#> Loading required package: lwgeom
-#> Warning: package 'lwgeom' was built under R version 4.0.5
-#> Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.9.0, PROJ 7.2.1
-## basic example code
-```
+## Contacts
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+If there are any questions or suggestions (or anything else you want to
+talk about concerning this project), please feel free to let us know\!
+If you have found a bug, you can also file an
+[issue](https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues).
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+**Email**: lin.3326@osu.edu (Ms Yue Lin), xucd@lreis.ac.cn (Dr Chengdong
+Xu), wangjf@lreis.ac.cn (Dr Jinfeng Wang\*)
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+State Key Laboratory of Resources and Environmental Information System  
+Institute of Geographic Sciences and Natural Resources Research  
+Chinese Academy of Sciences  
+Beijing, 100101, China
