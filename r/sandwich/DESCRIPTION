@@ -1,6 +1,6 @@
 Package: sandwich
-Version: 0.1.0
-Date: 2021-06-01
+Version: 1.0.0
+Date: 2021-08-25
 Title: sandwich: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 Authors@R: c(person("Yue Lin", "Developer", role = c("aut", "cre"),
                      email = "lin.3326@osu.edu"),
