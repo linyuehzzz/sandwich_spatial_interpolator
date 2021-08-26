@@ -1,7 +1,9 @@
 # Sandwich: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Sparkline](https://stars.medv.io/Naereen/badges.svg)](https://stars.medv.io/Naereen/badges)
+
 
 <img src="https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/img/Fig1.png" width="350">
 
