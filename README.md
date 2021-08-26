@@ -1,6 +1,6 @@
 # Sandwich: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 
-<img src="https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/img/Fig1.png" width="350">
+<img src="https://github.com/linyuehzzz/sandwich_spatial_interpolator/img/Fig1.png" width="350">
 
 Overview
 --------
