@@ -1,5 +1,7 @@
 # Sandwich: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 
+<img src="https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/img/Fig1.png" width="350">
+
 Overview
 --------
 This is an open source project that allows users to easily learn and implement spatial interpolation based on [spatial stratefied heterogeneity (SSH)](http://www.geodetector.cn/). 
