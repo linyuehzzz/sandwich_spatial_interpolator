@@ -25,7 +25,9 @@ The goal of Sandwich is to ...
 You can install the released version of sandwich from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("Sandwich")
+# install.packages("devtools")
+library(devtools)
+install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
 And the development version from [GitHub](https://github.com/) with:

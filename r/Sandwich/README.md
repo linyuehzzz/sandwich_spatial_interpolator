@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sandwich
+# Sandwich
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of sandwich is to …
+The goal of Sandwich is to …
 
 ## Installation
 
@@ -15,7 +15,9 @@ You can install the released version of sandwich from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("sandwich")
+# install.packages("devtools")
+library(devtools)
+install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -30,7 +32,7 @@ devtools::install_github("yuelinnnnnnn/sandwich_spatial_interpolator")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(sandwich)
+library(Sandwich)
 #> Loading required package: sf
 #> Warning: package 'sf' was built under R version 4.0.5
 #> Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
