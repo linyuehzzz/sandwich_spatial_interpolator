@@ -10,7 +10,7 @@
 | UI | Qt Designer |
 | Support library | GDAL-2.2.1, OpenGL |
 
-The **Sandwich** software, test dataset and expected outputs can be found under the **Replication materials** directory. 
+The **Sandwich** software, test dataset and expected outputs can be found under the [**Replication materials**](https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/c%2B%2B/Replication%20materials) directory. 
 
 
 Source code
