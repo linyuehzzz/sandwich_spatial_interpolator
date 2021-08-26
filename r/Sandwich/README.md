@@ -5,13 +5,16 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions)
 <!-- badges: end -->
 
 The goal of Sandwich is to …
 
 ## Installation
 
-You can install the released version of sandwich from
+You can install the released version of Sandwich from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
