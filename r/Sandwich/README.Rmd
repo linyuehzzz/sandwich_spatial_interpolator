@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 `Sandwich` is an R package for spatial interpolation based on the [spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/) theory. You can find more details about the method [here](https://journals.sagepub.com/doi/10.1068/a44710). 
 
-## Installation
+## Getting setup with R
 Using the `Sandwich` package requires a recent version of R to be installed on your computer. The easiest way is to install it through [CRAN](https://cran.r-project.org/) , which stands for the Comprehensive R Archive Network.
 
 - For Windows, visit <https://cran.r-project.org/bin/windows/base/>.
@@ -32,6 +32,8 @@ Using the `Sandwich` package requires a recent version of R to be installed on y
 
 Once R is installed, you can proceed to install the RStudio Integrated Development Environment (IDE) to have a much improved environment to work with R. [Here](https://www.rstudio.com/products/rstudio/) is detailed description of RStudio. It is free to download on <https://www.rstudio.com/products/rstudio/download/#download>.
 
+
+## Installing the package
 Now you have the base R and a nice IDE installed on your computer, you can navigate to the console window (in RStudio, the bottom left panel) and install the `Sandwich` package from source code by executing the following lines of code:
 ``` r
 install.packages("devtools")
@@ -39,8 +41,8 @@ library(devtools)
 install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
-## Installation
-
+## Tutorial
+A tutorial consisting of two case studies can be found 
 
 
 ## Citation
