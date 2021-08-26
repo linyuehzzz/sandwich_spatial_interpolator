@@ -1,14 +1,6 @@
 # Sandwich: A software for spatial interpolation of spatially stratified heterogeneous populations
 
-**Sandwich** is a cross-platform open-source spatial interpolation tool that supports [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna).
-
-
-Here's something you need to know/do before you run the source code of **Sandwich**.
-
-Configuration settings
---------
-Configuration settings in the development of **Sandwich**:
-
+**Sandwich** is a cross-platform open-source spatial interpolation tool that supports [the Sandwich interpolation model](https://journals.sagepub.com/doi/abs/10.1068/a44710?journalCode=epna). The configurations of **Sandwich** are described below. 
 | Option| Setting |
 | ------ | ------ |
 | Development language | C++ |
@@ -18,17 +10,16 @@ Configuration settings in the development of **Sandwich**:
 | UI | Qt Designer |
 | Support library | GDAL-2.2.1, OpenGL |
 
-Configuration steps
+The **Sandwich** software, test dataset and expected outputs can be found under the **Replication materials** directory. 
+
+
+Source code
 --------
-To run the source code of **Sandwich** (in Windows, for example), please follow the steps below.
+In case you want to run the source code of **Sandwich** (in Windows, for example), please follow the steps below.
   - **Step 1**: Download [Visual C++ 2015 Redistributable Update 3](https://my.visualstudio.com/Downloads?PId=6542) and [Visual C++ Build Tools 2015 Update 3](https://my.visualstudio.com/Downloads?PId=6542). Install the first package by default. For the second one, use “custom install” to install the version that corresponds to that of your Windows.
   - **Step 2**: Download [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk), and install the feature “Debugging Tools for Windows”.
   - **Step 3**: Download [qt-opensource-windows-x86-msvc2015-5.6.3.exe](https://download.qt.io/archive/qt/5.6/5.6.3/), and install it by default.
   - **Step 4**: Make sure that the folder **gdal_2.1.1** is put in the same parent folder with **Sandwich-v1.7**. Click Sandwich.pro and run the code in Qt Creator.
-
-Software
---------
-The **Sandwich** software, test dataset and expected outputs can be found under the **Replication materials** fold.
 
 Citation
 --------
