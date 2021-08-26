@@ -13,19 +13,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-# sandwich
+# Sandwich
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of sandwich is to ...
+The goal of Sandwich is to ...
 
 ## Installation
 
 You can install the released version of sandwich from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("sandwich")
+install.packages("Sandwich")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
@@ -39,7 +39,7 @@ devtools::install_github("yuelinnnnnnn/sandwich_spatial_interpolator")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(sandwich)
+library(Sandwich)
 ## basic example code
 ```
 

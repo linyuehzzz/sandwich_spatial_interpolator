@@ -1,5 +1,5 @@
 ---
-title: "A Tutorial for the `sandwich` R Package"
+title: "A Tutorial for the `Sandwich` R Package"
 author: "Yue Lin, Chengdong Xu, Jinfeng Wang"
 date: "`r Sys.Date()`"
 output: 
@@ -11,7 +11,7 @@ output:
 fontsize: 11pt
 documentclass: article
 vignette: >
-  %\VignetteIndexEntry{A Tutorial for the `sandwich` R Package}
+  %\VignetteIndexEntry{A Tutorial for the `Sandwich` R Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,16 +20,16 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
 ```
 
-The `sandwich` package implements the Sandwich model-based mapping^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.] based on the spatial stratified heterogeneity (SSH) theory^[Wang, J. F., Zhang, T. L., & Fu, B. J. (2016). A measure of spatial stratified heterogeneity. *Ecological Indicators*, 67, 250-256.]. It consists of sampling, SSH, and reporting layers. The goal of this model is to estimate the mean value of the sampling attribute and its standard error for each reporting unit leveraging the known distribution of the population in the SSH layer. Since the Sandwich model does not rely on the spatial dependence of the population, when the spatial dependence is weak, Sandwich is still applicable as long as one properly stratifies the geospatial surface. Figure 1 is an overview of the Sandwich model structure.
+The `Sandwich` package implements the Sandwich model-based mapping^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.] based on the spatial stratified heterogeneity (SSH) theory^[Wang, J. F., Zhang, T. L., & Fu, B. J. (2016). A measure of spatial stratified heterogeneity. *Ecological Indicators*, 67, 250-256.]. It consists of sampling, SSH, and reporting layers. The goal of this model is to estimate the mean value of the sampling attribute and its standard error for each reporting unit leveraging the known distribution of the population in the SSH layer. Since the Sandwich model does not rely on the spatial dependence of the population, when the spatial dependence is weak, Sandwich is still applicable as long as one properly stratifies the geospatial surface. Figure 1 is an overview of the Sandwich model structure.
 
 ![Figure 1. Structure of the Sandwich model.](./figs/structure.png){width=50%}
 
-To use the `sandwich` package, first install it using `install.packages()`, and then load the installed package into your environment using `library()`. Here,we present two case studies to demonstrate the functionality of this package.
+To use the `Sandwich` package, first install it using `install.packages()`, and then load the installed package into your environment using `library()`. Here,we present two case studies to demonstrate the functionality of this package.
 ```{r}
 # Install sandwich package
-# install.packages("sandwich")
+# install.packages("Sandwich")
 # Import sandwich package
-library("sandwich")
+library("Sandwich")
 ```
 
 

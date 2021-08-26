@@ -3,9 +3,9 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", 
 
 ## -----------------------------------------------------------------------------
 # Install sandwich package
-# install.packages("sandwich")
+# install.packages("Sandwich")
 # Import sandwich package
-library("sandwich")
+library("Sandwich")
 
 ## -----------------------------------------------------------------------------
 # Input data from shapefiles
