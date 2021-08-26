@@ -12,10 +12,19 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 `Sandwich` is an R package for spatial interpolation based on the
 [spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/)
-theory. You can find more details about the method
+theory, which:
+
+  - Interpolate the sampling attribute over the reporting units that
+    does not rely on spatial autocorrelation;
+  - Assess the interpolation uncertainties through standard errors and
+    confidence intervals;
+  - Evaluate the overall accuracy using a diagnostic statistic called
+    the k-fold cross validation estimate.
+
+You can find more details about the method
 [here](https://journals.sagepub.com/doi/10.1068/a44710).
 
-## Installation
+## Getting setup with R
 
 Using the `Sandwich` package requires a recent version of R to be
 installed on your computer. The easiest way is to install it through
@@ -33,6 +42,8 @@ work with R. [Here](https://www.rstudio.com/products/rstudio/) is
 detailed description of RStudio. It is free to download on
 <https://www.rstudio.com/products/rstudio/download/#download>.
 
+## Installing the package
+
 Now you have the base R and a nice IDE installed on your computer, you
 can navigate to the console window (in RStudio, the bottom left panel)
 and install the `Sandwich` package from source code by executing the
@@ -44,7 +55,19 @@ library(devtools)
 install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
 ```
 
-## Installation
+## Tutorial
+
+Once you install the package, we strongly recommend you going through a
+tutorial of this package to explore it in different scenarios of use.
+You can find it using the argument:
+
+``` r
+browseVignettes("Sandwich")
+```
+
+A manual of the `Sandwich` package can be found
+[here](https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/Sandwich_1.0.0.pdf),
+which introduces all the available functions in this package.
 
 ## Citation
 
