@@ -12,7 +12,7 @@ Author: Yue Lin [aut, cre],
   Chengdong Xu [aut, ctb],
   Jinfeng Wang [aut, ctb]
 Maintainer: Yue Lin <lin.3326@osu.edu>
-Depends: R (>= 3.5.0), sf, ggplot2, gridExtra, geodetector, dplyr, caret, lwgeom, ellipsis
+Depends: R (>= 3.5.0), sf, ggplot2, gridExtra, geodetector, dplyr, caret, lwgeom, ellipsis, rlang
 Suggests: 
     rmarkdown,
     knitr,
