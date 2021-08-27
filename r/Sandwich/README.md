@@ -50,9 +50,8 @@ and install the `Sandwich` package from source code by executing the
 following lines of code:
 
 ``` r
-install.packages("devtools")
-library(devtools)
-install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich")
+require(devtools)
+install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich", build_vignettes = TRUE)
 ```
 
 ## Tutorial
