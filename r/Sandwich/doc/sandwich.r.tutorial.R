@@ -2,19 +2,34 @@
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
 
 ## -----------------------------------------------------------------------------
-# Install sandwich package
-# install.packages("Sandwich")
-# Import sandwich package
+# Install Sandwich package
+# install.packages("devtools")
+# devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
+#                          subdir="r/Sandwich")
+
+## -----------------------------------------------------------------------------
+# Import Sandwich package
 library("Sandwich")
 
 ## -----------------------------------------------------------------------------
 # Input data from shapefiles
-hs.data <- load.data.shp(path="./data", sampling.file="hs.sampling.shapefile", 
-                         ssh.file="hs.ssh.shapefile", reporting.file="hs.reporting.shapefile")
+hs.sampling.name <- system.file("data/hs.sampling.shapefile.shp", 
+                                package="Sandwich")
+hs.ssh.name <- system.file("data/hs.ssh.shapefile.shp", 
+                           package="Sandwich")
+hs.reporting.name <- system.file("data/hs.reporting.shapefile.shp", 
+                                 package="Sandwich")
+
+hs.data <- load.data.shp(sampling.file=hs.sampling.name, 
+                      ssh.file=hs.ssh.name,
+                      reporting.file=hs.reporting.name)
 
 ## -----------------------------------------------------------------------------
 # Input another candidate SSH layer for demonstration
-hs.ssh2 <- read_sf(dsn="./data", layer="hs.ssh2.shapefile")
+hs.ssh2.name <- system.file("data/hs.ssh2.shapefile.shp", 
+                            package="Sandwich")
+hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
+                    layer=file_path_sans_ext(basename(hs.ssh2.name)))
 
 ## -----------------------------------------------------------------------------
 # Prepare the SSH layer(s) for evaluation
@@ -57,8 +72,13 @@ hs.cv
 
 ## -----------------------------------------------------------------------------
 # Input data from text files
-bc.data <- load.data.txt(sampling_ssh.file="./data/bc_sampling_ssh.csv", 
-                         reporting_ssh.file="./data/bc_reporting_ssh.csv")
+bc.sampling_ssh.name <- system.file("data/bc_sampling_ssh.csv", 
+                                package="Sandwich")
+bc.reporting_ssh.name <- system.file("data/bc_reporting_ssh.csv", 
+                                 package="Sandwich")
+
+bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 
+                         reporting_ssh.file=bc.reporting_ssh.name)
 
 # Sampling-SSH
 head(bc.data[[1]])
