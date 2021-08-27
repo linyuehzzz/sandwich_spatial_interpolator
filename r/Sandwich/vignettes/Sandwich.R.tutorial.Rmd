@@ -27,9 +27,9 @@ The `Sandwich` package implements the Sandwich model-based mapping^[Wang, J. F.,
 To use the `Sandwich` package, first install it from source code (only do this once).
 ```{r}
 # Install Sandwich package
-# install.packages("devtools")
+# require("devtools")
 # devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
-#                          subdir="r/Sandwich")
+#                          subdir="r/Sandwich", build_vignettes = TRUE)
 ```
 
 Then load the installed package into your environment using `library()`. Make sure to capitalize the first letter of **S**andwich. Remember to load the package every time you use it.

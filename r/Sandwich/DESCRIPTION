@@ -21,7 +21,7 @@ Description: This package enables the implementation of Sandwich model-based map
     It provides functions to output the summarized statistics, the interpolated surface, 
     and the standard error and confidence interval maps.
 License: GPL (>= 2)
-URL: http://www.sssampling.cn/, https://github.com/linyuehzzz/sandwich_spatial_interpolator
+URL: https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/r/Sandwich
 BugReports: https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues
 LazyData: false
 RoxygenNote: 7.1.1

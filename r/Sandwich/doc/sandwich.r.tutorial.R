@@ -3,9 +3,9 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", 
 
 ## -----------------------------------------------------------------------------
 # Install Sandwich package
-# install.packages("devtools")
+# require("devtools")
 # devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
-#                          subdir="r/Sandwich")
+#                          subdir="r/Sandwich", build_vignettes = TRUE)
 
 ## -----------------------------------------------------------------------------
 # Import Sandwich package
