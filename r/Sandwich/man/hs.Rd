@@ -12,13 +12,6 @@ The \code{hs} dataset consists of four \code{sf} objects:
 \item\code{hs.ssh2}: A zonation map with 6 strata that serves as another candidate SSH layer.
 \item\code{hs.reporting}: The administrative division of 10 townships in Heshun county that served as the reporting layer.}
 }
-\examples{
-library(sf)
-library(ggplot2)
-data("hs.sampling")
-summary(hs.sampling$Population)
-ggplot(data=hs.sampling) + geom_sf(aes(color=Population))
-}
 \references{
 Li, L., Wang, J., & Wu, J. (2012). A spatial model to predict the incidence of neural tube defects. \emph{BMC Public Health}, 12(1), 951. doi:\link[https://doi.org/10.1186/1471-2458-12-951]{10.1186/1471-2458-12-951}
 }

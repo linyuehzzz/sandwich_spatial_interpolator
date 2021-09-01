@@ -4,7 +4,7 @@ author: "Yue Lin, Chengdong Xu, Jinfeng Wang"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    # toc: true
+    toc: true
     fig_caption: true
     self_contained: yes
     check_title: FALSE

@@ -12,10 +12,4 @@
 #' @import sf
 #' @docType data
 #' @name hs
-#' @examples
-#' library(sf)
-#' library(ggplot2)
-#' data("hs.sampling")
-#' summary(hs.sampling$Population)
-#' ggplot(data=hs.sampling) + geom_sf(aes(color=Population))
 NULL
