@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Sandwich: Spatial interpolation based on spatial stratified heterogeneity
+# sandwichr: Spatial interpolation based on spatial stratified heterogeneity
 
 <!-- badges: start -->
 
