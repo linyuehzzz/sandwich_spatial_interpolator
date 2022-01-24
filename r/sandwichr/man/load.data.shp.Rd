@@ -16,3 +16,16 @@ load.data.shp(sampling.file, ssh.file, reporting.file)
 \description{
 \code{load.data.shp} converts shapefiles into a list of \code{sf} objects.
 }
+\examples{
+hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",
+                                package="sandwichr")
+hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp",
+                           package="sandwichr")
+hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp",
+                                 package="sandwichr")
+
+hs.data <- load.data.shp(sampling.file=hs.sampling.name,
+                         ssh.file=hs.ssh.name,
+                         reporting.file=hs.reporting.name)
+
+}

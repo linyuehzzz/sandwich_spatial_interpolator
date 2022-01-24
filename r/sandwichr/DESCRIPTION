@@ -12,7 +12,8 @@ Author: Yue Lin [aut, cre],
   Chengdong Xu [aut, ctb],
   Jinfeng Wang [aut, ctb]
 Maintainer: Yue Lin <lin.3326@osu.edu>
-Depends: R (>= 3.5.0), sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr
+Depends: R (>= 3.5.0)
+Imports: sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr, ggpubr
 Suggests: 
     rmarkdown,
     knitr,
