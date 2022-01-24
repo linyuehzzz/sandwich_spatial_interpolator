@@ -1,17 +1,17 @@
 ---
-title: "A Tutorial for the `Sandwich` R Package"
+title: "A Tutorial for the `sandwichr` R Package"
 author: "Yue Lin, Chengdong Xu, Jinfeng Wang"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    # toc: true
+    toc: true
     fig_caption: true
     self_contained: yes
     check_title: FALSE
 fontsize: 11pt
 documentclass: article
 vignette: >
-  %\VignetteIndexEntry{A Tutorial for the `Sandwich` R Package}
+  %\VignetteIndexEntry{A Tutorial for the `sandwichr` R Package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -24,7 +24,7 @@ The `Sandwich` package implements the Sandwich model-based mapping^[Wang, J. F.,
 
 ![Figure 1. Structure of the Sandwich model.](./figs/structure.png){width=50%}
 
-To use the `Sandwich` package, first install it from source code (only do this once).
+To use the `sandwichr` package, first install it from source code (only do this once).
 ```{r}
 # Install Sandwich package
 # require("devtools")
@@ -32,10 +32,10 @@ To use the `Sandwich` package, first install it from source code (only do this o
 #                          subdir="r/Sandwich", build_vignettes = TRUE)
 ```
 
-Then load the installed package into your environment using `library()`. Make sure to capitalize the first letter of **S**andwich. Remember to load the package every time you use it.
+Then load the installed package into your environment using `library()`. Remember to load the package every time you use it.
 ```{r}
-# Import Sandwich package
-library("Sandwich")
+# Import sandwichr package
+library("sandwichr")
 ```
 
 Here,we present two case studies to demonstrate the functionality of this package.
@@ -48,11 +48,11 @@ To successfully run the model, the `load.data.shp` function is used to prepare t
 ```{r}
 # Input data from shapefiles
 hs.sampling.name <- system.file("data/hs.sampling.shapefile.shp", 
-                                package="Sandwich")
+                                package="sandwichr")
 hs.ssh.name <- system.file("data/hs.ssh.shapefile.shp", 
-                           package="Sandwich")
+                           package="sandwichr")
 hs.reporting.name <- system.file("data/hs.reporting.shapefile.shp", 
-                                 package="Sandwich")
+                                 package="sandwichr")
 
 hs.data <- load.data.shp(sampling.file=hs.sampling.name, 
                       ssh.file=hs.ssh.name,
@@ -67,7 +67,7 @@ For the purpose of demonstration, we input `hs.ssh2.shapefile` as another candid
 ```{r}
 # Input another candidate SSH layer for demonstration
 hs.ssh2.name <- system.file("data/hs.ssh2.shapefile.shp", 
-                            package="Sandwich")
+                            package="sandwichr")
 hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
                     layer=file_path_sans_ext(basename(hs.ssh2.name)))
 ```
@@ -156,9 +156,9 @@ Reporting-SSH
 ```{r}
 # Input data from text files
 bc.sampling_ssh.name <- system.file("data/bc_sampling_ssh.csv", 
-                                package="Sandwich")
+                                package="sandwichr")
 bc.reporting_ssh.name <- system.file("data/bc_reporting_ssh.csv", 
-                                 package="Sandwich")
+                                 package="sandwichr")
 
 bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 
                          reporting_ssh.file=bc.reporting_ssh.name)
