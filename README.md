@@ -13,7 +13,7 @@ Overview
 This is an open source project that allows users to easily learn and implement spatial interpolation based on [spatial stratefied heterogeneity (SSH)](http://www.geodetector.cn/). 
 You can find more details about the method [here](https://journals.sagepub.com/doi/10.1068/a44710). We provide two types of tools that apply to users at all levels. Don't worry if you are new to computer programming!
   - [**Desktop application**](https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/c%2B%2B): For anyone who is new to computer programming or to the concept of SSH, this software can be a good start for you to explore and have some quick findings with your own data.
-  - [**R package**](https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/r/Sandwich): If you are comfortable with R programming, we strongly encourage you to try the R package! 
+  - [**R package**](https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/r/sandwichr): If you are comfortable with R programming, we strongly encourage you to try the R package! 
 
 
 Citation
