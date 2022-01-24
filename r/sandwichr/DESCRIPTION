@@ -2,17 +2,17 @@ Package: sandwichr
 Version: 1.0.0
 Date: 2021-08-25
 Title: sandwichr: Spatial Interpolation Based on Spatial Stratified Heterogeneity
-Authors@R: c(person("Yue Lin", "Developer", role = c("aut", "cre"),
+Authors@R: c(person("Yue Lin", role = c("aut", "cre"),
                      email = "lin.3326@osu.edu"),
-              person("Chengdong Xu", "Developer", role = c("aut","ctb"),
+              person("Chengdong Xu", role = c("aut","ctb"),
                      email = "xucd@lreis.ac.cn"),
-              person("Jinfeng Wang", "Developer", role = c("aut","ctb"),
+              person("Jinfeng Wang", role = c("aut","ctb"),
                      email = "wangjf@lreis.ac.cn"))
 Author: Yue Lin [aut, cre],
   Chengdong Xu [aut, ctb],
   Jinfeng Wang [aut, ctb]
 Maintainer: Yue Lin <lin.3326@osu.edu>
-Depends: R (>= 3.5.0), sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr, ggpubr
+Depends: R (>= 3.5.0), sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr
 Suggests: 
     rmarkdown,
     knitr,
