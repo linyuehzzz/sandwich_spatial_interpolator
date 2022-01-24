@@ -15,6 +15,7 @@
 #' Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534. doi:\link[https://doi.org/10.1068/a44710]{10.1068/a44710}
 #'
 #' @import sf lwgeom
+#' @importFrom stats var
 #' @name sandwich.model
 #' @export
 #

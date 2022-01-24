@@ -7,7 +7,8 @@
 #'
 #' @usage sandwich.plot.ci(object)
 #'
-#' @import gridExtra sf ggplot2
+#' @import sf ggplot2
+#' @importFrom gridExtra grid.arrange
 #' @name sandwich.plot.ci
 #' @export
 #
@@ -27,5 +28,5 @@ sandwich.plot.ci <- function(object){
 
   p2 = ggplot(data=object) + geom_sf(aes(fill=ci.up)) + labs(fill='Upper bound\nof C.I.') + ggtitle("Confidence Interval (Upper Bound)") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
 
-  gridExtra::grid.arrange(p1, p2, nrow=1)
+  grid.arrange(p1, p2, nrow=1)
 }

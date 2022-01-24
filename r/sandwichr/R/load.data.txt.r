@@ -9,6 +9,7 @@
 #' @param reporting_ssh.file Name of the file linking reporting and SSH layers. Each row denotes a reporting unit. The weights of each stratum should be specified in the columns.
 #'
 #' @name load.data.txt
+#' @importFrom utils read.delim
 #' @export
 #
 # ---- End of roxygen documentation ----
