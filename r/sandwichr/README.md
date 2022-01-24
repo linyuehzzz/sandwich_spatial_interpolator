@@ -12,7 +12,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 
 `sandwichr` is an R package for spatial interpolation based on the
 [spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/)
-theory, which:
+theory, which enables users to:
 
   - Interpolate the sampling attribute over the reporting units that
     does not rely on spatial autocorrelation;
@@ -46,12 +46,12 @@ detailed description of RStudio. It is free to download on
 
 Now you have the base R and a nice IDE installed on your computer, you
 can navigate to the console window (in RStudio, the bottom left panel)
-and install the `Sandwich` package from source code by executing the
+and install the `sandwichr` package from source code by executing the
 following lines of code:
 
 ``` r
 require(devtools)
-install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/Sandwich", build_vignettes = TRUE)
+install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/sandwichr", build_vignettes = TRUE)
 ```
 
 ## Tutorial
@@ -61,11 +61,11 @@ tutorial of this package to explore it in different scenarios of use.
 You can find it using the argument:
 
 ``` r
-browseVignettes("Sandwich")
+browseVignettes("sandwichr")
 ```
 
-A manual of the `Sandwich` package can be found
-[here](https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/Sandwich_1.0.0.pdf),
+A manual of the `sandwichr` package can be found
+[here](https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.0.pdf),
 which introduces all the available functions in this package.
 
 ## Citation

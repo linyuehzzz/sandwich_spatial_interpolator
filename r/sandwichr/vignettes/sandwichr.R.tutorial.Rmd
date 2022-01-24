@@ -47,11 +47,11 @@ The first case study interpolates the human population density in Heshun County,
 To successfully run the model, the `load.data.shp` function is used to prepare the shapefiles of sampling, SSH, and reporting layers into a list of `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) objects for model input. You can specify the directory and names of your input files. Note that these input files should locate in the same di
 ```{r}
 # Input data from shapefiles
-hs.sampling.name <- system.file("data/hs.sampling.shapefile.shp", 
+hs.sampling.name <- system.file("inst/extdata/hs.sampling.shapefile.shp", 
                                 package="sandwichr")
-hs.ssh.name <- system.file("data/hs.ssh.shapefile.shp", 
+hs.ssh.name <- system.file("inst/extdata/hs.ssh.shapefile.shp", 
                            package="sandwichr")
-hs.reporting.name <- system.file("data/hs.reporting.shapefile.shp", 
+hs.reporting.name <- system.file("inst/extdata/hs.reporting.shapefile.shp", 
                                  package="sandwichr")
 
 hs.data <- load.data.shp(sampling.file=hs.sampling.name, 
@@ -66,7 +66,7 @@ The accuracy of the Sandwich model is determined by the SSH layer. For an ideal 
 For the purpose of demonstration, we input `hs.ssh2.shapefile` as another candidate SSH layer.
 ```{r}
 # Input another candidate SSH layer for demonstration
-hs.ssh2.name <- system.file("data/hs.ssh2.shapefile.shp", 
+hs.ssh2.name <- system.file("inst/extdata/hs.ssh2.shapefile.shp", 
                             package="sandwichr")
 hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
                     layer=file_path_sans_ext(basename(hs.ssh2.name)))
@@ -104,9 +104,9 @@ head(hs.sw)
 The Sandwich estimates and the standard error can be visualized using `plot.mean` and `plot.se()`.
 ```{r fig.align="center", fig.width=4, fig.height=3}
 # Plot the mean values of the interpolation estimates
-plot.mean(object=hs.sw)
+sandwich.plot.mean(object=hs.sw)
 # Plot the standard errors of the interpolation estimates
-plot.se(object=hs.sw)
+sandwich.plot.se(object=hs.sw)
 ```
 
 The confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
@@ -119,7 +119,7 @@ head(hs.sw.ci)
 The lower and upper bounds of the confidence interval can be visualized using the `plot.ci` function.
 ```{r fig.align="center", fig.width=8, fig.height=3}
 # Plot the confidence intervals of the interpolation estimates
-plot.ci(object=hs.sw.ci)
+sandwich.plot.ci(object=hs.sw.ci)
 ```
 
 ### Model validation
@@ -155,9 +155,9 @@ Reporting-SSH
 
 ```{r}
 # Input data from text files
-bc.sampling_ssh.name <- system.file("data/bc_sampling_ssh.csv", 
+bc.sampling_ssh.name <- system.file("inst/extdata/bc_sampling_ssh.csv", 
                                 package="sandwichr")
-bc.reporting_ssh.name <- system.file("data/bc_reporting_ssh.csv", 
+bc.reporting_ssh.name <- system.file("inst/extdata/bc_reporting_ssh.csv", 
                                  package="sandwichr")
 
 bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 

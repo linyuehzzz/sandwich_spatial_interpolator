@@ -9,7 +9,7 @@
 #' @param ssh.file Name of the SSH layer. The SSH layer should be a polygon feature.
 #' @param reporting.file Name of the reporting layer. The reporting layer should be a polygon feature.
 #'
-#' @import sf, tools
+#' @import sf tools
 #' @name load.data.shp
 #' @export
 #

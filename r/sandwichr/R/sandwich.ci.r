@@ -9,7 +9,7 @@
 #' @usage sandwich.ci(object, level=.95)
 #'
 #' @import sf
-#' @importFrom qt
+#' @importFrom stats qt
 #' @name sandwich.ci
 #' @export
 #

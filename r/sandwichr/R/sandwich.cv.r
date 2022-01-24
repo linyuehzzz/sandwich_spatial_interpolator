@@ -14,8 +14,7 @@
 #' @param reporting.id.col A \code{string} denoting the column that specifies which reporting unit each sampling unit falls into in the file linking sampling and SSH layers.
 #' @param ssh.weights A \code{list} that specifies the strata in the SSH layer and their corresponding columns of weights in the file linking reporting and SSH layers.
 #'
-#' @import sf, caret
-#' @importFrom st_geometry, st_geometry_type, is.element, st_join
+#' @import sf caret
 #' @name sandwich.cv
 #' @export
 #

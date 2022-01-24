@@ -1,20 +1,19 @@
 #' @title Plot confidence interval for the mean
 #'
 #' @description
-#' \code{plot.ci} plots the lower and upper bounds of the confidence interval for the mean value of each reporting unit.
+#' \code{sandwich.plot.ci} plots the lower and upper bounds of the confidence interval for the mean value of each reporting unit.
 #'
 #' @param object An \code{sf} object generated from the \code{sandwich.ci} function.
 #'
-#' @usage plot.ci(object)
+#' @usage sandwich.plot.ci(object)
 #'
-#' @import sf, ggplot2, gridExtra
-#' @importFrom ggplot, geom_sf, labs, aes, grid.arrange
-#' @name plot.ci
+#' @import gridExtra sf ggplot2
+#' @name sandwich.plot.ci
 #' @export
 #
 # ---- End of roxygen documentation ----
 
-plot.ci <- function(object){
+sandwich.plot.ci <- function(object){
 
   #--------------------------- Check inputs ----------------------------------
   if (!is.element("mean", names(object)) |
@@ -28,5 +27,5 @@ plot.ci <- function(object){
 
   p2 = ggplot(data=object) + geom_sf(aes(fill=ci.up)) + labs(fill='Upper bound\nof C.I.') + ggtitle("Confidence Interval (Upper Bound)") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
 
-  grid.arrange(p1, p2, nrow=1)
+  gridExtra::grid.arrange(p1, p2, nrow=1)
 }

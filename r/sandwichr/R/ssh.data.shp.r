@@ -11,8 +11,7 @@
 #' @param ssh.name A \code{string} denoting the new attribute name assigned to the strata ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.
 #'
 #' @seealso \link[https://cran.r-project.org/package=geodetector]{geodetector R package}
-#' @import sf, dplyr
-#' @importFrom select, st_join, st_geometry, st_geometry_type
+#' @import sf dplyr
 #' @name ssh.data.shp
 #' @export
 #
