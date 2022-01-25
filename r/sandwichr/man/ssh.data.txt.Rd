@@ -17,5 +17,5 @@ data(bc.data)
 bc.join <- ssh.data.txt(object=bc.data)
 }
 \seealso{
-\link[https://cran.r-project.org/package=geodetector]{geodetector R package}
+[https://cran.r-project.org/package=geodetector]{geodetector R package}
 }

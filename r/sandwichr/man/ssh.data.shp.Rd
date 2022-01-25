@@ -31,5 +31,5 @@ hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
 
 }
 \seealso{
-\link[https://cran.r-project.org/package=geodetector]{geodetector R package}
+[https://cran.r-project.org/package=geodetector]{geodetector R package}
 }

@@ -34,8 +34,8 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="factor")
 
 }
 \references{
-Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. \emph{International Journal of Geographical Information Science}, 24(1), 107-127. doi:\link[https://doi.org/10.1080/13658810802443457]{10.1080/13658810802443457}
+Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. \emph{International Journal of Geographical Information Science}, 24(1), 107-127.
 }
 \seealso{
-\link[https://cran.r-project.org/package=geodetector]{geodetector R package}
+[https://cran.r-project.org/package=geodetector]{geodetector R package}
 }
