@@ -12,6 +12,12 @@ sandwich.plot.se(object)
 \description{
 \code{sandwich.plot.se} plots the standard error of the estimated mean value for each reporting unit.
 }
+\examples{
+data(hs.data)
+hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+sandwich.plot.se(object=hs.sw)
+
+}
 \references{
 Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534. doi:\link[https://doi.org/10.1068/a44710]{10.1068/a44710}
 }

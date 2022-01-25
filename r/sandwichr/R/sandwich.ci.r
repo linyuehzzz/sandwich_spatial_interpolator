@@ -12,7 +12,12 @@
 #' @importFrom stats qt
 #' @name sandwich.ci
 #' @export
-#
+#'
+#' @examples
+#' data(hs.data)
+#' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+#' hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
+#'
 # ---- End of roxygen documentation ----
 
 sandwich.ci <- function(object, level=.95){

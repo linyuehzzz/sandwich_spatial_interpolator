@@ -13,7 +13,12 @@
 #' @import sf ggplot2
 #' @name sandwich.plot.mean
 #' @export
-#
+#'
+#' @examples
+#' data(hs.data)
+#' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+#' sandwich.plot.mean(object=hs.sw)
+#'
 # ---- End of roxygen documentation ----
 
 sandwich.plot.mean <- function(object){

@@ -11,7 +11,13 @@
 #' @importFrom gridExtra grid.arrange
 #' @name sandwich.plot.ci
 #' @export
-#
+#'
+#' @examples
+#' data(hs.data)
+#' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+#' hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
+#' sandwich.plot.ci(object=hs.sw.ci)
+#'
 # ---- End of roxygen documentation ----
 
 sandwich.plot.ci <- function(object){

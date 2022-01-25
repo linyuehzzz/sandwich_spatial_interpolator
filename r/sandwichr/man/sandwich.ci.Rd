@@ -14,3 +14,9 @@ sandwich.ci(object, level=.95)
 \description{
 \code{sandwich.ci} calculates the confidence interval for the mean value of each reporting unit.
 }
+\examples{
+data(hs.data)
+hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
+
+}

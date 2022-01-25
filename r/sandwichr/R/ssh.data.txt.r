@@ -11,7 +11,10 @@
 #' @import sf dplyr
 #' @name ssh.data.txt
 #' @export
-#
+#'
+#' @examples
+#' data(bc.data)
+#' bc.join <- ssh.data.txt(object=bc.data)
 # ---- End of roxygen documentation ----
 
 ssh.data.txt <- function(object){

@@ -12,3 +12,10 @@ sandwich.plot.ci(object)
 \description{
 \code{sandwich.plot.ci} plots the lower and upper bounds of the confidence interval for the mean value of each reporting unit.
 }
+\examples{
+data(hs.data)
+hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
+sandwich.plot.ci(object=hs.sw.ci)
+
+}

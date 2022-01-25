@@ -18,7 +18,12 @@ sandwich.model(object, sampling.attr, type="shp", ssh.id.col=NULL, ssh.weights=N
 \item{ssh.weights}{A \code{list} that specifies the strata in the SSH layer and their corresponding columns of weights in the file linking reporting and SSH layers.}
 }
 \description{
-\code{sandwich.model} estimate the mean value of an attribute and its standard error for each reporting unit using the Sandwich method documented by Wang et al. (2013).
+\code{sandwich.model} estimate the mean value of an attribute and its standard error for each reporting unit using the sandwich estimation framework by Wang et al. (2013).
+}
+\examples{
+data(hs.data)
+hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+
 }
 \references{
 Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534. doi:\link[https://doi.org/10.1068/a44710]{10.1068/a44710}

@@ -13,11 +13,8 @@ Author: Yue Lin [aut, cre],
   Jinfeng Wang [aut, ctb]
 Maintainer: Yue Lin <lin.3326@osu.edu>
 Depends: R (>= 3.5.0)
-Imports: sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr, ggpubr
-Suggests: 
-    rmarkdown,
-    knitr,
-    MASS
+Imports: sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr
+Suggests: rmarkdown, knitr, MASS, ggpubr
 Description: This package enables the implementation of Sandwich model-based mapping in R. 
     It provides functions to output the summarized statistics, the interpolated surface, 
     and the standard error and confidence interval maps.

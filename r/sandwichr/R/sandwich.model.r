@@ -1,7 +1,7 @@
 #' @title Perform Sandwich model-based mapping
 #'
 #' @description
-#' \code{sandwich.model} estimate the mean value of an attribute and its standard error for each reporting unit using the Sandwich method documented by Wang et al. (2013).
+#' \code{sandwich.model} estimate the mean value of an attribute and its standard error for each reporting unit using the sandwich estimation framework by Wang et al. (2013).
 #'
 #' @usage sandwich.model(object, sampling.attr, type="shp", ssh.id.col=NULL, ssh.weights=NULL)
 #'
@@ -18,7 +18,11 @@
 #' @importFrom stats var
 #' @name sandwich.model
 #' @export
-#
+#'
+#' @examples
+#' data(hs.data)
+#' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+#'
 # ---- End of roxygen documentation ----
 
 

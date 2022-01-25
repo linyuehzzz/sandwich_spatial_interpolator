@@ -11,7 +11,16 @@
 #' @name load.data.txt
 #' @importFrom utils read.delim
 #' @export
-#
+#'
+#' @examples
+#' bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv",
+#'                                     package="sandwichr")
+#' bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv",
+#'                                      package="sandwichr")
+#'
+#' bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
+#'                          reporting_ssh.file=bc.reporting_ssh.name)
+#'
 # ---- End of roxygen documentation ----
 
 load.data.txt <- function(sampling_ssh.file, reporting_ssh.file){

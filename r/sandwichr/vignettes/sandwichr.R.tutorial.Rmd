@@ -66,6 +66,7 @@ The accuracy of the Sandwich model is determined by the SSH layer. For an ideal 
 For the purpose of demonstration, we input `hs.ssh2.shapefile` as another candidate SSH layer.
 ```{r}
 library(sf)
+library(tools)
 # Input another candidate SSH layer for demonstration
 hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp", 
                             package="sandwichr")

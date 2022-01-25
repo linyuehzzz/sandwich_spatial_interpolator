@@ -14,7 +14,18 @@
 #' @import sf dplyr
 #' @name ssh.data.shp
 #' @export
-#
+#'
+#' @examples
+#' library(sf)
+#' library(tools)
+#' data(hs.data)
+#' hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
+#'                             package="sandwichr")
+#' hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
+#'                   layer=file_path_sans_ext(basename(hs.ssh2.name)))
+#' hs.join <- ssh.data.shp(object=hs.data[[1]], ssh.lyr=hs.data[[2]], ssh.id="STR_1")
+#' hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
+#'
 # ---- End of roxygen documentation ----
 
 ssh.data.shp <- function(object, ssh.lyr, ssh.id, ssh.name=NULL){

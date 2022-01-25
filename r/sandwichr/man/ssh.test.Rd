@@ -20,6 +20,19 @@ ssh.test(object, y, x, test="factor", type="shp")
 \description{
 \code{ssh.test} calculates the factor detector \emph{q}-statistic and the interaction detector in the geographical detector model described by Wang et al. (2010). The \emph{q}-statistic measures the SSH of the sampling attribute in terms of a given stratification, which can be used for the selection of an SSH layer for Sandwich model-based mapping. The interactive effects indicate whether a combination of two stratifications enhances the SSH of the sampling attribute.
 }
+\examples{
+library(sf)
+library(tools)
+data(hs.data)
+hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
+                            package="sandwichr")
+hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
+                  layer=file_path_sans_ext(basename(hs.ssh2.name)))
+hs.join <- ssh.data.shp(object=hs.data[[1]], ssh.lyr=hs.data[[2]], ssh.id="STR_1")
+hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
+ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="factor")
+
+}
 \references{
 Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. \emph{International Journal of Geographical Information Science}, 24(1), 107-127. doi:\link[https://doi.org/10.1080/13658810802443457]{10.1080/13658810802443457}
 }

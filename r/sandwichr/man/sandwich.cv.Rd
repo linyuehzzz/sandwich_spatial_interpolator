@@ -25,3 +25,8 @@ reporting.id.col=NULL, ssh.weights=NULL)
 \description{
 \code{sandwich.cv} perfoms \emph{k}-fold cross validation to evaluate the overall model accuracy and outputs the average root mean square error (RMSE).
 }
+\examples{
+data(hs.data)
+hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
+
+}

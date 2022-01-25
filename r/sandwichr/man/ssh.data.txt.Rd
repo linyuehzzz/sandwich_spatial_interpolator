@@ -12,6 +12,10 @@ ssh.data.txt(object)
 \description{
 \code{ssh.data.txt} prepare the input from text files for the geographical detector model.
 }
+\examples{
+data(bc.data)
+bc.join <- ssh.data.txt(object=bc.data)
+}
 \seealso{
 \link[https://cran.r-project.org/package=geodetector]{geodetector R package}
 }

@@ -14,3 +14,13 @@ load.data.txt(sampling_ssh.file, reporting_ssh.file)
 \description{
 \code{load.data.txt} converts text files into a list of data frames.
 }
+\examples{
+bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv",
+                                    package="sandwichr")
+bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv",
+                                     package="sandwichr")
+
+bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
+                         reporting_ssh.file=bc.reporting_ssh.name)
+
+}
