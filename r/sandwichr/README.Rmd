@@ -26,9 +26,6 @@ knitr::opts_chunk$set(
 - Assess the interpolation uncertainties through standard errors and confidence intervals;
 - Evaluate the overall accuracy using a diagnostic statistic called the k-fold cross validation estimate.
 
-
-You can find more details about the method [here](https://journals.sagepub.com/doi/10.1068/a44710). 
-
 ## Getting setup with R
 Using the `Sandwich` package requires a recent version of R to be installed on your computer. The easiest way is to install it through [CRAN](https://cran.r-project.org/) , which stands for the Comprehensive R Archive Network.
 

@@ -18,10 +18,6 @@
 #' @name sandwich.cv
 #' @export
 #'
-#' @examples
-#' data(hs.data)
-#' hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
-#'
 # ---- End of roxygen documentation ----
 
 

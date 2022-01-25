@@ -1,7 +1,7 @@
 Package: sandwichr
 Version: 1.0.0
-Date: 2021-08-25
-Title: sandwichr: Spatial Interpolation Based on Spatial Stratified Heterogeneity
+Date: 2022-01-25
+Title: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 Authors@R: c(person("Yue Lin", role = c("aut", "cre"),
                      email = "lin.3326@osu.edu"),
               person("Chengdong Xu", role = c("aut","ctb"),
@@ -15,9 +15,10 @@ Maintainer: Yue Lin <lin.3326@osu.edu>
 Depends: R (>= 3.5.0)
 Imports: sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr
 Suggests: rmarkdown, knitr, MASS, ggpubr
-Description: This package enables the implementation of Sandwich model-based mapping in R. 
-    It provides functions to output the summarized statistics, the interpolated surface, 
-    and the standard error and confidence interval maps.
+Description: Spatial interpolation is a common practice in social and environmental 
+    science. This package enables the implementation of SSH-based spatial interpolation 
+    in R. It provides functions to output the summarized statistics, the interpolated 
+    surface, and the standard error and confidence interval maps.
 License: GPL (>= 2)
 URL: https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/r/sandwichr
 BugReports: https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues

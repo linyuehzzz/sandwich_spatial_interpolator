@@ -21,9 +21,6 @@ theory, which enables users to:
   - Evaluate the overall accuracy using a diagnostic statistic called
     the k-fold cross validation estimate.
 
-You can find more details about the method
-[here](https://journals.sagepub.com/doi/10.1068/a44710).
-
 ## Getting setup with R
 
 Using the `sandwichr` package requires a recent version of R to be
