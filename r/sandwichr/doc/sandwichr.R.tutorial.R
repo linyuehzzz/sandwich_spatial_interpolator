@@ -2,13 +2,13 @@
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
 
 ## -----------------------------------------------------------------------------
-# Install Sandwich package
+# Install the sandwichr package
 # require("devtools")
 # devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
-#                          subdir="r/Sandwich", build_vignettes = TRUE)
+#                          subdir="r/sandwichr", build_vignettes = TRUE)
 
 ## -----------------------------------------------------------------------------
-# Import sandwichr package
+# Import the sandwichr package
 library("sandwichr")
 
 ## -----------------------------------------------------------------------------
@@ -69,6 +69,7 @@ sandwich.plot.ci(object=hs.sw.ci)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation
+set.seed(0)
 hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
 hs.cv
 
@@ -126,6 +127,7 @@ head(bc.sw.ci)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation
+set.seed(0)
 bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
                      ssh.id.col="SSHID", reporting.id.col="GBCODE", 
                      ssh.weights=list(c(1,2), c("W1","W2")))
