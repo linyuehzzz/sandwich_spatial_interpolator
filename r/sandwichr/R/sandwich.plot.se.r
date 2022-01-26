@@ -31,6 +31,12 @@ sandwich.plot.se <- function(object){
   }
 
   #---------------- Plot Sandwich standard errors ----------------------
-  ggplot(data=object) + geom_sf(aes(fill=se)) + labs(fill='S.E.') + ggtitle("Standard Error") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
+  ggplot(data=object) + geom_sf(aes(fill=se), color='darkgray') + labs(fill='') +
+    ggtitle("Standard Error") + theme(plot.title=element_text(hjust=0.5, size=10),
+                                      axis.text.x = element_blank(),
+                                      axis.text.y = element_blank(),
+                                      axis.ticks = element_blank(),
+                                      rect = element_blank()) +
+    scale_fill_gradient(low='white', high='blue')
 
 }

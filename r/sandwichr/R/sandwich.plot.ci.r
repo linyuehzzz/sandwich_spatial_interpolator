@@ -30,9 +30,19 @@ sandwich.plot.ci <- function(object){
   }
 
   #---------------- Plot Sandwich confidence intervals ----------------------
-  p1 = ggplot(data=object) + geom_sf(aes(fill=ci.low)) + labs(fill='Lower bound\nof C.I.') + ggtitle("Confidence Interval (Lower Bound)") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
+  p1 = ggplot(data=object) + geom_sf(aes(fill=ci.low), color='darkgray') + labs(fill='') +
+    ggtitle("Confidence Interval (Lower Bound)") +
+    theme(plot.title=element_text(hjust=0.5, size=10), axis.text.x = element_blank(),
+          axis.text.y = element_blank(), axis.ticks = element_blank(),
+          rect = element_blank()) +
+    scale_fill_gradient(low='white', high='red')
 
-  p2 = ggplot(data=object) + geom_sf(aes(fill=ci.up)) + labs(fill='Upper bound\nof C.I.') + ggtitle("Confidence Interval (Upper Bound)") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
+  p2 = ggplot(data=object) + geom_sf(aes(fill=ci.up), color='darkgray') + labs(fill='') +
+    ggtitle("Confidence Interval (Upper Bound)") +
+    theme(plot.title=element_text(hjust=0.5, size=10), axis.text.x = element_blank(),
+          axis.text.y = element_blank(), axis.ticks = element_blank(),
+          rect = element_blank()) +
+    scale_fill_gradient(low='white', high='red')
 
   grid.arrange(p1, p2, nrow=1)
 }

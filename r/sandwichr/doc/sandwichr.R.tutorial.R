@@ -25,6 +25,8 @@ hs.data <- load.data.shp(sampling.file=hs.sampling.name,
                       reporting.file=hs.reporting.name)
 
 ## -----------------------------------------------------------------------------
+library(sf)
+library(tools)
 # Input another candidate SSH layer for demonstration
 hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp", 
                             package="sandwichr")
@@ -104,7 +106,7 @@ p = ggerrorplot(bc.data[[1]], x = "SSHID", y = "Incidence",
             )
 
 p + scale_x_discrete(labels=c("1" = "Urban", "2" = "Rural")) + 
-  theme(axis.title.x = element_blank())
+  theme(axis.title.x = element_blank()) + labs(y="Breast Cancer Incidence (Rate per 100,000)")
 
 bc.data[[1]] %>%                                        
   group_by(SSHID) %>%                         

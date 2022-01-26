@@ -65,6 +65,8 @@ The accuracy of the Sandwich model is determined by the SSH layer. For an ideal 
 
 For the purpose of demonstration, we input `hs.ssh2.shapefile` as another candidate SSH layer.
 ```{r}
+library(sf)
+library(tools)
 # Input another candidate SSH layer for demonstration
 hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp", 
                             package="sandwichr")
@@ -135,7 +137,7 @@ hs.cv
 The second case study interpolates the breast cancer incidence across mainland China based on 242 samples retrieved from the Chinese Cancer Registry Annual Report. The urban-rural classification (either urban or rural areas are typically not connected in space) is used as the SSH layer. County-level divisions are used as the reporting units. In this example, all the input data are in csv format.
 
 ### Loading data
-The `load.data.txt` function is used to prepare text files into a list of data frames for model input. Two files are needed for this function: one linking sampling and SSH layers, and the other linking reporting and SSH layers. The general formats of these files are speficied below.
+The `load.data.txt` function is used to prepare text files into a list of data frames for model input. Two files are needed for this function: one linking sampling and SSH layers, and the other linking reporting and SSH layers. The general formats of these files are specified below.
 
 Sampling-SSH
 
@@ -195,7 +197,7 @@ p = ggerrorplot(bc.data[[1]], x = "SSHID", y = "Incidence",
             )
 
 p + scale_x_discrete(labels=c("1" = "Urban", "2" = "Rural")) + 
-  theme(axis.title.x = element_blank())
+  theme(axis.title.x = element_blank()) + labs(y="Breast Cancer Incidence (Rate per 100,000)")
 
 bc.data[[1]] %>%                                        
   group_by(SSHID) %>%                         

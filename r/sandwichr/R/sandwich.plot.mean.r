@@ -31,6 +31,12 @@ sandwich.plot.mean <- function(object){
   }
 
   #---------------- Plot Sandwich estimates ----------------------
-  ggplot(data=object) + geom_sf(aes(fill=mean)) + labs(fill='Mean') + ggtitle("Mean") + theme(plot.title=element_text(hjust=0.5)) + scale_fill_gradient(low = 'white', high = 'red')
+  ggplot(data=object) + geom_sf(aes(fill=mean), color='darkgray') + labs(fill='') +
+    ggtitle("Mean") + theme(plot.title=element_text(hjust=0.5, size=10),
+                            axis.text.x = element_blank(),
+                            axis.text.y = element_blank(),
+                            axis.ticks = element_blank(),
+                            rect = element_blank()) +
+    scale_fill_gradient(low='white', high='red')
 
 }
