@@ -4,7 +4,8 @@
 \alias{load.data.txt}
 \title{Load text files into data frames}
 \usage{
-load.data.txt(sampling_ssh.file, reporting_ssh.file)
+load.data.txt(sampling_ssh.file,
+                     reporting_ssh.file)
 }
 \arguments{
 \item{sampling_ssh.file}{Name of the file linking sampling and SSH layers. Each row denotes a sampling unit. At least two columns need to be included in this file: value of the sampling attribute and the stratum each sampling unit falling into.}

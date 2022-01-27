@@ -4,7 +4,8 @@
 \alias{sandwich.ci}
 \title{Calculate confidence interval for the mean}
 \usage{
-sandwich.ci(object, level=.95)
+sandwich.ci(object,
+                   level=.95)
 }
 \arguments{
 \item{object}{An \code{sf} object or a data frame generated from the \code{sandwich.model} function.}

@@ -6,7 +6,8 @@
 #' @param object An \code{sf} object or a data frame generated from the \code{sandwich.model} function.
 #' @param level The confidence level required. By default, \code{level} = .95.
 #'
-#' @usage sandwich.ci(object, level=.95)
+#' @usage sandwich.ci(object,
+#'                    level=.95)
 #'
 #' @import sf
 #' @importFrom stats qt
@@ -22,16 +23,19 @@
 
 sandwich.ci <- function(object, level=.95){
   #--------------------------- Check inputs ----------------------------------
-  if (!is.element("mean", names(object)) |
-      !is.element("se", names(object)) |
-      !is.element("df", names(object))){
+  if (!is.element("mean", names(object$object)) |
+      !is.element("se", names(object$object)) |
+      !is.element("df", names(object$object))){
     stop("Should run the sandwich function first.")
   }
 
   #---------------- Calculate confidence intervals ----------------------
-  t = qt(1-(1-level)/2, object$df)
+  t = qt(1-(1-level)/2, object$object$df)
   t[is.nan(t)] = 0
-  object$ci.low = object$mean - t * object$se
-  object$ci.up = object$mean + t * object$se
-  object
+  object$object$ci.low = object$object$mean - t * object$object$se
+  object$object$ci.up = object$object$mean + t * object$object$se
+
+  output = list(object=object)
+  class(output) <- "sandwich.ci"
+  return(output)
 }

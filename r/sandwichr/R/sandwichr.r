@@ -13,5 +13,4 @@
 #'
 #' @docType package
 #' @name sandwichr
-
-globalVariables(c("ci.low", "ci.up", "se"))
+NULL

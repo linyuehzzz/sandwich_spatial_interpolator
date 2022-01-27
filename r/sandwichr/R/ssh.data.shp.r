@@ -3,7 +3,10 @@
 #' @description
 #' \code{ssh.data.shp} joins a candidate SSH layer to an existing layer.
 #'
-#' @usage ssh.data.shp(object, ssh.lyr, ssh.id, ssh.name=NULL)
+#' @usage ssh.data.shp(object,
+#'                     ssh.lyr,
+#'                     ssh.id,
+#'                     ssh.name=NULL)
 #'
 #' @param object A POINT \code{sf} object to be joint. Its geometry should be consistent with the sampling layer, but it may have additional attributes from the SSH layer(s).
 #' @param ssh.lyr A POLYGON \code{sf} object used as the candidate SSH layer. Its strata ID will be linked to \code{object}.

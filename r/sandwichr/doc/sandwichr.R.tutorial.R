@@ -8,8 +8,11 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", 
 #                          subdir="r/sandwichr", build_vignettes = TRUE)
 
 ## -----------------------------------------------------------------------------
-# Import the sandwichr package
+# Import the sandwichr package and other packages
 library("sandwichr")
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
 
 ## -----------------------------------------------------------------------------
 # Input data from shapefiles
@@ -50,22 +53,20 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interactio
 ## -----------------------------------------------------------------------------
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
-head(hs.sw)
+head(hs.sw$object)
 
 ## ----fig.align="center", fig.width=4, fig.height=3----------------------------
-# Plot the mean values of the interpolation estimates
-sandwich.plot.mean(object=hs.sw)
-# Plot the standard errors of the interpolation estimates
-sandwich.plot.se(object=hs.sw)
+# Plot the estimated mean values and standard errors
+ggplot2::autoplot(object=hs.sw)
 
 ## -----------------------------------------------------------------------------
 # Calculate the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
-head(hs.sw.ci)
+head(hs.sw.ci$object$object)
 
 ## ----fig.align="center", fig.width=8, fig.height=3----------------------------
 # Plot the confidence intervals of the interpolation estimates
-sandwich.plot.ci(object=hs.sw.ci)
+ggplot2::autoplot(object=hs.sw.ci)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation
@@ -99,8 +100,6 @@ head(bc.join)
 ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 
 ## -----------------------------------------------------------------------------
-library(ggpubr)
-library(dplyr)   
 p = ggerrorplot(bc.data[[1]], x = "SSHID", y = "Incidence", 
             desc_stat = "mean_sd", color = "black",
             add = "violin", add.params = list(color = "darkgray")
@@ -118,12 +117,12 @@ bc.data[[1]] %>%
 # Perform the SSH based spatial interpolation
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
-head(bc.sw)
+head(bc.sw$object)
 
 ## -----------------------------------------------------------------------------
 # Calculate the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
-head(bc.sw.ci)
+head(bc.sw.ci$object$object)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation

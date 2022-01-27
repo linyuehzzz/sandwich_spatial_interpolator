@@ -4,7 +4,9 @@
 \alias{load.data.shp}
 \title{Load shapefiles into \code{sf}s}
 \usage{
-load.data.shp(sampling.file, ssh.file, reporting.file)
+load.data.shp(sampling.file,
+                     ssh.file,
+                     reporting.file)
 }
 \arguments{
 \item{sampling.file}{Name of the sampling layer. The sampling layer should be a point feature that contains an attribute that is to be interpolated.}

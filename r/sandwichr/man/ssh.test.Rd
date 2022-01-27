@@ -4,7 +4,11 @@
 \alias{ssh.test}
 \title{Calculate Geodetector factor detector \emph{q}-statistic and interaction detector}
 \usage{
-ssh.test(object, y, x, test="factor", type="shp")
+ssh.test(object,
+                y,
+                x,
+                test="factor",
+                type="shp")
 }
 \arguments{
 \item{object}{A POINT \code{sf} object linking the attributes of the sampling layer and the strata ID in the SSH layer(s) generated from \code{ssh.data}.}

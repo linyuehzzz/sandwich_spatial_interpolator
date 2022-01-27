@@ -3,7 +3,11 @@
 #' @description
 #' \code{ssh.test} calculates the factor detector \emph{q}-statistic and the interaction detector in the geographical detector model described by Wang et al. (2010). The \emph{q}-statistic measures the SSH of the sampling attribute in terms of a given stratification, which can be used for the selection of an SSH layer for Sandwich model-based mapping. The interactive effects indicate whether a combination of two stratifications enhances the SSH of the sampling attribute.
 #'
-#' @usage ssh.test(object, y, x, test="factor", type="shp")
+#' @usage ssh.test(object,
+#'                 y,
+#'                 x,
+#'                 test="factor",
+#'                 type="shp")
 #'
 #' @param object A POINT \code{sf} object linking the attributes of the sampling layer and the strata ID in the SSH layer(s) generated from \code{ssh.data}.
 #' @param y A \code{string} denoting the name of the explained variable (sampling attribute) in \code{object}.
