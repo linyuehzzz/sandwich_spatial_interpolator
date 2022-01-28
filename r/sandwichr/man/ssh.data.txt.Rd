@@ -19,6 +19,3 @@ Prepare the input from text files for the geographical detector model.
 data(bc.data)
 bc.join <- ssh.data.txt(object=bc.data)
 }
-\seealso{
-\code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
-}

@@ -14,7 +14,6 @@
 #' @param ssh.name Text for the new field name assigned to the stratum ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.
 #' @return An \code{sf} object with the sampling units and the Strata they fall into.
 #'
-#' @seealso \code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
 #' @import sf dplyr
 #' @export
 #'

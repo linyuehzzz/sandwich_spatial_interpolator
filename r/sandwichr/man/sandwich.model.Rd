@@ -31,9 +31,6 @@ Estimate the mean and standard error for each reporting unit using SSH-based spa
 data(hs.data)
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 
-data(bc.data)
-bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
-                        ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 }
 \references{
 Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534.

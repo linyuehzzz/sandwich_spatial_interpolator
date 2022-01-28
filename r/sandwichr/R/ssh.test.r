@@ -20,7 +20,7 @@
 #' @references
 #' Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. \emph{International Journal of Geographical Information Science}, 24(1), 107-127.
 #'
-#' @seealso \code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/}), \code{\link{ssh.data.shp}}, \code{\link{ssh.data.txt}}
+#' @seealso \code{\link{ssh.data.shp}}, \code{\link{ssh.data.txt}}
 #' @import sf geodetector
 #' @export
 #'

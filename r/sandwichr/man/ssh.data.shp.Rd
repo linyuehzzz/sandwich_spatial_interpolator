@@ -36,6 +36,3 @@ hs.join <- ssh.data.shp(object=hs.data[[1]], ssh.lyr=hs.data[[2]], ssh.id="STR_1
 hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
 
 }
-\seealso{
-\code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
-}

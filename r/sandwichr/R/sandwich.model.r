@@ -31,9 +31,6 @@
 #' data(hs.data)
 #' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 #'
-#' data(bc.data)
-#' bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
-#'                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 # ---- End of roxygen documentation ----
 
 

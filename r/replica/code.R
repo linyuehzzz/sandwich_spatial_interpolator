@@ -125,8 +125,7 @@ ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 # Visualizing urban-rural disparities
 p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence",
                 desc_stat="mean_sd", color="black",
-                add="violin", add.params=list(color = "darkgray")
-)
+                add="violin", add.params=list(color = "darkgray"))
 
 p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) +
   theme(axis.title.x=element_blank()) + labs(y="Breast Cancer Incidence\n(Rate per 100,000)")
@@ -157,4 +156,4 @@ bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",
 bc.cv
 
 
-knitr::spin("code.R")
+# knitr::spin("code.R")

@@ -9,7 +9,6 @@
 #'
 #' @return A list of two data frames.
 #'
-#' @seealso \code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
 #' @import sf dplyr
 #' @name ssh.data.txt
 #' @export
