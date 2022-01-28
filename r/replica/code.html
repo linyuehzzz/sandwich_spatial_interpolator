@@ -226,14 +226,16 @@ devtools::install_github(repo=&quot;linyuehzzz/sandwich_spatial_interpolator&quo
 <pre><code>##   
 
 
-   checking for file &#39;C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes1970768cbbc\linyuehzzz-sandwich_spatial_interpolator-7d3743d\r\sandwichr/DESCRIPTION&#39; ...
+   checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; ...
 
-v  checking for file &#39;C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes1970768cbbc\linyuehzzz-sandwich_spatial_interpolator-7d3743d\r\sandwichr/DESCRIPTION&#39; (376ms)
+   checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; ... 
+
+v  checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; (430ms)
 ## 
 
 
 
--  preparing &#39;sandwichr&#39;: (530ms)
+-  preparing &#39;sandwichr&#39;: (525ms)
 ##    checking DESCRIPTION meta-information ...
 
    checking DESCRIPTION meta-information ... 
@@ -265,14 +267,42 @@ v  checking DESCRIPTION meta-information
 ## 
 </code></pre>
 
+<pre><code>## Installing package into &#39;C:/Users/10716/Documents/R/win-library/4.1&#39;
+## (as &#39;lib&#39; is unspecified)
+</code></pre>
+
 <pre><code class="r">library(sandwichr)
 library(sf)
-library(tools)
+</code></pre>
+
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
+</code></pre>
+
+<pre><code class="r">library(tools)
 library(ggpubr)
-library(dplyr)
+</code></pre>
 
+<pre><code>## Loading required package: ggplot2
+</code></pre>
 
-## Initializing the generator for pseudo random numbers
+<pre><code class="r">library(dplyr)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code class="r">## Initializing the generator for pseudo random numbers
 set.seed(0)
 
 
@@ -339,13 +369,13 @@ head(hs.data[[2]])
 ## Bounding box:  xmin: 151114.4 ymin: 4106864 xmax: 228423.6 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 5 x 4
-##     STR  Area STR_1                                                     geometry
-##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                                                &lt;POLYGON [m]&gt;
-## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161~
-## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190~
-## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211~
-## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211~
-## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173~
+##     STR  Area STR_1                                                                geometry
+##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                                                           &lt;POLYGON [m]&gt;
+## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161699.4 41381~
+## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190869.3 41236~
+## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211523.4 41239~
+## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211523.4 41239~
+## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173841 4156024~
 </code></pre>
 
 <pre><code class="r"># Reporting
@@ -358,14 +388,14 @@ head(hs.data[[3]])
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 3
-##   CODE   Area                                                           geometry
-##   &lt;chr&gt; &lt;dbl&gt;                                                      &lt;POLYGON [m]&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 ~
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 ~
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 41~
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 41~
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 ~
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 41~
+##   CODE   Area                                                                      geometry
+##   &lt;chr&gt; &lt;dbl&gt;                                                                 &lt;POLYGON [m]&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 4150834, 15~
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 4151652, 19~
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 4151773, 1797~
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 4143000, 1718~
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 4147346, 20~
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 4143036, 1741~
 </code></pre>
 
 <pre><code class="r"># Inputing another candidate SSH layer for demonstration
@@ -382,14 +412,14 @@ head(hs.ssh2)
 ## Bounding box:  xmin: 155065.4 ymin: 4106864 xmax: 223212.3 ymax: 4152157
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                         geometry
-##      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;                    &lt;POLYGON [m]&gt;
-## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111~
-## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 41~
-## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131~
-## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 41~
-## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 41~
-## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151~
+##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                                    geometry
+##      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;                               &lt;POLYGON [m]&gt;
+## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111509, 205122~
+## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 4122973, 1974~
+## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131364, 174257~
+## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 4150224, 1994~
+## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 4118458, 2172~
+## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151731, 179098~
 </code></pre>
 
 <pre><code class="r"># Preparing the SSH layer(s) for evaluation
@@ -449,21 +479,31 @@ head(hs.sw$object)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   CODE   Area                                         geometry  mean    se    df
-##   &lt;chr&gt; &lt;dbl&gt;                                    &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 ~  211.  5.28    91
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 ~  287.  1.28    18
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 41~  304.  1.21    90
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 41~  178.  6.80    91
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 ~  225.  1.94    40
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 41~  207.  5.46    91
+##   CODE   Area                                                    geometry  mean    se    df
+##   &lt;chr&gt; &lt;dbl&gt;                                               &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 15~  211.  5.28    91
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 19~  287.  1.28    18
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 1794~  304.  1.21    90
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 1719~  178.  6.80    91
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 20~  225.  1.94    40
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 1739~  207.  5.46    91
 </code></pre>
 
 <pre><code class="r">summary(hs.sw)
 </code></pre>
 
-<pre><code>##        Length Class Mode
-## object 6      sf    list
+<pre><code>## [1] &quot;Sample size:  167&quot;
+## [1] &quot;Number of strata:  5&quot;
+## [1] &quot;Number of reporting units:  10&quot;
+</code></pre>
+
+<pre><code>##       mean             se                 geometry 
+##  Min.   :133.7   Min.   :1.214   POLYGON      :10  
+##  1st Qu.:179.7   1st Qu.:1.446   epsg:32650   : 0  
+##  Median :209.3   Median :2.105   +proj=utm ...: 0  
+##  Mean   :220.7   Mean   :3.035                     
+##  3rd Qu.:271.4   3rd Qu.:4.697                     
+##  Max.   :303.7   Max.   :6.800
 </code></pre>
 
 <pre><code class="r"># Calculating the confidence intervals of the interpolation estimates
@@ -477,21 +517,26 @@ head(hs.sw.ci$object$object)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 8
-##   CODE   Area                            geometry  mean    se    df ci.low ci.up
-##   &lt;chr&gt; &lt;dbl&gt;                       &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 41499~  211.  5.28    91   201.  222.
-## 2 06    143.  ((191225.5 4151326, 191387.6 41513~  287.  1.28    18   284.  289.
-## 3 03    373.  ((178892 4151731, 179098.2 4151712~  304.  1.21    90   301.  306.
-## 4 05    252.  ((172768 4143250, 172542.9 4143207~  178.  6.80    91   165.  192.
-## 5 10     73.7 ((207615.6 4147664, 207785.4 41474~  225.  1.94    40   221.  229.
-## 6 01    186.  ((172768 4143250, 173154.8 4143172~  207.  5.46    91   196.  218.
+##   CODE   Area                                       geometry  mean    se    df ci.low ci.up
+##   &lt;chr&gt; &lt;dbl&gt;                                  &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.~  211.  5.28    91   201.  222.
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.~  287.  1.28    18   284.  289.
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 ~  304.  1.21    90   301.  306.
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 ~  178.  6.80    91   165.  192.
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.~  225.  1.94    40   221.  229.
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 ~  207.  5.46    91   196.  218.
 </code></pre>
 
 <pre><code class="r">summary(hs.sw.ci)
 </code></pre>
 
-<pre><code>##        Length Class          Mode
-## object 1      sandwich.model list
+<pre><code>##      ci.low          ci.up                geometry 
+##  Min.   :127.8   Min.   :139.7   POLYGON      :10  
+##  1st Qu.:174.0   1st Qu.:188.9   epsg:32650   : 0  
+##  Median :198.6   Median :220.0   +proj=utm ...: 0  
+##  Mean   :214.6   Mean   :226.7                     
+##  3rd Qu.:268.4   3rd Qu.:274.4                     
+##  Max.   :301.3   Max.   :306.1
 </code></pre>
 
 <pre><code class="r"># Plotting
@@ -625,8 +670,18 @@ head(bc.sw$object)
 <pre><code class="r">summary(bc.sw)
 </code></pre>
 
-<pre><code>##        Length Class      Mode
-## object 6      data.frame list
+<pre><code>## [1] &quot;Sample size:  242&quot;
+## [1] &quot;Number of strata:  2&quot;
+## [1] &quot;Number of reporting units:  2352&quot;
+</code></pre>
+
+<pre><code>##       mean             se        
+##  Min.   :17.54   Min.   :0.4732  
+##  1st Qu.:21.22   1st Qu.:0.5579  
+##  Median :22.38   Median :0.5876  
+##  Mean   :22.73   Mean   :0.5986  
+##  3rd Qu.:23.86   3rd Qu.:0.6270  
+##  Max.   :31.56   Max.   :0.8498
 </code></pre>
 
 <pre><code class="r"># Calculating the confidence intervals of the interpolation estimates
@@ -646,8 +701,13 @@ head(bc.sw.ci$object$object)
 <pre><code class="r">summary(bc.sw.ci)
 </code></pre>
 
-<pre><code>##        Length Class          Mode
-## object 1      sandwich.model list
+<pre><code>##      ci.low          ci.up      
+##  Min.   :16.60   Min.   :18.48  
+##  1st Qu.:20.12   1st Qu.:22.32  
+##  Median :21.22   Median :23.54  
+##  Mean   :21.55   Mean   :23.91  
+##  3rd Qu.:22.63   3rd Qu.:25.10  
+##  Max.   :29.88   Max.   :33.24
 </code></pre>
 
 <pre><code class="r">bc.cv &lt;- sandwich.cv(object=bc.data, sampling.attr=&quot;Incidence&quot;, k=5, type=&quot;txt&quot;,
