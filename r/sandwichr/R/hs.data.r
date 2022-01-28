@@ -1,6 +1,6 @@
 #' Heshun human population
 #'
-#' The \code{hs.data} dataset consists of three data frames:
+#' The \code{hs.data} dataset consists of three \code{sf} objects:
 #' \itemize{
 #' \item\code{hs.data[[1]]}: Human population of 167 sampling villages within the Heshun region, China, which serves as the sampling layer. The sampling attribute is \code{Population}.
 #' \item\code{hs.data[[2]]}: A zonation map with 5 strata that serves as a candidate SSH layer.

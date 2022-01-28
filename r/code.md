@@ -17,24 +17,71 @@ if(FALSE){
   install.packages("dplyr")
 }
 
-library("devtools")
 devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
                          subdir="r/sandwichr", build_vignettes=FALSE)
 ```
 
 ```
-## Skipping install of 'sandwichr' from a github remote, the SHA1 (6455fdf0) has not changed since last install.
-##   Use `force = TRUE` to force installation
+## Downloading GitHub repo linyuehzzz/sandwich_spatial_interpolator@HEAD
+```
+
+```
+##          checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION' ...     checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION' ...   v  checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION'
+##       -  preparing 'sandwichr': (573ms)
+##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
+##       -  checking for LF line-endings in source and make files and shell scripts
+##       -  checking for empty or unneeded directories
+##       -  looking to see if a 'data/datalist' file should be added
+##       -  building 'sandwichr_1.0.0.tar.gz'
+##      
+## 
+```
+
+```
+## Installing package into 'C:/Users/10716/Documents/R/win-library/4.1'
+## (as 'lib' is unspecified)
 ```
 
 ```r
 library(sandwichr)
 library(sf)
+```
+
+```
+## Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
+```
+
+```r
 library(tools)
 library(ggpubr)
-library(dplyr) 
+```
 
+```
+## Loading required package: ggplot2
+```
 
+```r
+library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 ## Initializing the generator for pseudo random numbers
 set.seed(0)
 
@@ -45,11 +92,11 @@ set.seed(0)
 ```
 
 ```r
-hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp", 
+hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",
                                 package="sandwichr")
-hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp", 
+hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp",
                            package="sandwichr")
-hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp", 
+hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp",
                                  package="sandwichr")
 hs.sampling.name
 ```
@@ -75,7 +122,7 @@ hs.reporting.name
 ```
 
 ```r
-hs.data <- load.data.shp(sampling.file=hs.sampling.name, 
+hs.data <- load.data.shp(sampling.file=hs.sampling.name,
                          ssh.file=hs.ssh.name,
                          reporting.file=hs.reporting.name)
 # Sampling
@@ -112,13 +159,13 @@ head(hs.data[[2]])
 ## Bounding box:  xmin: 151114.4 ymin: 4106864 xmax: 228423.6 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 5 x 4
-##     STR  Area STR_1                                                                geometry
-##   <int> <dbl> <chr>                                                           <POLYGON [m]>
-## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161699.4 41381~
-## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190869.3 41236~
-## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211523.4 41239~
-## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211523.4 41239~
-## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173841 4156024~
+##     STR  Area STR_1                                                     geometry
+##   <int> <dbl> <chr>                                                <POLYGON [m]>
+## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161~
+## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190~
+## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211~
+## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211~
+## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173~
 ```
 
 ```r
@@ -133,19 +180,19 @@ head(hs.data[[3]])
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 3
-##   CODE   Area                                                                      geometry
-##   <chr> <dbl>                                                                 <POLYGON [m]>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 4150834, 15~
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 4151652, 19~
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 4151773, 1797~
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 4143000, 1718~
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 4147346, 20~
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 4143036, 1741~
+##   CODE   Area                                                           geometry
+##   <chr> <dbl>                                                      <POLYGON [m]>
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 ~
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 ~
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 41~
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 41~
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 ~
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 41~
 ```
 
 ```r
 # Inputing another candidate SSH layer for demonstration
-hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp", 
+hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
                             package="sandwichr")
 hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
                    layer=file_path_sans_ext(basename(hs.ssh2.name)))
@@ -159,14 +206,14 @@ head(hs.ssh2)
 ## Bounding box:  xmin: 155065.4 ymin: 4106864 xmax: 223212.3 ymax: 4152157
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                                    geometry
-##      <dbl> <chr>    <dbl>      <dbl>      <dbl>                               <POLYGON [m]>
-## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111509, 205122~
-## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 4122973, 1974~
-## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131364, 174257~
-## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 4150224, 1994~
-## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 4118458, 2172~
-## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151731, 179098~
+##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                         geometry
+##      <dbl> <chr>    <dbl>      <dbl>      <dbl>                    <POLYGON [m]>
+## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111~
+## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 41~
+## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131~
+## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 41~
+## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 41~
+## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151~
 ```
 
 ```r
@@ -224,7 +271,7 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interactio
 ```r
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
-head(hs.sw)
+head(hs.sw$object)
 ```
 
 ```
@@ -234,20 +281,29 @@ head(hs.sw)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   CODE   Area                                                    geometry  mean    se    df
-##   <chr> <dbl>                                               <POLYGON [m]> <dbl> <dbl> <dbl>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 15~  211.  5.28    91
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 19~  287.  1.28    18
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 1794~  304.  1.21    90
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 1719~  178.  6.80    91
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 20~  225.  1.94    40
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 1739~  207.  5.46    91
+##   CODE   Area                                         geometry  mean    se    df
+##   <chr> <dbl>                                    <POLYGON [m]> <dbl> <dbl> <dbl>
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 ~  211.  5.28    91
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 ~  287.  1.28    18
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 41~  304.  1.21    90
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 41~  178.  6.80    91
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 ~  225.  1.94    40
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 41~  207.  5.46    91
+```
+
+```r
+summary(hs.sw)
+```
+
+```
+##        Length Class Mode
+## object 6      sf    list
 ```
 
 ```r
 # Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
-head(hs.sw.ci)
+head(hs.sw.ci$object$object)
 ```
 
 ```
@@ -257,34 +313,37 @@ head(hs.sw.ci)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 8
-##   CODE   Area                                       geometry  mean    se    df ci.low ci.up
-##   <chr> <dbl>                                  <POLYGON [m]> <dbl> <dbl> <dbl>  <dbl> <dbl>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.~  211.  5.28    91   201.  222.
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.~  287.  1.28    18   284.  289.
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 ~  304.  1.21    90   301.  306.
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 ~  178.  6.80    91   165.  192.
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.~  225.  1.94    40   221.  229.
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 ~  207.  5.46    91   196.  218.
+##   CODE   Area                            geometry  mean    se    df ci.low ci.up
+##   <chr> <dbl>                       <POLYGON [m]> <dbl> <dbl> <dbl>  <dbl> <dbl>
+## 1 02    427.  ((153690.1 4149820, 153647.4 41499~  211.  5.28    91   201.  222.
+## 2 06    143.  ((191225.5 4151326, 191387.6 41513~  287.  1.28    18   284.  289.
+## 3 03    373.  ((178892 4151731, 179098.2 4151712~  304.  1.21    90   301.  306.
+## 4 05    252.  ((172768 4143250, 172542.9 4143207~  178.  6.80    91   165.  192.
+## 5 10     73.7 ((207615.6 4147664, 207785.4 41474~  225.  1.94    40   221.  229.
+## 6 01    186.  ((172768 4143250, 173154.8 4143172~  207.  5.46    91   196.  218.
 ```
 
 ```r
-# Plotting 
-sandwich.plot.mean(object=hs.sw)
+summary(hs.sw.ci)
+```
+
+```
+##        Length Class          Mode
+## object 1      sandwich.model list
+```
+
+```r
+# Plotting
+ggplot2::autoplot(object=hs.sw)
 ```
 
 ![plot of chunk 4.2.3 Running the Sandwich model](figure/4.2.3 Running the Sandwich model-1.png)
 
 ```r
-sandwich.plot.se(hs.sw)
+ggplot2::autoplot(object=hs.sw.ci)
 ```
 
 ![plot of chunk 4.2.3 Running the Sandwich model](figure/4.2.3 Running the Sandwich model-2.png)
-
-```r
-sandwich.plot.ci(hs.sw.ci)
-```
-
-![plot of chunk 4.2.3 Running the Sandwich model](figure/4.2.3 Running the Sandwich model-3.png)
 
 ```r
 hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
@@ -302,12 +361,27 @@ hs.cv
 ```
 
 ```r
-bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv", 
+bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv",
                                     package="sandwichr")
-bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv", 
+bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv",
                                      package="sandwichr")
+bc.sampling_ssh.name
+```
 
-bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 
+```
+## [1] "C:/Users/10716/Documents/R/win-library/4.1/sandwichr/extdata/bc_sampling_ssh.csv"
+```
+
+```r
+bc.reporting_ssh.name
+```
+
+```
+## [1] "C:/Users/10716/Documents/R/win-library/4.1/sandwichr/extdata/bc_reporting_ssh.csv"
+```
+
+```r
+bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
 head(bc.data[[1]])    # Sampling-SSH
@@ -364,23 +438,23 @@ ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 ```
 
 ```r
-# Visualizing urban-rural disparities  
-p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence", 
+# Visualizing urban-rural disparities
+p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence",
                 desc_stat="mean_sd", color="black",
                 add="violin", add.params=list(color = "darkgray")
 )
 
-p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) + 
+p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) +
   theme(axis.title.x=element_blank()) + labs(y="Breast Cancer Incidence\n(Rate per 100,000)")
 ```
 
 ![plot of chunk 4.3.2 Selecting SSH layers(s)](figure/4.3.2 Selecting SSH layers(s)-1.png)
 
 ```r
-bc.data[[1]] %>%                                        
-  group_by(SSHID) %>%                         
-  summarise_at(vars(Incidence),              
-               list(name = mean))               
+bc.data[[1]] %>%
+  group_by(SSHID) %>%
+  summarise_at(vars(Incidence),
+               list(name = mean))
 ```
 
 ```
@@ -393,9 +467,9 @@ bc.data[[1]] %>%
 
 ```r
 # Performing the SSH based spatial interpolation
-bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
+bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
-head(bc.sw)
+head(bc.sw$object)
 ```
 
 ```
@@ -409,9 +483,18 @@ head(bc.sw)
 ```
 
 ```r
+summary(bc.sw)
+```
+
+```
+##        Length Class      Mode
+## object 6      data.frame list
+```
+
+```r
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
-head(bc.sw.ci)
+head(bc.sw.ci$object$object)
 ```
 
 ```
@@ -425,13 +508,46 @@ head(bc.sw.ci)
 ```
 
 ```r
-bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
-                     ssh.id.col="SSHID", reporting.id.col="GBCODE", 
+summary(bc.sw.ci)
+```
+
+```
+##        Length Class          Mode
+## object 1      sandwich.model list
+```
+
+```r
+bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",
+                     ssh.id.col="SSHID", reporting.id.col="GBCODE",
                      ssh.weights=list(c(1,2), c("W1","W2")))
 bc.cv
 ```
 
 ```
 ## [1] 8.687603
+```
+
+```r
+knitr::spin("code.R")
+```
+
+```
+## 
+## 
+## processing file: code.Rmd
+```
+
+```
+## Error in parse_block(g[-1], g[1], params.src, markdown_mode): Duplicate chunk label '4.1.1 Installing packages', which has been used for the chunk:
+## if(FALSE){
+##   install.packages("devtools")
+##   install.packages("sf")
+##   install.packages("tools")
+##   install.packages("ggpubr")
+##   install.packages("dplyr")
+## }
+## 
+## devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
+##                          subdir="r/sandwichr", build_vignettes=FALSE)
 ```
 

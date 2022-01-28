@@ -5,21 +5,24 @@
 \title{Prepare shapefile data for Geodetector}
 \usage{
 ssh.data.shp(object,
-                    ssh.lyr,
-                    ssh.id,
-                    ssh.name=NULL)
+       ssh.lyr,
+       ssh.id,
+       ssh.name=NULL)
 }
 \arguments{
-\item{object}{A POINT \code{sf} object to be joint. Its geometry should be consistent with the sampling layer, but it may have additional attributes from the SSH layer(s).}
+\item{object}{A point \code{sf} object to be joint. Its geometry should be consistent with the sampling layer, but it may have additional attributes from the SSH layer(s).}
 
-\item{ssh.lyr}{A POLYGON \code{sf} object used as the candidate SSH layer. Its strata ID will be linked to \code{object}.}
+\item{ssh.lyr}{A polygon \code{sf} object used as the candidate SSH layer. Its stratum ID will be linked to \code{object}.}
 
-\item{ssh.id}{A \code{string} denoting the attribute name of strata ID in the SSH layer.}
+\item{ssh.id}{Text for the field name of stratum ID in the SSH layer.}
 
-\item{ssh.name}{A \code{string} denoting the new attribute name assigned to the strata ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.}
+\item{ssh.name}{Text for the new field name assigned to the stratum ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.}
+}
+\value{
+An \code{sf} object with the sampling units and the Strata they fall into.
 }
 \description{
-\code{ssh.data.shp} joins a candidate SSH layer to an existing layer.
+Join a candidate SSH layer to an existing layer for the geographical detector model.
 }
 \examples{
 library(sf)
@@ -34,5 +37,5 @@ hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
 
 }
 \seealso{
-[https://cran.r-project.org/package=geodetector]{geodetector R package}
+\code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
 }

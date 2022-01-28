@@ -15,12 +15,7 @@ Maintainer: Yue Lin <lin.3326@osu.edu>
 Depends: R (>= 3.5.0)
 Imports: sf, ggplot2, gridExtra, geodetector, caret, lwgeom, tools, dplyr
 Suggests: rmarkdown, knitr, MASS, ggpubr
-Description: Spatial interpolation is a common practice in social and environmental 
-    science. This package enables the implementation of SSH-based spatial interpolation 
-    proposed by Wang et al. (2013) <doi:10.1068/a44710>. It provides functions to (1) evaluate stratification schemes, (2) interpolate
-    sampling data over user-defined reporting units, (3) assess interpolation 
-    uncertainties, and (4) evaluate overall accuracy using the k-fold cross-validation 
-    estimate.
+Description: Spatial interpolation is a common practice in social and environmental science. This package enables the implementation of SSH-based spatial interpolation proposed by Wang et al. (2013) <doi:10.1068/a44710>. It provides functions to (1) evaluate stratification schemes, (2) interpolate sampling data over user-defined reporting units, (3) assess interpolation uncertainties, and (4) evaluate overall accuracy using the k-fold cross-validation estimate.
 License: GPL (>= 2)
 URL: https://github.com/linyuehzzz/sandwich_spatial_interpolator/tree/master/r/sandwichr
 BugReports: https://github.com/linyuehzzz/sandwich_spatial_interpolator/issues

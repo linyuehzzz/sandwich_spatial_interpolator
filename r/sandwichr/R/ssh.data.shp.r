@@ -1,21 +1,21 @@
-#' @title Prepare shapefile data for Geodetector
+#' Prepare shapefile data for Geodetector
 #'
 #' @description
-#' \code{ssh.data.shp} joins a candidate SSH layer to an existing layer.
+#' Join a candidate SSH layer to an existing layer for the geographical detector model.
 #'
 #' @usage ssh.data.shp(object,
-#'                     ssh.lyr,
-#'                     ssh.id,
-#'                     ssh.name=NULL)
+#'        ssh.lyr,
+#'        ssh.id,
+#'        ssh.name=NULL)
 #'
-#' @param object A POINT \code{sf} object to be joint. Its geometry should be consistent with the sampling layer, but it may have additional attributes from the SSH layer(s).
-#' @param ssh.lyr A POLYGON \code{sf} object used as the candidate SSH layer. Its strata ID will be linked to \code{object}.
-#' @param ssh.id A \code{string} denoting the attribute name of strata ID in the SSH layer.
-#' @param ssh.name A \code{string} denoting the new attribute name assigned to the strata ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.
+#' @param object A point \code{sf} object to be joint. Its geometry should be consistent with the sampling layer, but it may have additional attributes from the SSH layer(s).
+#' @param ssh.lyr A polygon \code{sf} object used as the candidate SSH layer. Its stratum ID will be linked to \code{object}.
+#' @param ssh.id Text for the field name of stratum ID in the SSH layer.
+#' @param ssh.name Text for the new field name assigned to the stratum ID in the output object. If \code{NULL}, the attribute name will be the same as that in the old SSH layer.
+#' @return An \code{sf} object with the sampling units and the Strata they fall into.
 #'
-#' @seealso [https://cran.r-project.org/package=geodetector]{geodetector R package}
+#' @seealso \code{geodetector} (\url{https://cran.rstudio.com/web/packages/geodetector/})
 #' @import sf dplyr
-#' @name ssh.data.shp
 #' @export
 #'
 #' @examples
@@ -28,6 +28,8 @@
 #'                   layer=file_path_sans_ext(basename(hs.ssh2.name)))
 #' hs.join <- ssh.data.shp(object=hs.data[[1]], ssh.lyr=hs.data[[2]], ssh.id="STR_1")
 #' hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
+#'
+#' @name ssh.data.shp
 #'
 # ---- End of roxygen documentation ----
 

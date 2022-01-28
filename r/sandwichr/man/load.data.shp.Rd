@@ -5,18 +5,21 @@
 \title{Load shapefiles into \code{sf}s}
 \usage{
 load.data.shp(sampling.file,
-                     ssh.file,
-                     reporting.file)
+       ssh.file,
+       reporting.file)
 }
 \arguments{
-\item{sampling.file}{Name of the sampling layer. The sampling layer should be a point feature that contains an attribute that is to be interpolated.}
+\item{sampling.file}{Path to the sampling layer. The sampling layer should be a point \code{sf} object that contains an attribute to be interpolated.}
 
-\item{ssh.file}{Name of the SSH layer. The SSH layer should be a polygon feature.}
+\item{ssh.file}{Path to the SSH layer. The SSH layer should be a polygon \code{sf} object.}
 
-\item{reporting.file}{Name of the reporting layer. The reporting layer should be a polygon feature.}
+\item{reporting.file}{Path to the reporting layer. The reporting layer should be a polygon \code{sf} object.}
+}
+\value{
+A list of \code{sf} objects.
 }
 \description{
-\code{load.data.shp} converts shapefiles into a list of \code{sf} objects.
+Convert shapefiles into a list of \code{sf} objects.
 }
 \examples{
 hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",

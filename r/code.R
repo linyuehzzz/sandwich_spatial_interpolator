@@ -13,7 +13,6 @@ if(FALSE){
   install.packages("dplyr")
 }
 
-library("devtools")
 devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
                          subdir="r/sandwichr", build_vignettes=FALSE)
 
@@ -23,7 +22,7 @@ library(sandwichr)
 library(sf)
 library(tools)
 library(ggpubr)
-library(dplyr) 
+library(dplyr)
 
 
 ## Initializing the generator for pseudo random numbers
@@ -35,17 +34,17 @@ set.seed(0)
 ####################################################################
 
 ### -----------4.2.1 Loading data------------------
-hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp", 
+hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",
                                 package="sandwichr")
-hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp", 
+hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp",
                            package="sandwichr")
-hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp", 
+hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp",
                                  package="sandwichr")
 hs.sampling.name
 hs.ssh.name
 hs.reporting.name
 
-hs.data <- load.data.shp(sampling.file=hs.sampling.name, 
+hs.data <- load.data.shp(sampling.file=hs.sampling.name,
                          ssh.file=hs.ssh.name,
                          reporting.file=hs.reporting.name)
 # Sampling
@@ -58,7 +57,7 @@ head(hs.data[[3]])
 
 ### -----------4.2.2 Selecting SSH layers(s)------------------
 # Inputing another candidate SSH layer for demonstration
-hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp", 
+hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
                             package="sandwichr")
 hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
                    layer=file_path_sans_ext(basename(hs.ssh2.name)))
@@ -79,16 +78,17 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interactio
 ### -----------4.2.3 Running the Sandwich model------------------
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
-head(hs.sw)
+head(hs.sw$object)
+summary(hs.sw)
 
 # Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
-head(hs.sw.ci)
+head(hs.sw.ci$object$object)
+summary(hs.sw.ci)
 
-# Plotting 
-sandwich.plot.mean(object=hs.sw)
-sandwich.plot.se(hs.sw)
-sandwich.plot.ci(hs.sw.ci)
+# Plotting
+ggplot2::autoplot(object=hs.sw)
+ggplot2::autoplot(object=hs.sw.ci)
 
 
 ### -----------4.2.4 Model validation------------------
@@ -101,12 +101,14 @@ hs.cv
 ####################################################################
 
 ### -----------4.3.1 Loading data------------------
-bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv", 
+bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv",
                                     package="sandwichr")
-bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv", 
+bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv",
                                      package="sandwichr")
+bc.sampling_ssh.name
+bc.reporting_ssh.name
 
-bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 
+bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
 head(bc.data[[1]])    # Sampling-SSH
@@ -120,37 +122,39 @@ head(bc.join)
 # Calculating the geographical detector q-statistic
 ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 
-# Visualizing urban-rural disparities  
-p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence", 
+# Visualizing urban-rural disparities
+p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence",
                 desc_stat="mean_sd", color="black",
                 add="violin", add.params=list(color = "darkgray")
 )
 
-p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) + 
+p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) +
   theme(axis.title.x=element_blank()) + labs(y="Breast Cancer Incidence\n(Rate per 100,000)")
 
-bc.data[[1]] %>%                                        
-  group_by(SSHID) %>%                         
-  summarise_at(vars(Incidence),              
-               list(name = mean))               
+bc.data[[1]] %>%
+  group_by(SSHID) %>%
+  summarise_at(vars(Incidence),
+               list(name = mean))
 
 
 ### -----------4.3.3 Running the model------------------
 # Performing the SSH based spatial interpolation
-bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
+bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
-head(bc.sw)
+head(bc.sw$object)
+summary(bc.sw)
 
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
-head(bc.sw.ci)
+head(bc.sw.ci$object$object)
+summary(bc.sw.ci)
 
 
 ### -----------4.3.4 Model validation------------------
-bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt", 
-                     ssh.id.col="SSHID", reporting.id.col="GBCODE", 
+bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",
+                     ssh.id.col="SSHID", reporting.id.col="GBCODE",
                      ssh.weights=list(c(1,2), c("W1","W2")))
 bc.cv
 
 
-### knitr::spin("code.R") 
+knitr::spin("code.R")

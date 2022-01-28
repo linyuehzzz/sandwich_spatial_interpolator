@@ -54,8 +54,9 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interactio
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 head(hs.sw$object)
+summary(hs.sw)
 
-## ----fig.align="center", fig.width=4, fig.height=3----------------------------
+## ----fig.align="center", fig.width=8, fig.height=3----------------------------
 # Plot the estimated mean values and standard errors
 ggplot2::autoplot(object=hs.sw)
 
@@ -63,6 +64,7 @@ ggplot2::autoplot(object=hs.sw)
 # Calculate the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
+summary(hs.sw.ci)
 
 ## ----fig.align="center", fig.width=8, fig.height=3----------------------------
 # Plot the confidence intervals of the interpolation estimates
@@ -118,11 +120,13 @@ bc.data[[1]] %>%
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw$object)
+summary(bc.sw)
 
 ## -----------------------------------------------------------------------------
 # Calculate the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
+summary(bc.sw.ci)
 
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation

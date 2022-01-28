@@ -2,26 +2,26 @@
 % Please edit documentation in R/autoplot.sandwich.r
 \name{autoplot}
 \alias{autoplot}
-\alias{autoplot.sandwich.ci}
 \alias{autoplot.sandwich.model}
+\alias{autoplot.sandwich.ci}
 \title{Plot interpolation results}
 \usage{
-\method{autoplot}{sandwich.ci}(
-  object,
-  titles = c("Confidence Interval (Lower Bound)", "Confidence Interval (Upper Bound)"),
-  labels = c("", ""),
-  border_color = "darkgray",
-  poly_fill_ci = c("white", "red"),
-  ...
-)
-
 \method{autoplot}{sandwich.model}(
   object,
   titles = c("Mean", "Standard Error"),
   labels = c("", ""),
   border_color = "darkgray",
   poly_fill_mean = c("white", "red"),
-  poly_fill_sd = c("white", "blue"),
+  poly_fill_se = c("white", "blue"),
+  ...
+)
+
+\method{autoplot}{sandwich.ci}(
+  object,
+  titles = c("Confidence Interval (Lower Bound)", "Confidence Interval (Upper Bound)"),
+  labels = c("", ""),
+  border_color = "darkgray",
+  poly_fill_ci = c("white", "red"),
   ...
 )
 }
@@ -34,13 +34,13 @@
 
 \item{border_color}{Color for outlines of the polygons.}
 
-\item{poly_fill_ci}{A list of colors for low and high ends of the gradient.}
+\item{poly_fill_mean}{A list of colors for low and high ends of the gradient in the mapping of means.}
+
+\item{poly_fill_se}{A list of colors for low and high ends of the gradient in the mapping of standard errors.}
 
 \item{...}{Ignored.}
 
-\item{poly_fill_mean}{A list of colors for low and high ends of the gradient in the mapping of means.}
-
-\item{poly_fill_sd}{A list of colors for low and high ends of the gradient in the mapping of means.}
+\item{poly_fill_ci}{A list of colors for low and high ends of the gradient in the mapping of confidence intervals.}
 }
 \value{
 A list of \code{ggplot} objects.
@@ -60,4 +60,7 @@ ggplot2::autoplot(object=hs.sw.ci)
 }
 \references{
 Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. \emph{Environment and Planning A}, 45(10), 2515-2534.
+}
+\seealso{
+\code{\link{sandwich.model}}, \code{\link{sandwich.ci}}
 }

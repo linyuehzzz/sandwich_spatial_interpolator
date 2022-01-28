@@ -1,18 +1,19 @@
-#' @title Load shapefiles into \code{sf}s
+#' Load shapefiles into \code{sf}s
 #'
 #' @description
-#' \code{load.data.shp} converts shapefiles into a list of \code{sf} objects.
+#' Convert shapefiles into a list of \code{sf} objects.
 #'
 #' @usage load.data.shp(sampling.file,
-#'                      ssh.file,
-#'                      reporting.file)
+#'        ssh.file,
+#'        reporting.file)
 #'
-#' @param sampling.file Name of the sampling layer. The sampling layer should be a point feature that contains an attribute that is to be interpolated.
-#' @param ssh.file Name of the SSH layer. The SSH layer should be a polygon feature.
-#' @param reporting.file Name of the reporting layer. The reporting layer should be a polygon feature.
+#' @param sampling.file Path to the sampling layer. The sampling layer should be a point \code{sf} object that contains an attribute to be interpolated.
+#' @param ssh.file Path to the SSH layer. The SSH layer should be a polygon \code{sf} object.
+#' @param reporting.file Path to the reporting layer. The reporting layer should be a polygon \code{sf} object.
+#'
+#' @return A list of \code{sf} objects.
 #'
 #' @import sf tools
-#' @name load.data.shp
 #' @export
 #'
 #' @examples
@@ -26,6 +27,8 @@
 #' hs.data <- load.data.shp(sampling.file=hs.sampling.name,
 #'                          ssh.file=hs.ssh.name,
 #'                          reporting.file=hs.reporting.name)
+#'
+#' @name load.data.shp
 #'
 # ---- End of roxygen documentation ----
 

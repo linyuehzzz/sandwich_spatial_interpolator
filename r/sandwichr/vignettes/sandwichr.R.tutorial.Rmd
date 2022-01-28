@@ -104,10 +104,11 @@ The SSH-based spatial interpolation is performed using the `sandwich.model` func
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 head(hs.sw$object)
+summary(hs.sw)
 ```
 
 The interpolated values and the standard errors can be visualized using `plot.mean` and `plot.se()`.
-```{r fig.align="center", fig.width=4, fig.height=3}
+```{r fig.align="center", fig.width=8, fig.height=3}
 # Plot the estimated mean values and standard errors
 ggplot2::autoplot(object=hs.sw)
 ```
@@ -117,6 +118,7 @@ The confidence interval for the population mean in each reporting unit is comput
 # Calculate the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
+summary(hs.sw.ci)
 ```
 
 The lower and upper bounds of the confidence interval can be visualized using the `plot.ci` function.
@@ -197,6 +199,7 @@ The SSH-based spatial interpolation is performed using the `sandwich.model` func
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw$object)
+summary(bc.sw)
 ```
 
 The confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
@@ -204,6 +207,7 @@ The confidence interval for the population mean in each reporting unit is comput
 # Calculate the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
+summary(bc.sw.ci)
 ```
 
 

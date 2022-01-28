@@ -216,23 +216,93 @@ options(warn=-1)
   install.packages(&quot;dplyr&quot;)
 }
 
-library(&quot;devtools&quot;)
 devtools::install_github(repo=&quot;linyuehzzz/sandwich_spatial_interpolator&quot;,
                          subdir=&quot;r/sandwichr&quot;, build_vignettes=FALSE)
 </code></pre>
 
-<pre><code>## Skipping install of &#39;sandwichr&#39; from a github remote, the SHA1 (6455fdf0) has not changed since last install.
-##   Use `force = TRUE` to force installation
+<pre><code>## Downloading GitHub repo linyuehzzz/sandwich_spatial_interpolator@HEAD
+</code></pre>
+
+<pre><code>##   
+
+
+   checking for file &#39;C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION&#39; ...
+
+   checking for file &#39;C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION&#39; ... 
+
+v  checking for file &#39;C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION&#39;
+## 
+
+
+
+-  preparing &#39;sandwichr&#39;: (573ms)
+##    checking DESCRIPTION meta-information ...
+
+   checking DESCRIPTION meta-information ... 
+
+v  checking DESCRIPTION meta-information
+## 
+
+
+
+-  checking for LF line-endings in source and make files and shell scripts
+## 
+
+
+
+-  checking for empty or unneeded directories
+## 
+
+
+
+-  looking to see if a &#39;data/datalist&#39; file should be added
+## 
+
+
+
+-  building &#39;sandwichr_1.0.0.tar.gz&#39;
+## 
+
+
+## 
+</code></pre>
+
+<pre><code>## Installing package into &#39;C:/Users/10716/Documents/R/win-library/4.1&#39;
+## (as &#39;lib&#39; is unspecified)
 </code></pre>
 
 <pre><code class="r">library(sandwichr)
 library(sf)
-library(tools)
+</code></pre>
+
+<pre><code>## Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
+</code></pre>
+
+<pre><code class="r">library(tools)
 library(ggpubr)
-library(dplyr) 
+</code></pre>
 
+<pre><code>## Loading required package: ggplot2
+</code></pre>
 
-## Initializing the generator for pseudo random numbers
+<pre><code class="r">library(dplyr)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+</code></pre>
+
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code class="r">## Initializing the generator for pseudo random numbers
 set.seed(0)
 
 
@@ -241,11 +311,11 @@ set.seed(0)
 ####################################################################
 </code></pre>
 
-<pre><code class="r">hs.sampling.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.sampling.shapefile.shp&quot;, 
+<pre><code class="r">hs.sampling.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.sampling.shapefile.shp&quot;,
                                 package=&quot;sandwichr&quot;)
-hs.ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.ssh.shapefile.shp&quot;, 
+hs.ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.ssh.shapefile.shp&quot;,
                            package=&quot;sandwichr&quot;)
-hs.reporting.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.reporting.shapefile.shp&quot;, 
+hs.reporting.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.reporting.shapefile.shp&quot;,
                                  package=&quot;sandwichr&quot;)
 hs.sampling.name
 </code></pre>
@@ -265,7 +335,7 @@ hs.sampling.name
 <pre><code>## [1] &quot;C:/Users/10716/Documents/R/win-library/4.1/sandwichr/extdata/hs.reporting.shapefile.shp&quot;
 </code></pre>
 
-<pre><code class="r">hs.data &lt;- load.data.shp(sampling.file=hs.sampling.name, 
+<pre><code class="r">hs.data &lt;- load.data.shp(sampling.file=hs.sampling.name,
                          ssh.file=hs.ssh.name,
                          reporting.file=hs.reporting.name)
 # Sampling
@@ -299,13 +369,13 @@ head(hs.data[[2]])
 ## Bounding box:  xmin: 151114.4 ymin: 4106864 xmax: 228423.6 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 5 x 4
-##     STR  Area STR_1                                                                geometry
-##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                                                           &lt;POLYGON [m]&gt;
-## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161699.4 41381~
-## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190869.3 41236~
-## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211523.4 41239~
-## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211523.4 41239~
-## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173841 4156024~
+##     STR  Area STR_1                                                     geometry
+##   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;                                                &lt;POLYGON [m]&gt;
+## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161~
+## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190~
+## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211~
+## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211~
+## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173~
 </code></pre>
 
 <pre><code class="r"># Reporting
@@ -318,18 +388,18 @@ head(hs.data[[3]])
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 3
-##   CODE   Area                                                                      geometry
-##   &lt;chr&gt; &lt;dbl&gt;                                                                 &lt;POLYGON [m]&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 4150834, 15~
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 4151652, 19~
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 4151773, 1797~
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 4143000, 1718~
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 4147346, 20~
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 4143036, 1741~
+##   CODE   Area                                                           geometry
+##   &lt;chr&gt; &lt;dbl&gt;                                                      &lt;POLYGON [m]&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 ~
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 ~
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 41~
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 41~
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 ~
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 41~
 </code></pre>
 
 <pre><code class="r"># Inputing another candidate SSH layer for demonstration
-hs.ssh2.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.ssh2.shapefile.shp&quot;, 
+hs.ssh2.name &lt;- system.file(&quot;extdata&quot;, &quot;hs.ssh2.shapefile.shp&quot;,
                             package=&quot;sandwichr&quot;)
 hs.ssh2 &lt;- read_sf(dsn=dirname(hs.ssh2.name),
                    layer=file_path_sans_ext(basename(hs.ssh2.name)))
@@ -342,14 +412,14 @@ head(hs.ssh2)
 ## Bounding box:  xmin: 155065.4 ymin: 4106864 xmax: 223212.3 ymax: 4152157
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                                    geometry
-##      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;                               &lt;POLYGON [m]&gt;
-## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111509, 205122~
-## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 4122973, 1974~
-## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131364, 174257~
-## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 4150224, 1994~
-## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 4118458, 2172~
-## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151731, 179098~
+##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                         geometry
+##      &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;                    &lt;POLYGON [m]&gt;
+## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111~
+## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 41~
+## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131~
+## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 41~
+## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 41~
+## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151~
 </code></pre>
 
 <pre><code class="r"># Preparing the SSH layer(s) for evaluation
@@ -400,7 +470,7 @@ ssh.test(object=hs.join, y=&quot;Population&quot;, x=c(&quot;STR_1&quot;, &quot;
 
 <pre><code class="r"># Perform the SSH based spatial interpolation
 hs.sw &lt;- sandwich.model(object=hs.data, sampling.attr=&quot;Population&quot;, type=&quot;shp&quot;)
-head(hs.sw)
+head(hs.sw$object)
 </code></pre>
 
 <pre><code>## Simple feature collection with 6 features and 5 fields
@@ -409,19 +479,26 @@ head(hs.sw)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   CODE   Area                                                    geometry  mean    se    df
-##   &lt;chr&gt; &lt;dbl&gt;                                               &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 15~  211.  5.28    91
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 19~  287.  1.28    18
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 1794~  304.  1.21    90
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 1719~  178.  6.80    91
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 20~  225.  1.94    40
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 1739~  207.  5.46    91
+##   CODE   Area                                         geometry  mean    se    df
+##   &lt;chr&gt; &lt;dbl&gt;                                    &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 ~  211.  5.28    91
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 ~  287.  1.28    18
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 41~  304.  1.21    90
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 41~  178.  6.80    91
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 ~  225.  1.94    40
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 41~  207.  5.46    91
+</code></pre>
+
+<pre><code class="r">summary(hs.sw)
+</code></pre>
+
+<pre><code>##        Length Class Mode
+## object 6      sf    list
 </code></pre>
 
 <pre><code class="r"># Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci &lt;- sandwich.ci(object=hs.sw, level=.95)
-head(hs.sw.ci)
+head(hs.sw.ci$object$object)
 </code></pre>
 
 <pre><code>## Simple feature collection with 6 features and 7 fields
@@ -430,31 +507,33 @@ head(hs.sw.ci)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 8
-##   CODE   Area                                       geometry  mean    se    df ci.low ci.up
-##   &lt;chr&gt; &lt;dbl&gt;                                  &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.~  211.  5.28    91   201.  222.
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.~  287.  1.28    18   284.  289.
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 ~  304.  1.21    90   301.  306.
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 ~  178.  6.80    91   165.  192.
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.~  225.  1.94    40   221.  229.
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 ~  207.  5.46    91   196.  218.
+##   CODE   Area                            geometry  mean    se    df ci.low ci.up
+##   &lt;chr&gt; &lt;dbl&gt;                       &lt;POLYGON [m]&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1 02    427.  ((153690.1 4149820, 153647.4 41499~  211.  5.28    91   201.  222.
+## 2 06    143.  ((191225.5 4151326, 191387.6 41513~  287.  1.28    18   284.  289.
+## 3 03    373.  ((178892 4151731, 179098.2 4151712~  304.  1.21    90   301.  306.
+## 4 05    252.  ((172768 4143250, 172542.9 4143207~  178.  6.80    91   165.  192.
+## 5 10     73.7 ((207615.6 4147664, 207785.4 41474~  225.  1.94    40   221.  229.
+## 6 01    186.  ((172768 4143250, 173154.8 4143172~  207.  5.46    91   196.  218.
 </code></pre>
 
-<pre><code class="r"># Plotting 
-sandwich.plot.mean(object=hs.sw)
+<pre><code class="r">summary(hs.sw.ci)
 </code></pre>
 
-<p><img src="data:image/png;base64,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" alt="plot of chunk 4.2.3 Running the Sandwich model"/></p>
-
-<pre><code class="r">sandwich.plot.se(hs.sw)
+<pre><code>##        Length Class          Mode
+## object 1      sandwich.model list
 </code></pre>
 
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAABj1BMVEUAAAAAADoAAGYAAP8AOpAAZrYVBv8jDv8tFP81GP86AAA6ADo6AGY6Ojo6OpA6ZrY6kJA6kNs8Hf9BIf9HJf9MKP9RLP9VL/9aM/9eNf9iOf9lO/9mAABmADpmAGZmOpBmZgBmZjpmZrZmkNtmtv9pP/9sQf9wRf9zR/93Sv95Tf97T/99UP9/U/+DVv+EV/+FWP+IW/+KXv+OYf+QOgCQOjqQOmaQY/+QkDqQ2/+TZv+VaP+Ya/+abv+dcf+fc/+hdv+jeP+mfP+ofv+pqamqgf+sg/+vhv+xif+zjP+1jv+2ZgC2Zjq2Zma2kJC2//+3kP+5k/+7lf+9mf+/m//Bnv/DoP/Fo//Hpv/Jqf/Lq//Nrv/OsP/Rs//Stv/Tt//Uuf/Wu//Yvv/ZwP/bkDrbxP/b25Db/7bb///dxv/fyf/gy//izv/k0f/m1P/n1v/o1//p2f/r3P/s3//u4f/w5P/x5//z6v/07P/27//38v/59f/79//8+v/9/P/+/f//tmb/25D//7b//9v///8Upvv8AAAACXBIWXMAAAsSAAALEgHS3X78AAAUXklEQVR4nO3dh5/cRhnG8bOdUAwxHL0EQsBU0wnF9PJSnWB6B1MOMN0Y0yH47P3DUdtdaTQaTXlnXknv8/uAc6fV7c3oe9q+2pMdUtmJ9ACQTIBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pW4A/Ozk5ubrbffW2ecLT18ffnl8+aVdX3gbgz6/c3j384PUHT/jBXxmtprItwL+g8b1x8mj1/+qf88cunzxyu/r64pPX2yVnj1282X57gK8WfaRZ2p0sOgOJNgC/e/B4zVft8ecvqnf9irb693615HXX2yVnj+7ab3fdRf3Fm9WidunuxtXqC31tAb7uxml9UV9d21+osatL9bOrzWV7s+TsdNd9e9zjT3fd0vun1Rf62gD8/epyvdpvK/hKsN7jG/hqZ6739dPu3/bbnQHf7fGAX2f1rfrT6gL/kV9dPrnw5NUWvrp2v/DY9fNmSS3bfLvb36o/beG7mwCAR2oCvNIArzTAKw3wSgO80gCvNMArDfBKA7zSAK80wCsN8EoDvNIArzTAKw3wSgO80gCvNMArDfBKA7zS8sNTr4nTso8BjcoOT/SeY0Plw0kW/qk/FcRUfvj3GB33f/ME20/RxNmixPjgp/bQkfxkZPkhyxkijtjg6bA/W5eHyZNlGWKNCZ4mqULgDz8K+OyxwBtX19Q7Icj98KOAzx4H/PTttzD1ozPgs8cAH8E7Jw/47KXD87q3FxfmHwJiLxk+5vI86O+AYZJoXDo83FdZKnxmd8DnCvBKS4TP7Q74XAFeadHwsY/QAH4ZRcIXIAd81uLgS7EDPlsx8MV2d8DnKxy+JDvgsxUMX5Qd8NkKhS/sDvhcBcKXdgd8rpYOD/lMhcGXdwd8poLg4b6dQuAF3AGfq4XDU655qy8AHjv8lvKHh/um8oaXcAd8vjzhyz5AD/j8+cELuQM+X17wQuyAz5gPvJg74PO1bHjIZ8sDXtC9fidd9k2gs6XDY6fPFOCVtnx4yGcJ8EpbATzkcwR4pc3Di7sDPkdrgId8hjzhpZ6lAXyuvK7jiYQfvsu5BZQeItsHnnbSj9uyT7t3DP1nn31Wo73vK3Ak4Yl5zq32MO7fsfgUwo/VNcoDHvDOtgNvd1cnD/ijPGm6ha8OftK9lm/5VaQN3uF+3PE1BHilV/a+b6gQdGeVB3yX5xsqRN0Z5T3cAd8L8Jtr2e+kAXy2AA/46QC/vQCv0x3wgHcE+O21jrtzbPKA37dZePsTbYDftxL44SdUtw2+G528/9KYCNy7VvFYfSPfIA6Iu9eBtt/Q6E/gcEL/O8B3rQa+zlD1fQK1/8cC+K51wcfOsvtBy6trx/DRv2RdreH5+EMUPc3ja+g96KN/y5pSAt9NAvCHVgUPeb4AHyFvvfuwspZ9EGMzSp1u8C5vu5vYncm66ZXBh8qTc1n6cOSKPV59mc+S5ocPkyf3MobhiBUHT3Sprjg9MczYU95y949GP84xHqEC4Htd2rfGDxz1vIU38dcw/lNYZwHwlyzpgrf9KXCMSKJE+MLyxDJnVnmWEQnkf6ve6r5KeE55phGVLxW+rDzxTBq7fMAjdxPuq4THLr8yeGKbNp8835jK5vspVFPu2uH5hlQ4v5dXT7KXlSe+eXPJMw6pbF4fRuRyL/jwHTHOW/0u73NkS6d7Q9+1Ivh8u/xKHtOZhXdcvdv+Ao5K7H8JxDpxNnhqt9LhfO+tQ34OPoB9uPf3vtswPNXOVffu7f8A7lVfsg40U274kN3d9cewUfiG+VA9vmbBKnZ5JzwLOxs9cc6bwX3Ifu9eu+dvYo9ng2ehJ8Zpp7ub7Mauv/jc8Izyl5Jv+hPjtFPhHexbgOeVP/wBrB/exb4JeM4L+z59FD5xznt/+ZMBnnWc2Sq/xx/wReEPM8Qebyube2cftO9TjvkD3l5W+c5fFD5O3g2/CvnZR+7y0/vKU54tkEE+00hZ8/jAwfzynvSUZQso3eWXAO9LT3k2QYz8DPwKHrVdBrzf5T3l2QQ54Je/03M8H68JvrvrD3hl8HRv/zSsAvjFyFOmbeAv7wG+Evc1wVO2jeArvyH35cDPy1O+reB7iBTAl5bPfdAZL3l/923AF3J3ylPu7eBz6EN/d8AzyVP27eBxrNMAd8CHqBNdm3i2jrJvBm745T90t5hH7uha1/i5Wsq/Gebhw9yXv9PPv6GijPu1YVQaflY+GH7h8txvqIh0N+Gv9d+TU2I7ZIAXkh9tXPtq8i/EuDTe34f7PLFvG+tM+eFl5J9jZl9N8KVXnvDEv22sU80AL3IT77lm9tWWAD++oO/JE/+msU81B7zETv88M/tqC4C3u3fwxL9lpubqpl8N/PPN7KvJw9vZO3ni3zCO2WaALy//EjP7alKvq593Lw+fRb7sDKpeamZfbe5W/eCd7mXhK3li3ywz090A/MvM7Kv5PGR7eGYsg73DvXkQj217+OWQXwv8y83sq/kfy7aNecd3ukvYs8uXHX7VK8zaxQ+fOnnkdm+1UPg6PvlZ98aeYWsETG4Zu3z8H/wrzdrFZ1fr/x2LgWeT93IvDD8tXxKe7ty5E/WDTa86dlj2zBvS93gueD/3+uI+ehNEzU4evnaPhX+1Wbv4xtXd/dPealHwPPK+7sXppeWpcY+Ff41Zu/iZmxzwLPIB8IXpJ+QLwbfsFXzoD7a91qxdXF3B37/aW20t8EWv6X3g94fUYIffu8fu8282axdz3KpvhlfYfQHyfWOiW12z9oHj7rnH7fRvMbOvFgufLr9keKt8D/jAvrd38AeNmwbuUTv9W83sqwF+YnoOdxq6H/jT4U32mJ3+bWb21aLhU+VD3cXvzvfgbe41fSq8xT2c/u1m9tXi4RPllw5vyO+PVOxwt+70IY/A2d1D6d9hZl9NCj7YvTj84ENkq19Ot+qL+PoPYBJ+vNOHPAI36R5G/04z+2oJ8Eny4fBi8t1O6/Keku8eiema+W0O95Bbee8ys6+WAp8gH+EuBH/w8oMf3L2jALvR7flY+Xeb2VcDvGt+/d3UE763148oXTOYc/eWf6+ZfTUZ+Bh3AXhjtt7w3ccV+NgdrgPm4T2v6N9n1i5++NTJheu91UTgV+keAN9cq3vttb0bAfPwfvv8+83axQ/eOFwN8P6z9Yd37bWDedB+qQe7/9X8B44dlp1f5nmsvh12QfeNwN9pL7EDLuBD4T9s1i6+f7o7f1NvNYG7c3Hu64H3uJnWvtDC8wL++FNem+CjZodTOJ6Pb7cE4OPgI/J/BPBjZu1ipufjmw1R1F1cnuuSPo7df5wfN2sXV7fqH+2vBnjv6frC3wq6AGdm3+0+YWZfrfizc9Hu0vL+8Mz7fOC0P2lmX600/MRbY7cFzyofOutPmdlXK/pCjPpmbLy7rHyIO6t86KQ/bWZfreRr7pLQtcIHz/kzZvbVCr7KNtm9/Gsxer8wCF7QffdZM/tq5d5QsTr35nUXh29kdviIKX/OzL5asbdQpbuXfrllS7hvLe67z5vZV1sRfMxWiC1QOo973FtpvmC2P+H8isjbpFcFn6DOBx853y+adcsfPpX67FzkHXi4F3Gv+9Kx48KzFz+RBl/+EbvC8CmX8guA/7JZu/j8yq8T4YX2+NjtED69NHYu+Oj5fsWsXXx2cnKS+LTstuGT3Znko+f7NbP9CQ9S93iRG3fj7ZDpU2oY4Dnk46f2dbP9CenwAnfnzO2wf+US+4cUcbhzyMdP6htm9tXWAd/fDGNrTvr1w3/TzL5auYMfpcgfN4MdmY2ex51BPn5C3zKzrxYHX3qXP2wGmh7S5ElBM2OCT5aPn823zeyrRT5JE3OAy5SXYHQX7+QcVNRUhmfB5S4I/x0z+2oFX4GT+tqb+febzpy+X2t6vS3Af9fMvlrBF1sGHuVqBO8zJM9VptZbDny8/PfM7KuVgw90779Ii/zHNLcqDf4zOnUx7vHw3zezr1buDRVhxzOsz57633kPynWNcHyzu/0nl+MeD/8DM/tqxeCD3XcNRTB8+3PWhf03u49P47uYl4X/oVm7mPENFUHwsYexrO1pcgTTQyND33zMx1idEZ3HPR7+R2bt4vunu6e53h8fAJ9y+NK4e+i038etD+sav2FD7nU/PtZb+vBDN3vflXmbdOA9OTJ+TcoQ7T9MxkpLc0+A/4lZt/zB42wX9RW838M4ae4sD824z3FL8D81O5zC9jbp5na3j3zqcarHS1Izz5FRXth99zOzdvEZywcV7DdX45TdPYP86Az57slJw//crF3Mddjydmtd85KPuSdn/KKUUfqd4WKel0t03/3CzL4aA/ycfLr7mnZ5cfhfmtlX44C/5ryJx+G+omt58ftyvzGzr8YC79rpQ9xdD7amjNPnHJngOa7i0+b6WzP7akzw0/IhnzXl+lUp45w4y8F5csGnuyfC/87MvhoX/NTFPZN7FvnBeS7noj5xpr83s6/GBt+9TCbaffZVFikD9TjTzcD/wcy+GiN86xfrPv/LUkY6eaaHFiOfOs8/mtlX44YfyHO654Hvnf1W4P9k1i5+8PjJRb4naayGB3a26/fut6UM1ePsNwL/Z7N2cf1p0myHNJ1ADGb3fKmF10rxs1kGPMck7x7rL2Y7pOmkYvBhzcjvF8aP1X2+vC/ASZNPnuRfzPYnMLx3ronhoDaB8JnkmV+GIQ0/+gS0bvmD1/ev4iXhqZfv74wereM8md2l4f9q1i4+f+HAPeHIlqnve6aYXxo7WsdZcrsnyidP8W9m7eIb6QdGaGN/v7vfb40d7vQ5bg3+72b21aIPaSrinuHpWX73W2EfPMEN/w8z+2qxb5qUcWeXDzkWufdNf7p7N14+eYL/NLOvFnUoFMkjWCX8qOXMAtCbu8XuH+huqTYrRtKnT+9fZvbVYg5+lMqedCCj/s+G3ikYnZev+/EBEcdOT73VYvf5lC3T9W8z+2pl4dOcul/f/Wfwjqios4xwb+iPP9d76GfIHimftmXa/mNmXy3iAIcJ5GlT6n7/bmd5q3zEmftfzt81TYd/EYfLd2OtYPrgKdj6r5l9tWB4+U8LnDIOtY/b4Y+X9zbsJPqw4U/1PzP7akXgsxyQzjq4gF8U8KlSNtJ59ma94u6+FbioL8bejI7sX1vWTIH3bUvwQfJcV+whw6PuP+SmHz0nN3lHPQH+bsCDOY6xZijn/fjy6PvxHcUdBzraw9TcxzvqFvoU+IC9fnKkWYp85M7LnXekQeOb+HqwTt+m96UU/NQ4MxX7KVTz9MQ6zoTIvnTSidndV94+zGzle3aOGEeZFtmWTXOal/aAHzYjT3xjTI5GC9yYxAvvJz8aZN5SXnPnoie2EXJEw+88Hnlhhfd6JIesI89W4hExpl5VSUzD44r6X/tR7fEZ3L3oaWLomUqCb7K+qyJ9YMwd79b5Q3aPzLLAjy7vu+erpNwZ4LuLfFq0++74rF4QFp+7Ib8/2z09ld4cDPDdU6Sdv8BjdZ5R+28YFp97T37wQD/HU9URscB3Lde8jXamO6urhzy17OMTym8MTvjFV+9pvefV2kfzC9Nbn7kX2Baq4Hfd5f3+cfl2SVF5aySwIbTBd9Fxc8vDk8QWUApfcdPxS8DrafBSTYXuauH7ycKTzKQBLwwvdQ8Y8LLwJDVpwIvCk9ikAS8JT3KTBjzg9SYlT4JzBnydjDxJThnwTSLyJDljwLcJyJPohAHfVh6eZCcM+K7S8iQ8X8B3AV5rhV+KIz1dwO8DvNZ0yQP+WFF5Ep4s4HuVlCfhuQK+X7kXW5P0VAE/CPBayyyfehBWvgA/LC/8AsD3AX5YVniSnl0vwA8DvNIAr7Sc8CQ9uX6AH6Rmhwf8oKz7O0nPbhDg+2WBX8o992GA78XuvkTxLsD34oeXntF0gO/FDU/SE3IE+H7M8iQ9H0eAH8QrT9LTcQT4QYDXGuuRLKUn4wrwRowvwiHpubgCvBnglcYGT9IzcQZ4M8ArDfBaY/tICumJOAP8OCZ5kp6HM8BbIuMT4c3vAb/pyBAMpSfJwc8G+Ola6ejDXNPkGS8hwLsyX0exIXnABxX24WXSo3UF+LBCruhJerCuAB+atzxJj9QZ4IPz3elJeqDOAB+R38cSS4/SHeBj8pEn6UG6A3xUHvIkPUZ3gI9rXp6kh+gO8JHNypP0CN0BPraVywM+ujl5kh6gM8DHN3OHnqTH5wzwKbnkl/o22S7AJzUtT9JDmwnwSQFea3b5xR4O4RjgE7PJL58d8OlZ5El6TB4BPjXAa20sT9JD8gjw6a1SHvDpAV5rI3mSHtF8gGfIhCfpAXkEeI6Mp2tIejweAZ6n47sql3sU00GAZ6t7q530MDwDPF+AVxrglUYrcgc8Y4BXGq3IHfCcEeB1too78F2AVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JUGeKUBXmmAVxrglQZ4pQFeaYBXGuCVBnilAV5pgFca4JX2f8uL1rk2yAoKAAAAAElFTkSuQmCC" alt="plot of chunk 4.2.3 Running the Sandwich model"/></p>
-
-<pre><code class="r">sandwich.plot.ci(hs.sw.ci)
+<pre><code class="r"># Plotting
+ggplot2::autoplot(object=hs.sw)
 </code></pre>
 
-<p><img src="data:image/png;base64,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" alt="plot of chunk 4.2.3 Running the Sandwich model"/></p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk 4.2.3 Running the Sandwich model"/></p>
+
+<pre><code class="r">ggplot2::autoplot(object=hs.sw.ci)
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAABuVBMVEUAAAAAADoAAGYAOpAAZrY6AAA6ADo6AGY6Ojo6OpA6ZmY6ZpA6ZrY6kNtZWVlmAABmADpmAGZmOpBmZjpmZmZmZpBmZrZmkNtmtv+QOgCQOjqQOmaQZmaQZpCQtpCQ27aQ2/+2ZgC2Zjq2kJC2tv+22/+2/7a2///bkDrbkGbb/9vb////AAD/DgT/GAj/GQj/GQn/IQ3/JxH/LRX/MRj/Nhz/Oh//PiL/PyP/QiX/Rin/Siv/Ti7/UDH/VDT/Vzf/Wjr/XTz/YD//Y0L/ZkX/aUf/bEr/bk3/cVD/dFL/d1X/eVj/fFv/fl3/gWD/g2P/hmb/iGj/i2v/jW7/kHH/knP/lXb/lnj/l3n/mnz/nH7/noL/n4P/oIT/oob/pIj/pYr/p4z/qo//rJL/rpT/rpX/sJj/s5v/tZ3/tmb/uKH/uqP/vKb/vqn/waz/w6//xbL/xrL/x7T/x7X/yrj/zLr/zr3/zr7/0MD/08T/1cb/1sj/18n/2cz/25D/27b/3M//3tL/4NX/4tj/5dv/597/6eH/6+T/7uf/8Or/8u7/9PD/9/T/+fb/+/r//fz//7b//9v///9mXVjrAAAACXBIWXMAAAsSAAALEgHS3X78AAAT7klEQVR4nO2dh3vdVh2Gb9qUphArNAXqlOWEYRcHEvbeq+xNGYEyAsWsEgLBEDCr7OXoL0bS0Tw663c0ru79vvfJYzu6Gue7r86QfHS9Sgkkq3UXgKwHigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UHriTx5YrXa6iy6fefnD+/kPV/bsOzpVq2S84tDx+smjJw8ZX28fXy9AzZW9I9tLYzB99vP5Lnddx58ruy7+9Pl76b1LnaI1sYLCn150hL/34n2f+Ozle49ZDnRlL9uBa+tBzJDdI37G7Lr4g/KsurxanU1Pzj2wuv/w8uq+V2clz749spcv3ymXpwer4lV1jmbhqtXPqrUOzuUbZGGKfanwWfJSfL4wS5K92dm7Va2/X4Z/6WFZgPN54PJwqgAH1rdtMDNkV+JPnnshP0LxNV1T9p54te+js0UBHzrMTsCs2Nm/bEkmKV9+UC7Pi3lw7my5TR5erX7xUK11cDbfTbb2+VTtJd/vTileHeBg9+jc7tFOvX5aNnf37ZcFUOGL/aoCqPduGmbIXop/cL/+uq7suviiH/n9q/I8Rzvq2Cp8vuTKXnaiZyeoWl6sqhaU4dXqFw/VwqwCnT6c15fsv2fK8NlelPjqAI+/7Hy1V1XhipfzU6IpgPqqCjCl+Bmy54VXgdQRjnbWld3cx++0T7r6rM9PPVXA6mRMj+qxSDu8WisPc/CCnfy7rcbfe+x5r3nJC1vr1+HrapcVqHyviwIUG07E9NnzH/KV2zV+Tdlto/pWN6PCZ0vOnCv6uVX5puRn8337xYJO+AtF57fazcOcPGcv3+OZR3abfi5vz86qA6RZE3dZHU2tn1Yvq9fvXcr7tvJwqgAT9vHTZ89OlnwLvY9fR/aZr+MHD0ynHNVPTFN01WSLG+5JR/VTc/LosO0nvY6fmDp7pPhJr+MJCBQPCsWDQvGgUDwoFA8KxYNC8aBQPCgUDwrFgyISnyian5Jy6SRFWxbblj1AfFKnS24WZP+/Wf5ULtzU9F5a2W8UZP+/Uf5ULtzQ7H7xiVKd1t7bJNstPlGq09p7m2SrxTeVOzF4z5dur/imcicG7/nS7RVvtN1Vf3NbxRttd9Xf2F7xPu9NX791eL03ff0G4hKfmJt3CPGJuXmHEB8ofSvFB0rfRvGhlX0bxYdW9u0UL/C+deIF3rdMvKi+b5l4UX3fOvEi71smXuR9u8Szwm+7d7N4ofetEi/0vlXihdq3yrxQ++aaN4iX1vdtEi+t79slXux9e8zLvW+q+ZHEb4v5GPGbad4oPkL9Robvk9yIUL+R2Y19/BTDu/aEpeWSZx9f/BKzmy/nxq/xSfJWxaLSG5igxi8y+0ziq+hZ+IWd+Trji19m9nnEN9lV/kmijMPo4heaneI1kMVH3MHxmO+GX1RfpxFxB8djfqHZx7llu+gaf++S+vCw8oub8e/gbFKNjxEvOOtnzn60oz6KsvgwQfsnCCuixC83u52x+vib1cNF9dMn7WvX2cJfbWgtvffi/cf3shOg+OLZQ2yVX3P2qzplcmtrN5r44tmK7IDF1/Lnq8X/Zwv/Wp1y+emFs/mnQx7tXJlI/I3FZre3duOJv5n0zroq/kzjm9fp1K+UlX2qGp+ZX3f2bvzWUltrN6J4q/ksvyF9/RaMdlfj9Tpq8cFuFjm0j48UbzW/5uz21s4y9apsvEcTb0hfP3U8Wj14g45anPVu9x+Gjuor8+KJOMvMnlpbO9ucu4K7wql31vD98758O8rv45z3b9SJ2kuZ/Rnh1LtlZre3dhbxd0tks+vDw+uMEv5NOlF7SZ4pkc2uX2Z2e2s3l3hP+lHCv1knai/ji19kdvPg7m6MeGf2OcK/RSdmJ7V3kfjNy26ciHG3IRE8MusM705f3ewY9Ca8TUe+i6TxnpkXPDK7cdn74tva2/Z9p0ASHz5JniyGudm3IeHfriPeQ1t7277vFNjA7D3xBu/dMyCywtvDZ9EVycDw79CR7sDgvXsGRFb4JWbvi3ead8j3nfRJ7y5WFf7JhkHh36kj3UHiNO+Qv4HZg5r6MPm+075/L2Pk8O/SEe/BJ94qf/OyG8SHmC/ki8Wbm7xO+CHp360j3oO3ytfyxeKXlt00qg8T3zM/RvhB5/17dOS7CBTfM7952QeI16/yo8LnDedY4d+rI99FqHj9Kn/zshtn4Ewmvpe+G3xge/c+nYh9BJsXi19Y9tHE+y5lzen74eOzp+/XidhHlPhNzD6kqW/f1AmLrofvZR+U/gM68l2Ee2/d1NnI7PGj+kz80znK/GjhB6T/oI54D6Gj+kz8UznK/EZml925M3jPzAu8d9Obsg/o6j6kI92BYGj3lCIReF9W9njxSSU+Mx+evXvaW9JHhv+wjnQHgob+qdr8hmY33LJVk29C63vR2Idn797CGjf8R3TU4tMLq/v2711andnzTb2qJt+E1veisV90dju2T7b0uW95l6r3hzen974nH9VRiw9204Od0xelxWRj72RLlT3Uu1T93NntuD7EOFx8pj7qvDeHN5/2yZ2A2vBEQ3vx0e7JA6v7D0OmV5cHCxefqZ8++7Ev+xM6voSR4nXvskqfdE/7kDtYSXLnjm/k8zGd6oXTi4eZ8JNHQx6oKA8n8C6r9FHZj48js9u7Oefn1UvEy+p8lT0poqeqe3WEz717zX9cp1x++vB+/i3sgYrqgBLxsjovz3587DVvyW7v5px/ocJq3uBdJP5qPcG4Nf+gNSmhV5A7Jc74n9BRi08e3FfzjIMeqKgPKfAuEi/Oflziq/S94ApLN+f+0yQ284PF5+mzBjKfctQ+XN36dZ8wqb3n6u2l/aSOWnx5tVrthD9QUR90KvHC7McN8uz2bi5KvMm7UPxV9ZShfrx8Alq3bufvz5029hP/UzrObD4s4k3eheId2bt1O89+3Eae3drNxYg3epeKV+9A74BJS3BeJbIFSVe8vc5/WseZzYdZvNG7VLwte0uwyn6cdMXb67wlu72bW5r4bt1OdOnqfLDwGR1nNh/zi+/W7USXrs4HWXZ7NxcxuDN7n0C8CdcA57M6rmw+JN4nEG9i1Oxi8UliER9h3nTN6tbuHNh+TscX3pndpD2xiI8wb8ru1j5udul1vFW79HrONL5JveKdWT6v4wvvym70btEuvZ6zZY+u7xHZpXfu7N6Fd23TxNRj9fv0cO/pF3R84R3ZBe28VLw9e7x3eXa7eFEHL/Nub7WGeE+/qOMLb88u6eBl3h3ZB3iXZx9NvCS74x0f4D39ko5vA3sxZOJHyj7Auzz7aE19Up3QOZHnfOo07w3/ZR3fBo5ixIgfnH2AeHH2UcVnsa8VOOM7Qzg6eW/4r+j4NnAUQyw+y369YEj2ePHi7C7xprkY1mu5pLZemO+f6mHhHVXeG/6rOr4NnNnDxRfZr9cMyB4vXpxdeh1v+n1s8eVal26bl50TSfOz85ADmvqv6fg2cBYkSHyxqCW9rPPd7NdDsw9o6sXZheINl/HFxUlPvHKfXK07gKRM7sk+RPzXdXwbOEvS926YgZFn74lX7qvsdRvgzz5AvDi78F69ybsqdF98Jvta0wMkAU3dwFH9N3R8G7iL4q/wVfa++Ez29aYHCMxu9+4XL87uEa918zbv2Zom8Z2TIKCtc3v3hv+mjm8DX/Yg79maJvGdkyAou8v7+Nk94jOzng6+XnUM84MqfPotHe8WzrJkZj0dfL3qGOYHVXh5dr/4xFXfmxJ5xYc09kN6+DT9to5aXE04lM7AyYfrrvreyu4TH9LYD+nhrdnteMUXV2qWgV2nQAHmLb+caO1jQEOfpt/RUYuLCYfBH2LclKW8UrMM7LrZ/eb92Qc09NbsdgLEP63ae3v/Xq0cYN43sB1S4XO+29BefLQb/LHlTVkqw87+vVo5wLwv+5AK3w7ej2/CfTnXPB5n+jW8WHyh3lkcq/mQ8N/TqV44vXgY/IcKmuxNm268kOuu7RVfqHcfcYh4a3Ybzt/HO34VZzp/A6q8rziDxH9fp1yeTziU1njX796N2f3evYccIt6W3Yrzlq3du3mDwd7tN3BCwveKqRYXEw6FfbzLu3mDwd7tN3AGZLcPbB2/lrVqt3gvzXdv2nfb+V7U7hTyjFtm80Fd/A901OKIefWuKRe2TaqO3NbO+7PfNpsfkt0+sLWKN9f33nx/cxqj+n70WxlJ9ceb1H/zBbFDux/qBG1ljGFt4kOyB9T3zHJGK/vt22pBpPccS3DLwNYuXlLVmzzNT37xtyrT1U8284GfE/EjnaCtTDEkVb3eqJXdL/52Zbr6yWZ+aHbbwNbR1PeehJZ9Tkf5NFB7QF9RrXDLTM984HF/rCMprlb2fm2Xbd/9Va0h+20zPfMDs1sHtuGDO1Hy1l5q8Y3Y8hWL91u9fj7w0D/RiStxUbZEVNtte6nFN2LLVyzeb/f6+WHZ7QPbwOv4aO+1+bbmsjO0itfrfOCxf6oTW+SidMlg77X5tuYyu1W8XueHZY98kiZtbtsM+NTFvLnXm/VmLOc0n68W3MWnvd+gRxdZFbu+dzcke97O62atDX3bfL5acBcvz+4Wn9bdVdjhbbu4Vg7gO25d4gv1rWF/ED/TGVJoVfARsl8vB/Adty7xhfrWsD8IcXav+DFQF2u+Wt5TX34LPszPdaZLFI66WPPV8p768lvwYcTZZxFfoK5ZJeal4n+hM2EaGSq7xLxUvDj7fOIL5OIFLe0vdSYMEoFc/JTZ5xUvr/GSHvZXOtMFiUBe4yfNvvQaLxlZ9e52ThYjCrl4wc7F2ecWLzQvGlH/WmeqFHFIq/y02WcWL6zzsiup3+hMFCEa2cBetGtx9m0S/1udiSJEM6F4cfbZxYvMy8L/TmeiBPFIzE+cfQ3iw80Lb5r9QWeiBPEIuvmps88vPrTKy2+W/lFnmvIPIVD8DNkXKz7iDvmfdKoXDnbToD9UMD1h4sfMbmObxP9Zp1x+ebWbSv5QwYRMJt6W3coCxQ/5ldizDfWy01dmNV74hwqmwic+OvuzOr4NFjiqj/416F90qhfyD3OV/aGCifBW+PGz21hijY/d8V91qhcOivZd+AjVJHhrfOyOrdltrEG8x3z8vIe/6VQv5LPLpX+oYCLc5ifIbmObxP9dp3pBjeqFj0lPw1TiPdllf5NmKjzT7aL3+w+dEcs8Fp7pdtH7tWW3XtGsQ3xaTsIyT8WKD/9PnRGLPBrlJCzzVKxB0/tMwe1XNGsRn5OUf4BpRPH/0hmvtONSZR9RvDW77YpmbeJL+ubjw/9bZ8RyTkHf/ATZbVc06xbfG+oNmM38H50RSzkNvRn30XuyZrdd0axfvGZ+QDf3X53xyjgVyUgV3p7ddkWzAPGjmf+fzohlnIqxzIuzL0F81/ygke3mkYxU5aUsQnzb/LAnljaQlvk5sy9DfGMeznvL/KzZFyI+FT8ot0WIH5Qbg6WJRzSfrKHCL0Z8dScHUXx1JwdTfKqepF53KdaDepJ61kMuR3ze3IN6T/PmfubsixKP633+7BS/DKDFkxmheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB4XiQaF4UCgeFIoHheJBoXhQKB4UigeF4kGheFAoHhSKB+X/v93NUqA8JdcAAAAASUVORK5CYII=" alt="plot of chunk 4.2.3 Running the Sandwich model"/></p>
 
 <pre><code class="r">hs.cv &lt;- sandwich.cv(object=hs.data, sampling.attr=&quot;Population&quot;, k=5, type=&quot;shp&quot;)
 hs.cv
@@ -468,12 +547,23 @@ hs.cv
 ####################################################################
 </code></pre>
 
-<pre><code class="r">bc.sampling_ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;bc_sampling_ssh.csv&quot;, 
+<pre><code class="r">bc.sampling_ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;bc_sampling_ssh.csv&quot;,
                                     package=&quot;sandwichr&quot;)
-bc.reporting_ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;bc_reporting_ssh.csv&quot;, 
+bc.reporting_ssh.name &lt;- system.file(&quot;extdata&quot;, &quot;bc_reporting_ssh.csv&quot;,
                                      package=&quot;sandwichr&quot;)
+bc.sampling_ssh.name
+</code></pre>
 
-bc.data &lt;- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name, 
+<pre><code>## [1] &quot;C:/Users/10716/Documents/R/win-library/4.1/sandwichr/extdata/bc_sampling_ssh.csv&quot;
+</code></pre>
+
+<pre><code class="r">bc.reporting_ssh.name
+</code></pre>
+
+<pre><code>## [1] &quot;C:/Users/10716/Documents/R/win-library/4.1/sandwichr/extdata/bc_reporting_ssh.csv&quot;
+</code></pre>
+
+<pre><code class="r">bc.data &lt;- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
 head(bc.data[[1]])    # Sampling-SSH
@@ -522,22 +612,22 @@ ssh.test(object=bc.join, y=&quot;Incidence&quot;, x=&quot;SSHID&quot;, test=&quo
 ## SSHID   0.5165114 7.219864e-11
 </code></pre>
 
-<pre><code class="r"># Visualizing urban-rural disparities  
-p &lt;- ggerrorplot(bc.data[[1]], x=&quot;SSHID&quot;, y=&quot;Incidence&quot;, 
+<pre><code class="r"># Visualizing urban-rural disparities
+p &lt;- ggerrorplot(bc.data[[1]], x=&quot;SSHID&quot;, y=&quot;Incidence&quot;,
                 desc_stat=&quot;mean_sd&quot;, color=&quot;black&quot;,
                 add=&quot;violin&quot;, add.params=list(color = &quot;darkgray&quot;)
 )
 
-p + scale_x_discrete(labels=c(&quot;1&quot;=&quot;Urban&quot;, &quot;2&quot;=&quot;Rural&quot;)) + 
+p + scale_x_discrete(labels=c(&quot;1&quot;=&quot;Urban&quot;, &quot;2&quot;=&quot;Rural&quot;)) +
   theme(axis.title.x=element_blank()) + labs(y=&quot;Breast Cancer Incidence\n(Rate per 100,000)&quot;)
 </code></pre>
 
 <p><img src="figure/4.3.2%20Selecting%20SSH%20layers(s" alt="plot of chunk 4.3.2 Selecting SSH layers(s)"/>-1.png)</p>
 
-<pre><code class="r">bc.data[[1]] %&gt;%                                        
-  group_by(SSHID) %&gt;%                         
-  summarise_at(vars(Incidence),              
-               list(name = mean))               
+<pre><code class="r">bc.data[[1]] %&gt;%
+  group_by(SSHID) %&gt;%
+  summarise_at(vars(Incidence),
+               list(name = mean))
 </code></pre>
 
 <pre><code>## # A tibble: 2 x 2
@@ -548,9 +638,9 @@ p + scale_x_discrete(labels=c(&quot;1&quot;=&quot;Urban&quot;, &quot;2&quot;=&qu
 </code></pre>
 
 <pre><code class="r"># Performing the SSH based spatial interpolation
-bc.sw &lt;- sandwich.model(object=bc.data, sampling.attr=&quot;Incidence&quot;, type=&quot;txt&quot;, 
+bc.sw &lt;- sandwich.model(object=bc.data, sampling.attr=&quot;Incidence&quot;, type=&quot;txt&quot;,
                         ssh.id.col=&quot;SSHID&quot;, ssh.weights=list(c(1,2), c(&quot;W1&quot;,&quot;W2&quot;)))
-head(bc.sw)
+head(bc.sw$object)
 </code></pre>
 
 <pre><code>##   GBCODE        W1        W2     mean        se  df
@@ -562,9 +652,16 @@ head(bc.sw)
 ## 6 110226 0.5245597 0.4754403 24.89360 0.6552986 240
 </code></pre>
 
+<pre><code class="r">summary(bc.sw)
+</code></pre>
+
+<pre><code>##        Length Class      Mode
+## object 6      data.frame list
+</code></pre>
+
 <pre><code class="r"># Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci &lt;- sandwich.ci(object=bc.sw, level=.95)
-head(bc.sw.ci)
+head(bc.sw.ci$object$object)
 </code></pre>
 
 <pre><code>##   GBCODE        W1        W2     mean        se  df   ci.low    ci.up
@@ -576,13 +673,41 @@ head(bc.sw.ci)
 ## 6 110226 0.5245597 0.4754403 24.89360 0.6552986 240 23.60272 26.18447
 </code></pre>
 
-<pre><code class="r">bc.cv &lt;- sandwich.cv(object=bc.data, sampling.attr=&quot;Incidence&quot;, k=5, type=&quot;txt&quot;, 
-                     ssh.id.col=&quot;SSHID&quot;, reporting.id.col=&quot;GBCODE&quot;, 
+<pre><code class="r">summary(bc.sw.ci)
+</code></pre>
+
+<pre><code>##        Length Class          Mode
+## object 1      sandwich.model list
+</code></pre>
+
+<pre><code class="r">bc.cv &lt;- sandwich.cv(object=bc.data, sampling.attr=&quot;Incidence&quot;, k=5, type=&quot;txt&quot;,
+                     ssh.id.col=&quot;SSHID&quot;, reporting.id.col=&quot;GBCODE&quot;,
                      ssh.weights=list(c(1,2), c(&quot;W1&quot;,&quot;W2&quot;)))
 bc.cv
 </code></pre>
 
 <pre><code>## [1] 8.687603
+</code></pre>
+
+<pre><code class="r">knitr::spin(&quot;code.R&quot;)
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: code.Rmd
+</code></pre>
+
+<pre><code>## Error in parse_block(g[-1], g[1], params.src, markdown_mode): Duplicate chunk label &#39;4.1.1 Installing packages&#39;, which has been used for the chunk:
+## if(FALSE){
+##   install.packages(&quot;devtools&quot;)
+##   install.packages(&quot;sf&quot;)
+##   install.packages(&quot;tools&quot;)
+##   install.packages(&quot;ggpubr&quot;)
+##   install.packages(&quot;dplyr&quot;)
+## }
+## 
+## devtools::install_github(repo=&quot;linyuehzzz/sandwich_spatial_interpolator&quot;,
+##                          subdir=&quot;r/sandwichr&quot;, build_vignettes=FALSE)
 </code></pre>
 
 </body>
