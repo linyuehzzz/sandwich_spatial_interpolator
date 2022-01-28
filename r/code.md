@@ -26,8 +26,8 @@ devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
 ```
 
 ```
-##          checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION' ...     checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION' ...   v  checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes197027ba771e\linyuehzzz-sandwich_spatial_interpolator-44d7e3b\r\sandwichr/DESCRIPTION'
-##       -  preparing 'sandwichr': (573ms)
+##          checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes1970768cbbc\linyuehzzz-sandwich_spatial_interpolator-7d3743d\r\sandwichr/DESCRIPTION' ...  v  checking for file 'C:\Users\10716\AppData\Local\Temp\RtmpKOPLen\remotes1970768cbbc\linyuehzzz-sandwich_spatial_interpolator-7d3743d\r\sandwichr/DESCRIPTION' (376ms)
+##       -  preparing 'sandwichr': (530ms)
 ##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
 ##       -  checking for LF line-endings in source and make files and shell scripts
 ##       -  checking for empty or unneeded directories
@@ -37,51 +37,14 @@ devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
 ## 
 ```
 
-```
-## Installing package into 'C:/Users/10716/Documents/R/win-library/4.1'
-## (as 'lib' is unspecified)
-```
-
 ```r
 library(sandwichr)
 library(sf)
-```
-
-```
-## Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
-```
-
-```r
 library(tools)
 library(ggpubr)
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```r
 library(dplyr)
-```
 
-```
-## 
-## Attaching package: 'dplyr'
-```
 
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 ## Initializing the generator for pseudo random numbers
 set.seed(0)
 
