@@ -6,15 +6,13 @@ options(warn=-1)
 
 ### -----------4.1.1 Installing packages------------------
 if(FALSE){
-  install.packages("devtools")
   install.packages("sf")
   install.packages("tools")
   install.packages("ggpubr")
   install.packages("dplyr")
 }
 
-devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
-                         subdir="r/sandwichr", build_vignettes=FALSE)
+install.packages("sandwichr")
 
 
 ### -----------4.1.2 Importing packages------------------

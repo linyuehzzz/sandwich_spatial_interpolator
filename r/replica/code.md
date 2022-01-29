@@ -10,36 +10,22 @@ options(warn=-1)
 
 ```r
 if(FALSE){
-  install.packages("devtools")
   install.packages("sf")
   install.packages("tools")
   install.packages("ggpubr")
   install.packages("dplyr")
 }
 
-devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
-                         subdir="r/sandwichr", build_vignettes=FALSE)
-```
-
-```
-## Downloading GitHub repo linyuehzzz/sandwich_spatial_interpolator@HEAD
-```
-
-```
-##          checking for file 'C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION' ...     checking for file 'C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION' ...   v  checking for file 'C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION' (430ms)
-##       -  preparing 'sandwichr': (525ms)
-##    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   v  checking DESCRIPTION meta-information
-##       -  checking for LF line-endings in source and make files and shell scripts
-##       -  checking for empty or unneeded directories
-##       -  looking to see if a 'data/datalist' file should be added
-##       -  building 'sandwichr_1.0.0.tar.gz'
-##      
-## 
+install.packages("sandwichr")
 ```
 
 ```
 ## Installing package into 'C:/Users/10716/Documents/R/win-library/4.1'
 ## (as 'lib' is unspecified)
+```
+
+```
+## installing the source package 'sandwichr'
 ```
 
 ```r
@@ -457,8 +443,7 @@ ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
 # Visualizing urban-rural disparities
 p <- ggerrorplot(bc.data[[1]], x="SSHID", y="Incidence",
                 desc_stat="mean_sd", color="black",
-                add="violin", add.params=list(color = "darkgray")
-)
+                add="violin", add.params=list(color = "darkgray"))
 
 p + scale_x_discrete(labels=c("1"="Urban", "2"="Rural")) +
   theme(axis.title.x=element_blank()) + labs(y="Breast Cancer Incidence\n(Rate per 100,000)")
@@ -560,26 +545,6 @@ bc.cv
 ```
 
 ```r
-knitr::spin("code.R")
-```
-
-```
-## 
-## 
-## processing file: code.Rmd
-```
-
-```
-## Error in parse_block(g[-1], g[1], params.src, markdown_mode): Duplicate chunk label '4.1.1 Installing packages', which has been used for the chunk:
-## if(FALSE){
-##   install.packages("devtools")
-##   install.packages("sf")
-##   install.packages("tools")
-##   install.packages("ggpubr")
-##   install.packages("dplyr")
-## }
-## 
-## devtools::install_github(repo="linyuehzzz/sandwich_spatial_interpolator",
-##                          subdir="r/sandwichr", build_vignettes=FALSE)
+# knitr::spin("code.R")
 ```
 

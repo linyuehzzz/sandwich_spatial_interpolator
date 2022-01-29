@@ -209,66 +209,20 @@ options(warn=-1)
 </code></pre>
 
 <pre><code class="r">if(FALSE){
-  install.packages(&quot;devtools&quot;)
   install.packages(&quot;sf&quot;)
   install.packages(&quot;tools&quot;)
   install.packages(&quot;ggpubr&quot;)
   install.packages(&quot;dplyr&quot;)
 }
 
-devtools::install_github(repo=&quot;linyuehzzz/sandwich_spatial_interpolator&quot;,
-                         subdir=&quot;r/sandwichr&quot;, build_vignettes=FALSE)
-</code></pre>
-
-<pre><code>## Downloading GitHub repo linyuehzzz/sandwich_spatial_interpolator@HEAD
-</code></pre>
-
-<pre><code>##   
-
-
-   checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; ...
-
-   checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; ... 
-
-v  checking for file &#39;C:\Users\10716\AppData\Local\Temp\Rtmpaauf2S\remotes3408230b14e8\linyuehzzz-sandwich_spatial_interpolator-6dcaca3\r\sandwichr/DESCRIPTION&#39; (430ms)
-## 
-
-
-
--  preparing &#39;sandwichr&#39;: (525ms)
-##    checking DESCRIPTION meta-information ...
-
-   checking DESCRIPTION meta-information ... 
-
-v  checking DESCRIPTION meta-information
-## 
-
-
-
--  checking for LF line-endings in source and make files and shell scripts
-## 
-
-
-
--  checking for empty or unneeded directories
-## 
-
-
-
--  looking to see if a &#39;data/datalist&#39; file should be added
-## 
-
-
-
--  building &#39;sandwichr_1.0.0.tar.gz&#39;
-## 
-
-
-## 
+install.packages(&quot;sandwichr&quot;)
 </code></pre>
 
 <pre><code>## Installing package into &#39;C:/Users/10716/Documents/R/win-library/4.1&#39;
 ## (as &#39;lib&#39; is unspecified)
+</code></pre>
+
+<pre><code>## installing the source package &#39;sandwichr&#39;
 </code></pre>
 
 <pre><code class="r">library(sandwichr)
@@ -630,8 +584,7 @@ ssh.test(object=bc.join, y=&quot;Incidence&quot;, x=&quot;SSHID&quot;, test=&quo
 <pre><code class="r"># Visualizing urban-rural disparities
 p &lt;- ggerrorplot(bc.data[[1]], x=&quot;SSHID&quot;, y=&quot;Incidence&quot;,
                 desc_stat=&quot;mean_sd&quot;, color=&quot;black&quot;,
-                add=&quot;violin&quot;, add.params=list(color = &quot;darkgray&quot;)
-)
+                add=&quot;violin&quot;, add.params=list(color = &quot;darkgray&quot;))
 
 p + scale_x_discrete(labels=c(&quot;1&quot;=&quot;Urban&quot;, &quot;2&quot;=&quot;Rural&quot;)) +
   theme(axis.title.x=element_blank()) + labs(y=&quot;Breast Cancer Incidence\n(Rate per 100,000)&quot;)
@@ -719,25 +672,7 @@ bc.cv
 <pre><code>## [1] 8.687603
 </code></pre>
 
-<pre><code class="r">knitr::spin(&quot;code.R&quot;)
-</code></pre>
-
-<pre><code>## 
-## 
-## processing file: code.Rmd
-</code></pre>
-
-<pre><code>## Error in parse_block(g[-1], g[1], params.src, markdown_mode): Duplicate chunk label &#39;4.1.1 Installing packages&#39;, which has been used for the chunk:
-## if(FALSE){
-##   install.packages(&quot;devtools&quot;)
-##   install.packages(&quot;sf&quot;)
-##   install.packages(&quot;tools&quot;)
-##   install.packages(&quot;ggpubr&quot;)
-##   install.packages(&quot;dplyr&quot;)
-## }
-## 
-## devtools::install_github(repo=&quot;linyuehzzz/sandwich_spatial_interpolator&quot;,
-##                          subdir=&quot;r/sandwichr&quot;, build_vignettes=FALSE)
+<pre><code class="r"># knitr::spin(&quot;code.R&quot;)
 </code></pre>
 
 </body>
