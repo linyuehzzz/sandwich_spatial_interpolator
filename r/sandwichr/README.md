@@ -43,12 +43,10 @@ detailed description of RStudio. It is free to download on
 
 Now you have the base R and a nice IDE installed on your computer, you
 can navigate to the console window (in RStudio, the bottom left panel)
-and install the `sandwichr` package from source code by executing the
-following lines of code:
+and install the `sandwichr` package by executing the following lines of code:
 
 ``` r
-require(devtools)
-install_github("linyuehzzz/sandwich_spatial_interpolator", subdir="r/sandwichr", build_vignettes = TRUE)
+install.packages("sandwichr")
 ```
 
 ## Tutorial
