@@ -3,9 +3,7 @@ knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", 
 
 ## -----------------------------------------------------------------------------
 # Install the sandwichr package
-# require("devtools")
-# devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
-#                          subdir="r/sandwichr", build_vignettes = TRUE)
+# install.packages("sandwichr")
 
 ## -----------------------------------------------------------------------------
 # Import the sandwichr package and other packages

@@ -27,9 +27,7 @@ The `sandwichr` package performs spatial interpolation^[Wang, J. F., Haining, R.
 To use the `sandwichr` package, first install it from source code (only do this once).
 ```{r}
 # Install the sandwichr package
-# require("devtools")
-# devtools::install_github("linyuehzzz/sandwich_spatial_interpolator", 
-#                          subdir="r/sandwichr", build_vignettes = TRUE)
+# install.packages("sandwichr")
 ```
 
 Then load the installed package into your environment using `library()`. Remember to load the package every time you use it.
