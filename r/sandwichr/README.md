@@ -10,7 +10,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 <!-- [![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions) -->
 <!-- badges: end -->
 
-`sandwichr` is an R package for spatial interpolation based on the
+[`sandwichr`](https://cran.r-project.org/web/packages/sandwichr/) is an R package for spatial interpolation based on the
 [spatial stratified heterogeneity (SSH)](http://www.geodetector.cn/)
 theory, which enables users to:
 
