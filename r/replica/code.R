@@ -47,10 +47,18 @@ hs.data <- load.data.shp(sampling.file=hs.sampling.name,
                          reporting.file=hs.reporting.name)
 # Sampling
 head(hs.data[[1]])
+class(hs.data[[1]])
+attributes(hs.data[[1]])
+
 # SSH
 head(hs.data[[2]])
+class(hs.data[[2]])
+attributes(hs.data[[2]])
+
 # Reporting
 head(hs.data[[3]])
+class(hs.data[[3]])
+attributes(hs.data[[3]])
 
 
 ### -----------4.2.2 Selecting SSH layers(s)------------------
@@ -79,10 +87,14 @@ hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 head(hs.sw$object)
 summary(hs.sw)
 
+sf::st_write(obj=hs.sw$object, dsn="hs.sw.shp")
+
 # Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
 summary(hs.sw.ci)
+
+sf::st_write(obj=hs.sw.ci$object$object, dsn="hs.sw.ci.shp")
 
 # Plotting
 ggplot2::autoplot(object=hs.sw)
@@ -109,8 +121,13 @@ bc.reporting_ssh.name
 bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
-head(bc.data[[1]])    # Sampling-SSH
-head(bc.data[[2]])    # Reporting-SSH
+# Sampling-SSH
+head(bc.data[[1]])    
+class(bc.data[[1]])
+
+# Reporting-SSH
+head(bc.data[[2]])    
+class(bc.data[[2]])
 
 
 ### -----------4.3.2 Selecting SSH layers(s)------------------
@@ -141,11 +158,14 @@ bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
 head(bc.sw$object)
 summary(bc.sw)
 
+write.csv(bc.sw$object, "bc.sw.csv")
+
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
 summary(bc.sw.ci)
 
+write.csv(bc.sw.ci$object$object, "bc.sw.ci.csv")
 
 ### -----------4.3.4 Model validation------------------
 bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",

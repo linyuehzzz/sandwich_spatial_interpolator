@@ -20,54 +20,17 @@ install.packages("sandwichr")
 ```
 
 ```
-## Installing package into 'C:/Users/10716/Documents/R/win-library/4.1'
-## (as 'lib' is unspecified)
-```
-
-```
-## installing the source package 'sandwichr'
+## Error in install.packages : Updating loaded packages
 ```
 
 ```r
 library(sandwichr)
 library(sf)
-```
-
-```
-## Linking to GEOS 3.9.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE
-```
-
-```r
 library(tools)
 library(ggpubr)
-```
-
-```
-## Loading required package: ggplot2
-```
-
-```r
 library(dplyr)
-```
 
-```
-## 
-## Attaching package: 'dplyr'
-```
 
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 ## Initializing the generator for pseudo random numbers
 set.seed(0)
 
@@ -134,6 +97,46 @@ head(hs.data[[1]])
 ```
 
 ```r
+class(hs.data[[1]])
+```
+
+```
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+```
+
+```r
+attributes(hs.data[[1]])
+```
+
+```
+## $names
+## [1] "CODE"       "Population" "x"          "y"          "geometry"  
+## 
+## $row.names
+##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+## [163] 163 164 165 166 167
+## 
+## $class
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+## 
+## $sf_column
+## [1] "geometry"
+## 
+## $agr
+##       CODE Population          x          y 
+##       <NA>       <NA>       <NA>       <NA> 
+## Levels: constant aggregate identity
+```
+
+```r
 # SSH
 head(hs.data[[2]])
 ```
@@ -145,13 +148,44 @@ head(hs.data[[2]])
 ## Bounding box:  xmin: 151114.4 ymin: 4106864 xmax: 228423.6 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 5 x 4
-##     STR  Area STR_1                                                                geometry
-##   <int> <dbl> <chr>                                                           <POLYGON [m]>
-## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161699.4 41381~
-## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190869.3 41236~
-## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211523.4 41239~
-## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211523.4 41239~
-## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173841 4156024~
+##     STR  Area STR_1                                                     geometry
+##   <int> <dbl> <chr>                                                <POLYGON [m]>
+## 1     1  681. 01    ((174393.7 4131444, 174755.7 4136086, 166016.2 4129531, 161~
+## 2     2  445. 02    ((211986.7 4145078, 191141.7 4123426, 191052.7 4123478, 190~
+## 3     3  288. 03    ((198113.2 4115589, 201902.7 4118894, 204447.9 4121855, 211~
+## 4     4  346. 04    ((222674.5 4139326, 219575.5 4133270, 215318.4 4129568, 211~
+## 5     5  427. 05    ((172634.5 4164622, 171285.3 4160901, 169971.9 4159759, 173~
+```
+
+```r
+class(hs.data[[2]])
+```
+
+```
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+```
+
+```r
+attributes(hs.data[[2]])
+```
+
+```
+## $names
+## [1] "STR"      "Area"     "STR_1"    "geometry"
+## 
+## $row.names
+## [1] 1 2 3 4 5
+## 
+## $class
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+## 
+## $sf_column
+## [1] "geometry"
+## 
+## $agr
+##   STR  Area STR_1 
+##  <NA>  <NA>  <NA> 
+## Levels: constant aggregate identity
 ```
 
 ```r
@@ -166,14 +200,45 @@ head(hs.data[[3]])
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 3
-##   CODE   Area                                                                      geometry
-##   <chr> <dbl>                                                                 <POLYGON [m]>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 4150834, 15~
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 4151652, 19~
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 4151773, 1797~
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 4143000, 1718~
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 4147346, 20~
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 4143036, 1741~
+##   CODE   Area                                                           geometry
+##   <chr> <dbl>                                                      <POLYGON [m]>
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 153309.4 ~
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 191625.6 ~
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 179415.6 41~
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 171995.3 41~
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 208079.1 ~
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 173995.6 41~
+```
+
+```r
+class(hs.data[[3]])
+```
+
+```
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+```
+
+```r
+attributes(hs.data[[3]])
+```
+
+```
+## $names
+## [1] "CODE"     "Area"     "geometry"
+## 
+## $row.names
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $class
+## [1] "sf"         "tbl_df"     "tbl"        "data.frame"
+## 
+## $sf_column
+## [1] "geometry"
+## 
+## $agr
+## CODE Area 
+## <NA> <NA> 
+## Levels: constant aggregate identity
 ```
 
 ```r
@@ -192,14 +257,14 @@ head(hs.ssh2)
 ## Bounding box:  xmin: 155065.4 ymin: 4106864 xmax: 223212.3 ymax: 4152157
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                                    geometry
-##      <dbl> <chr>    <dbl>      <dbl>      <dbl>                               <POLYGON [m]>
-## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111509, 205122~
-## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 4122973, 1974~
-## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131364, 174257~
-## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 4150224, 1994~
-## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 4118458, 2172~
-## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151731, 179098~
+##   OBJECTID STR_2 ORIG_FID Shape_Leng Shape_Area                         geometry
+##      <dbl> <chr>    <dbl>      <dbl>      <dbl>                    <POLYGON [m]>
+## 1        1 09           0     51194. 143518264. ((206800.2 4110983, 206135 4111~
+## 2        2 06           1     71117. 252869327. ((202479.4 4129115, 198276.7 41~
+## 3        3 02           2     70982. 279692811. ((171908.5 4145105, 174343 4131~
+## 4        4 07           3     77891. 327434437. ((198654.2 4151031, 199256.7 41~
+## 5        5 08           4     68967. 210398026. ((217681.4 4118480, 217481.2 41~
+## 6        7 05           6     65519. 250341301. ((178865.4 4151737, 178892 4151~
 ```
 
 ```r
@@ -267,14 +332,14 @@ head(hs.sw$object)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 6
-##   CODE   Area                                                    geometry  mean    se    df
-##   <chr> <dbl>                                               <POLYGON [m]> <dbl> <dbl> <dbl>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 4150431, 15~  211.  5.28    91
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 4151533, 19~  287.  1.28    18
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 4151708, 1794~  304.  1.21    90
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 4143115, 1719~  178.  6.80    91
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 4147388, 20~  225.  1.94    40
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 4143071, 1739~  207.  5.46    91
+##   CODE   Area                                         geometry  mean    se    df
+##   <chr> <dbl>                                    <POLYGON [m]> <dbl> <dbl> <dbl>
+## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.5 ~  211.  5.28    91
+## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.2 ~  287.  1.28    18
+## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 41~  304.  1.21    90
+## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 41~  178.  6.80    91
+## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.5 ~  225.  1.94    40
+## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 41~  207.  5.46    91
 ```
 
 ```r
@@ -298,6 +363,19 @@ summary(hs.sw)
 ```
 
 ```r
+sf::st_write(obj=hs.sw$object, dsn="hs.sw.shp")
+```
+
+```
+## Layer hs.sw in dataset hs.sw.shp already exists:
+## use either append=TRUE to append to layer or append=FALSE to overwrite layer
+```
+
+```
+## Error in CPL_write_ogr(obj, dsn, layer, driver, as.character(dataset_options), : Dataset already exists.
+```
+
+```r
 # Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
@@ -310,14 +388,14 @@ head(hs.sw.ci$object$object)
 ## Bounding box:  xmin: 151114.4 ymin: 4123480 xmax: 214095.3 ymax: 4165211
 ## Projected CRS: WGS 84 / UTM zone 50N
 ## # A tibble: 6 x 8
-##   CODE   Area                                       geometry  mean    se    df ci.low ci.up
-##   <chr> <dbl>                                  <POLYGON [m]> <dbl> <dbl> <dbl>  <dbl> <dbl>
-## 1 02    427.  ((153690.1 4149820, 153647.4 4149999, 153508.~  211.  5.28    91   201.  222.
-## 2 06    143.  ((191225.5 4151326, 191387.6 4151395, 191542.~  287.  1.28    18   284.  289.
-## 3 03    373.  ((178892 4151731, 179098.2 4151712, 179205.5 ~  304.  1.21    90   301.  306.
-## 4 05    252.  ((172768 4143250, 172542.9 4143207, 172248.9 ~  178.  6.80    91   165.  192.
-## 5 10     73.7 ((207615.6 4147664, 207785.4 4147473, 207928.~  225.  1.94    40   221.  229.
-## 6 01    186.  ((172768 4143250, 173154.8 4143172, 173615.2 ~  207.  5.46    91   196.  218.
+##   CODE   Area                            geometry  mean    se    df ci.low ci.up
+##   <chr> <dbl>                       <POLYGON [m]> <dbl> <dbl> <dbl>  <dbl> <dbl>
+## 1 02    427.  ((153690.1 4149820, 153647.4 41499~  211.  5.28    91   201.  222.
+## 2 06    143.  ((191225.5 4151326, 191387.6 41513~  287.  1.28    18   284.  289.
+## 3 03    373.  ((178892 4151731, 179098.2 4151712~  304.  1.21    90   301.  306.
+## 4 05    252.  ((172768 4143250, 172542.9 4143207~  178.  6.80    91   165.  192.
+## 5 10     73.7 ((207615.6 4147664, 207785.4 41474~  225.  1.94    40   221.  229.
+## 6 01    186.  ((172768 4143250, 173154.8 4143172~  207.  5.46    91   196.  218.
 ```
 
 ```r
@@ -332,6 +410,19 @@ summary(hs.sw.ci)
 ##  Mean   :214.6   Mean   :226.7                     
 ##  3rd Qu.:268.4   3rd Qu.:274.4                     
 ##  Max.   :301.3   Max.   :306.1
+```
+
+```r
+sf::st_write(obj=hs.sw.ci$object$object, dsn="hs.sw.ci.shp")
+```
+
+```
+## Layer hs.sw.ci in dataset hs.sw.ci.shp already exists:
+## use either append=TRUE to append to layer or append=FALSE to overwrite layer
+```
+
+```
+## Error in CPL_write_ogr(obj, dsn, layer, driver, as.character(dataset_options), : Dataset already exists.
 ```
 
 ```r
@@ -386,7 +477,8 @@ bc.reporting_ssh.name
 bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
-head(bc.data[[1]])    # Sampling-SSH
+# Sampling-SSH
+head(bc.data[[1]])    
 ```
 
 ```
@@ -400,7 +492,16 @@ head(bc.data[[1]])    # Sampling-SSH
 ```
 
 ```r
-head(bc.data[[2]])    # Reporting-SSH
+class(bc.data[[1]])
+```
+
+```
+## [1] "data.frame"
+```
+
+```r
+# Reporting-SSH
+head(bc.data[[2]])    
 ```
 
 ```
@@ -411,6 +512,14 @@ head(bc.data[[2]])    # Reporting-SSH
 ## 4 110221 0.5245597 0.4754403
 ## 5 110224 0.5245597 0.4754403
 ## 6 110226 0.5245597 0.4754403
+```
+
+```r
+class(bc.data[[2]])
+```
+
+```
+## [1] "data.frame"
 ```
 
 ```r
@@ -504,6 +613,8 @@ summary(bc.sw)
 ```
 
 ```r
+write.csv(bc.sw$object, "bc.sw.csv")
+
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
@@ -531,6 +642,10 @@ summary(bc.sw.ci)
 ##  Mean   :21.55   Mean   :23.91  
 ##  3rd Qu.:22.63   3rd Qu.:25.10  
 ##  Max.   :29.88   Max.   :33.24
+```
+
+```r
+write.csv(bc.sw.ci$object$object, "bc.sw.ci.csv")
 ```
 
 ```r

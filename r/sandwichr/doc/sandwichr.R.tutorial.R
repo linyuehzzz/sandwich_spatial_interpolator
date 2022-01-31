@@ -25,6 +25,21 @@ hs.data <- load.data.shp(sampling.file=hs.sampling.name,
                       ssh.file=hs.ssh.name,
                       reporting.file=hs.reporting.name)
 
+# Sampling
+head(hs.data[[1]])
+class(hs.data[[1]])
+attributes(hs.data[[1]])
+
+# SSH
+head(hs.data[[2]])
+class(hs.data[[2]])
+attributes(hs.data[[2]])
+
+# Reporting
+head(hs.data[[3]])
+class(hs.data[[3]])
+attributes(hs.data[[3]])
+
 ## -----------------------------------------------------------------------------
 library(sf)
 library(tools)
@@ -85,10 +100,12 @@ bc.data <- load.data.txt(sampling_ssh.file=bc.sampling_ssh.name,
                          reporting_ssh.file=bc.reporting_ssh.name)
 
 # Sampling-SSH
-head(bc.data[[1]])
+head(bc.data[[1]])    
+class(bc.data[[1]])
 
 # Reporting-SSH
-head(bc.data[[2]])
+head(bc.data[[2]])    
+class(bc.data[[2]])
 
 ## -----------------------------------------------------------------------------
 # Prepare the SSH layer for evaluation
