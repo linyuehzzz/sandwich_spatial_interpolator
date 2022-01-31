@@ -158,14 +158,14 @@ bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
 head(bc.sw$object)
 summary(bc.sw)
 
-write.csv(bc.sw$object, "bc.sw.csv")
+write.csv(x=bc.sw$object, file="bc.sw.csv")
 
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
 summary(bc.sw.ci)
 
-write.csv(bc.sw.ci$object$object, "bc.sw.ci.csv")
+write.csv(x=bc.sw.ci$object$object, file="bc.sw.ci.csv")
 
 ### -----------4.3.4 Model validation------------------
 bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",

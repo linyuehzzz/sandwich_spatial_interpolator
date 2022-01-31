@@ -613,7 +613,7 @@ summary(bc.sw)
 ```
 
 ```r
-write.csv(bc.sw$object, "bc.sw.csv")
+write.csv(x=bc.sw$object, file="bc.sw.csv")
 
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
@@ -645,7 +645,7 @@ summary(bc.sw.ci)
 ```
 
 ```r
-write.csv(bc.sw.ci$object$object, "bc.sw.ci.csv")
+write.csv(x=bc.sw.ci$object$object, file="bc.sw.ci.csv")
 ```
 
 ```r

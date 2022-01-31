@@ -733,7 +733,7 @@ head(bc.sw$object)
 ##  Max.   :31.56   Max.   :0.8498
 </code></pre>
 
-<pre><code class="r">write.csv(bc.sw$object, &quot;bc.sw.csv&quot;)
+<pre><code class="r">write.csv(x=bc.sw$object, file=&quot;bc.sw.csv&quot;)
 
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci &lt;- sandwich.ci(object=bc.sw, level=.95)
@@ -761,7 +761,7 @@ head(bc.sw.ci$object$object)
 ##  Max.   :29.88   Max.   :33.24
 </code></pre>
 
-<pre><code class="r">write.csv(bc.sw.ci$object$object, &quot;bc.sw.ci.csv&quot;)
+<pre><code class="r">write.csv(x=bc.sw.ci$object$object, file=&quot;bc.sw.ci.csv&quot;)
 </code></pre>
 
 <pre><code class="r">bc.cv &lt;- sandwich.cv(object=bc.data, sampling.attr=&quot;Incidence&quot;, k=5, type=&quot;txt&quot;,
