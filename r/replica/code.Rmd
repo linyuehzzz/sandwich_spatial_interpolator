@@ -1,12 +1,14 @@
+
+```{r }
 ####################################################################
 ###################    4.1 Getting started    ######################
 ####################################################################
 
 options(warn=-1)
 
-### -----------4.1.1 Installing packages------------------
+```
+```{r 4.1.1 Installing packages}
 if(FALSE){
-  install.packages("sandwichr")
   install.packages("sf")
   install.packages("tools")
   install.packages("ggpubr")
@@ -14,8 +16,11 @@ if(FALSE){
   install.packages("ggplot2")
 }
 
+install.packages("sandwichr")
 
-### -----------4.1.2 Importing packages------------------
+
+```
+```{r 4.1.2 Importing packages}
 library(sandwichr)
 library(ggplot2)
 library(sf)
@@ -32,7 +37,8 @@ set.seed(0)
 #####################    4.2 Case study 1    #######################
 ####################################################################
 
-### -----------4.2.1 Loading data------------------
+```
+```{r 4.2.1 Loading data}
 hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",
                                 package="sandwichr")
 hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp",
@@ -64,10 +70,12 @@ class(hs.data[[3]])
 attributes(hs.data[[3]])
 summary(hs.data[[3]])
 
-# Visualizing data inputs (Figure 5a)
+# Visualizing data inputs (Figure 5)
+pre_legend_title = expression(atop(bold("Sampling Units"),
+                                   "\nHuman Population Density\n(Person Per Square Mile)"))
+
 ggplot() +
-  geom_sf(data=hs.data[[2]],
-          aes(fill=STR),
+  geom_sf(data=hs.data[[2]], 
           fill="#FAFAFA", 
           colour="#B2B2B2") + 
   geom_sf(data=hs.data[[1]], 
@@ -76,40 +84,22 @@ ggplot() +
                        high="#5D2C70",
                        breaks=c(100,200,300,400),
                        labels=c("<100","100-199","200-299",">=300"),
-                       guide=guide_legend(title="Sampled Human\nPopulation Density\n(Persons Per Square Mile)",
-                                          override.aes=list(shape=c(20,20)))) +
+                       guide=guide_legend(title="Sampling Units\nHuman Population Density\n(Person Per Square Mile)",override.aes=list(shape=c(20,20)))) +
   coord_sf(crs=st_crs(4283)) +
   theme_void()+
   theme(
     legend.key.size=unit(0.5,'cm'),
     legend.justification=c(0,1),
-    legend.position=c(0.25,0.3),
+    legend.position=c(0.2,0.3),
     legend.spacing.x=unit(0,'cm'),
-    legend.title=element_text(face="bold", size=8),
-    legend.text=element_text(size=8)
-  )
-ggsave("outputs/Fig5-1.eps", width=11, height=9, units="cm")
-
-# Visualizing data inputs (Figure 5b)
-ggplot() +
-  geom_sf(data=hs.data[[3]],
-          aes(fill=STR),
-          fill="#FAFAFA", 
-          colour="#B2B2B2") + 
-  coord_sf(crs=st_crs(4283)) +
-  theme_void()+
-  theme(
-    legend.key.size=unit(0.5,'cm'),
-    legend.justification=c(0,1),
-    legend.position=c(0.25,0.3),
-    legend.spacing.x=unit(0,'cm'),
-    legend.title=element_text(face="bold", size=8),
-    legend.text=element_text(size=8)
+    text=element_text(family="Futura-Medium"),
+    legend.title=element_text(family="Futura-Bold", size=10),
+    legend.text=element_text(family="Futura-Medium", size=10)
   )
 
 
-
-### -----------4.2.2 Selecting SSH layers(s)------------------
+```
+```{r 4.2.2 Selecting SSH layers(s)}
 # Inputing another candidate SSH layer for demonstration
 hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
                             package="sandwichr")
@@ -129,27 +119,29 @@ ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="factor")
 ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="interaction")
 
 
-### -----------4.2.3 Running the Sandwich model------------------
+```
+```{r 4.2.3 Running the Sandwich model}
 # Perform the SSH based spatial interpolation
 hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
 head(hs.sw$object)
 summary(hs.sw)
 
-sf::st_write(obj=hs.sw$object, dsn="outputs/hs.sw.shp")
+sf::st_write(obj=hs.sw$object, dsn="hs.sw.shp")
 
 # Calculating the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
 summary(hs.sw.ci)
 
-sf::st_write(obj=hs.sw.ci$object$object, dsn="outputs/hs.sw.ci.shp")
+sf::st_write(obj=hs.sw.ci$object$object, dsn="hs.sw.ci.shp")
 
 # Plotting (Figures 6 and 7)
 ggplot2::autoplot(object=hs.sw)
 ggplot2::autoplot(object=hs.sw.ci)
 
 
-### -----------4.2.4 Model validation------------------
+```
+```{r 4.2.4 Model validation}
 hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
 hs.cv
 
@@ -158,7 +150,8 @@ hs.cv
 #####################    4.3 Case study 2    #######################
 ####################################################################
 
-### -----------4.3.1 Loading data------------------
+```
+```{r 4.3.1 Loading data}
 bc.sampling_ssh.name <- system.file("extdata", "bc_sampling_ssh.csv",
                                     package="sandwichr")
 bc.reporting_ssh.name <- system.file("extdata", "bc_reporting_ssh.csv",
@@ -179,7 +172,8 @@ head(bc.data[[2]])
 class(bc.data[[2]])
 summary(bc.data[[2]])
 
-### -----------4.3.2 Selecting SSH layers(s)------------------
+```
+```{r 4.3.2 Selecting SSH layers(s)}
 bc.join <- ssh.data.txt(object=bc.data)
 head(bc.join)
 
@@ -200,23 +194,25 @@ bc.data[[1]] %>%
                list(name = mean))
 
 
-### -----------4.3.3 Running the model------------------
+```
+```{r 4.3.3 Running the model}
 # Performing the SSH based spatial interpolation
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw$object)
 summary(bc.sw)
 
-write.csv(x=bc.sw$object, file="outputs/bc.sw.csv")
+write.csv(x=bc.sw$object, file="bc.sw.csv")
 
 # Calculating the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)
 head(bc.sw.ci$object$object)
 summary(bc.sw.ci)
 
-write.csv(x=bc.sw.ci$object$object, file="outputs/bc.sw.ci.csv")
+write.csv(x=bc.sw.ci$object$object, file="bc.sw.ci.csv")
 
-### -----------4.3.4 Model validation------------------
+```
+```{r 4.3.4 Model validation}
 bc.cv <- sandwich.cv(object=bc.data, sampling.attr="Incidence", k=5, type="txt",
                      ssh.id.col="SSHID", reporting.id.col="GBCODE",
                      ssh.weights=list(c(1,2), c("W1","W2")))
@@ -224,3 +220,5 @@ bc.cv
 
 
 # knitr::spin("code.R")
+```
+
