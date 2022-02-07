@@ -38,7 +38,7 @@ summary.sandwich.model <- function(object, ...){
   #---------------- Summarize Sandwich estimates ----------------------
   cols = c("mean", "se")
   print(paste("Sample size: ", object$sample_size))
-  print(paste("Number of strata: ", object$ssh_num))
+  print(paste("Number of SSH strata: ", object$ssh_num))
   print(paste("Number of reporting units: ", object$reporting_num))
   summary(object$object[cols])
 }
