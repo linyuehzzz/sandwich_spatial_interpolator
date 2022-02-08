@@ -62,7 +62,7 @@ browseVignettes("sandwichr")
 ```
 
 A manual of the `sandwichr` package can be found
-[here](https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.0.pdf),
+[here](https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.1.pdf),
 which introduces all the available functions in this package.
 
 ## Citation

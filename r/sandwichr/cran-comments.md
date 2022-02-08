@@ -1,3 +1,14 @@
+## 2022/02/08
+> Found the following (possibly) invalid URLs:
+     URL: 
+https://urldefense.com/v3/__https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.0.pdf__;!!KGKeukY!jMgH-sg4q1aoERzDWZmXvX3-i_rmc3c7PfKSGqRmKhbTBv_a13mE73ZxKsqbUug81Q$ 
+       From: README.md
+       Status: 404
+       Message: Not Found
+
+The link was corrected.
+
+
 ## 2022/01/27
 >   If there are references describing the methods in your package, please add these in the description field of your DESCRIPTION file in the form authors 	    (year) <doi:...> authors (year) <arXiv:...> authors (year, ISBN:...) or if those are not available: <https:...> with no space after 'doi:', 'arXiv:',     'https:' and angle brackets for auto-linking.
 
