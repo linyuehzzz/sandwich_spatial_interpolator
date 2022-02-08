@@ -360,6 +360,8 @@ summary(bc.sw.ci)
 write.csv(x=bc.sw.ci$object$object, 
           file="outputs/bc.sw.ci.csv")
 
+# Linking and visualizing
+
 
 ### -----------4.3.4 Model validation------------------
 bc.cv <- sandwich.cv(object=bc.data, 
