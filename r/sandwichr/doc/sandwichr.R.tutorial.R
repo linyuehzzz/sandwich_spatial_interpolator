@@ -11,6 +11,7 @@ library("sandwichr")
 library(ggplot2)
 library(ggpubr)
 library(dplyr)
+library(ape)
 
 ## -----------------------------------------------------------------------------
 # Input data from shapefiles
@@ -39,6 +40,12 @@ attributes(hs.data[[2]])
 head(hs.data[[3]])
 class(hs.data[[3]])
 attributes(hs.data[[3]])
+
+## -----------------------------------------------------------------------------
+hs.dists <- as.matrix(dist(cbind(hs.data[[1]]$x, hs.data[[1]]$y)))
+hs.dists.inv <- 1/hs.dists
+diag(hs.dists.inv) <- 0
+Moran.I(hs.data[[1]]$Population, hs.dists.inv)
 
 ## -----------------------------------------------------------------------------
 library(sf)
@@ -74,6 +81,10 @@ summary(hs.sw)
 ggplot2::autoplot(object=hs.sw)
 
 ## -----------------------------------------------------------------------------
+qqnorm(hs.data[[1]]$Population, pch=1, frame=FALSE)
+qqline(hs.data[[1]]$Population, col="steelblue", lwd=2)
+
+## -----------------------------------------------------------------------------
 # Calculate the confidence intervals of the interpolation estimates
 hs.sw.ci <- sandwich.ci(object=hs.sw, level=.95)
 head(hs.sw.ci$object$object)
@@ -86,7 +97,7 @@ ggplot2::autoplot(object=hs.sw.ci)
 ## -----------------------------------------------------------------------------
 # Perform k-fold cross validation
 set.seed(0)
-hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
+hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp", ssh.id.col="STR_1")
 hs.cv
 
 ## -----------------------------------------------------------------------------
@@ -106,6 +117,12 @@ class(bc.data[[1]])
 # Reporting-SSH
 head(bc.data[[2]])    
 class(bc.data[[2]])
+
+## -----------------------------------------------------------------------------
+bc.dists <- as.matrix(dist(cbind(bc.data[[1]]$X, bc.data[[1]]$Y)))
+bc.dists.inv <- 1/bc.dists
+diag(bc.dists.inv) <- 0
+Moran.I(bc.data[[1]]$Incidence, bc.dists.inv)
 
 ## -----------------------------------------------------------------------------
 # Prepare the SSH layer for evaluation
@@ -128,7 +145,11 @@ p + scale_x_discrete(labels=c("1" = "Urban", "2" = "Rural")) +
 bc.data[[1]] %>%                                        
   group_by(SSHID) %>%                         
   summarise_at(vars(Incidence),              
-               list(name = mean))               
+               list(name = mean))
+
+bc.data[[1]] %>%
+  group_by(SSHID) %>%
+  summarise(mean=mean(Incidence), sd=sd(Incidence), n=n())
 
 ## -----------------------------------------------------------------------------
 # Perform the SSH based spatial interpolation
@@ -136,6 +157,10 @@ bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt",
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw$object)
 summary(bc.sw)
+
+## -----------------------------------------------------------------------------
+qqnorm(bc.data[[1]]$Incidence, pch=1, frame=FALSE)
+qqline(bc.data[[1]]$Incidence, col="steelblue", lwd=2)
 
 ## -----------------------------------------------------------------------------
 # Calculate the confidence intervals of the interpolation estimates

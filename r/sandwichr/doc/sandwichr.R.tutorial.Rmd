@@ -1,6 +1,5 @@
 ---
 title: "A Tutorial for the `sandwichr` R Package"
-author: "Yue Lin, Chengdong Xu, Jinfeng Wang"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
@@ -37,6 +36,7 @@ library("sandwichr")
 library(ggplot2)
 library(ggpubr)
 library(dplyr)
+library(ape)
 ```
 
 Here,we present two case studies to demonstrate the functionality of this package.
@@ -73,6 +73,16 @@ attributes(hs.data[[2]])
 head(hs.data[[3]])
 class(hs.data[[3]])
 attributes(hs.data[[3]])
+```
+
+
+### Calculating Moran's *I*
+We use the Moran's *I* to evaluate the SAC of the population density in Heshun.
+```{r}
+hs.dists <- as.matrix(dist(cbind(hs.data[[1]]$x, hs.data[[1]]$y)))
+hs.dists.inv <- 1/hs.dists
+diag(hs.dists.inv) <- 0
+Moran.I(hs.data[[1]]$Population, hs.dists.inv)
 ```
 
 
@@ -126,6 +136,12 @@ The interpolated values and the standard errors can be visualized using `plot.me
 ggplot2::autoplot(object=hs.sw)
 ```
 
+We examine the normality of the random sample.
+```{r}
+qqnorm(hs.data[[1]]$Population, pch=1, frame=FALSE)
+qqline(hs.data[[1]]$Population, col="steelblue", lwd=2)
+```
+
 The confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
 ```{r}
 # Calculate the confidence intervals of the interpolation estimates
@@ -145,7 +161,7 @@ To evaluate the overall accuracy of the SSH-based spatial interpolation, a *k*-f
 ```{r}
 # Perform k-fold cross validation
 set.seed(0)
-hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp")
+hs.cv <- sandwich.cv(object=hs.data, sampling.attr="Population", k=5, type="shp", ssh.id.col="STR_1")
 hs.cv
 ```
 
@@ -176,6 +192,16 @@ class(bc.data[[2]])
 ```
 
 
+### Calculating Moran's *I*
+We use the Moran's *I* to evaluate the SAC of the breast cancer incidence.
+```{r}
+bc.dists <- as.matrix(dist(cbind(bc.data[[1]]$X, bc.data[[1]]$Y)))
+bc.dists.inv <- 1/bc.dists
+diag(bc.dists.inv) <- 0
+Moran.I(bc.data[[1]]$Incidence, bc.dists.inv)
+```
+
+
 ### Selection of the SSH layer(s)
 First, we use the `ssh.data.txt` function to convert the input data for evaluation.
 ```{r}
@@ -203,7 +229,11 @@ p + scale_x_discrete(labels=c("1" = "Urban", "2" = "Rural")) +
 bc.data[[1]] %>%                                        
   group_by(SSHID) %>%                         
   summarise_at(vars(Incidence),              
-               list(name = mean))               
+               list(name = mean))
+
+bc.data[[1]] %>%
+  group_by(SSHID) %>%
+  summarise(mean=mean(Incidence), sd=sd(Incidence), n=n())
 ```
 
 
@@ -217,7 +247,13 @@ head(bc.sw$object)
 summary(bc.sw)
 ```
 
-The confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
+We examine the normality of the random sample.
+```{r}
+qqnorm(bc.data[[1]]$Incidence, pch=1, frame=FALSE)
+qqline(bc.data[[1]]$Incidence, col="steelblue", lwd=2)
+```
+
+For the purpose of demonstration, the confidence interval for the population mean in each reporting unit is computed using the `sandwich.ci` function. Here, we show an example of constructing a 95% confidence interval.
 ```{r}
 # Calculate the confidence intervals of the interpolation estimates
 bc.sw.ci <- sandwich.ci(object=bc.sw, level=.95)

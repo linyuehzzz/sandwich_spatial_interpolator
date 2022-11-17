@@ -54,8 +54,9 @@ sandwich.cv <- function(object, sampling.attr, k=10, type="shp", ssh.id.col=NULL
     }
 
     #----------------------- Create k equally-sized folds ------------------------
-    sampling.lyr$index = 1:nrow(sampling.lyr)
-    folds = createFolds(sampling.lyr$index, k=k)
+    join = st_join(sampling.lyr, ssh.lyr)
+    folds = createFolds(join[[ssh.id.col]], k=k)
+
 
     #----------------------- k-fold cross validation ------------------------
     rmse = 0
@@ -99,7 +100,7 @@ sandwich.cv <- function(object, sampling.attr, k=10, type="shp", ssh.id.col=NULL
 
     #----------------------- Create k equally-sized folds ------------------------
     sampling_ssh$index = 1:nrow(sampling_ssh)
-    folds = createFolds(sampling_ssh$index, k=k)
+    folds = createFolds(sampling_ssh[[ssh.id.col]], k=k)
 
     #----------------------- k-fold cross validation ------------------------
     rmse = 0
