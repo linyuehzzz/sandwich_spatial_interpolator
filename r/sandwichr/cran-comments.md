@@ -1,5 +1,16 @@
 ## 2022/11/17
 > Found the following (possibly) invalid URLs:
+     URL: https://urldefense.com/v3/__https://cran.r-project.org/doc/manuals/r-release/R-admin.html/__;!!KGKeukY!ztCVFwHDCus-qk2WPb5PfMnrJPjGgeiHDNSnisHE-rnaSDunJxR754DaVfIx0lz1nQuit4m-SU9Dmz0PeX6qeLclH9mAutg$ 
+       From: README.md
+       Status: 404
+       Message: Not Found
+The trailing slash is certainly wrong.
+
+We fixed the trailing slash.
+
+
+## 2022/11/17
+> Found the following (possibly) invalid URLs:
      URL: 
 https://urldefense.com/v3/__https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.1.pdf__;!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj20jFZ7lk$ 
        From: README.md

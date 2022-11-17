@@ -31,7 +31,7 @@ R Archive Network.
   - For Windows, visit <https://cran.r-project.org/bin/windows/base/>.
   - For macOS, visit <https://cran.r-project.org/bin/macosx/>.
   - For Linux, visit
-    <https://cran.r-project.org/doc/manuals/r-release/R-admin.html/>.
+    <https://cran.r-project.org/doc/manuals/r-release/R-admin.html>.
 
 Once R is installed, you can proceed to install the RStudio Integrated
 Development Environment (IDE) to have a much improved environment to
