@@ -1,3 +1,35 @@
+## 2022/11/17
+> Found the following (possibly) invalid URLs:
+     URL: 
+https://urldefense.com/v3/__https://github.com/linyuehzzz/sandwich_spatial_interpolator/blob/master/r/sandwichr_1.0.1.pdf__;!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj20jFZ7lk$ 
+       From: README.md
+       Status: 404
+       Message: Not Found
+
+We removed the link.
+
+>      URL: https://urldefense.com/v3/__https://www.rstudio.com/products/rstudio/__;!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj2ohlvV98$  (moved to https://urldefense.com/v3/__https://posit.co/products/open-source/rstudio/__;!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj2273ahNA$ )
+       From: README.md
+       Status: 301
+       Message: Moved Permanently
+     URL: https://urldefense.com/v3/__https://www.rstudio.com/products/rstudio/download/*download__;Iw!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj2sSlJrjM$
+(moved to https://urldefense.com/v3/__https://posit.co/download/rstudio-desktop/*download__;Iw!!KGKeukY!3i9f7-HJh6tj29fjdYHOmCg1AubBbmVjMYUR6o_S4SFmML3FGC3Lh3yEDUZf6Me_Gkl0vdiV3wc_H0HxtDDwMKj2BlDA1ko$ )
+       From: README.md
+       Status: 301
+       Message: Moved Permanently
+
+We corrected these links.
+
+> Please change http --> https, add trailing slashes, or follow moved content as appropriate.
+
+We changed all http to https and add trailing slashes to all urls.
+
+
+> The Date field is over a month old.
+
+We updated the Date.
+
+
 ## 2022/02/08
 > Found the following (possibly) invalid URLs:
      URL: 
