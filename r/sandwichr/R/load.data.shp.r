@@ -17,16 +17,16 @@
 #' @export
 #'
 #' @examples
-#' hs.sampling.name <- system.file("extdata", "hs.sampling.shapefile.shp",
-#'                                 package="sandwichr")
-#' hs.ssh.name <- system.file("extdata", "hs.ssh.shapefile.shp",
-#'                            package="sandwichr")
-#' hs.reporting.name <- system.file("extdata", "hs.reporting.shapefile.shp",
+#' sim.sampling.name <- system.file("extdata", "sim.sampling.shp",
 #'                                  package="sandwichr")
+#' sim.ssh.name <- system.file("extdata", "sim.ssh.shp",
+#'                             package="sandwichr")
+#' sim.reporting.name <- system.file("extdata", "sim.reporting.shp",
+#'                                   package="sandwichr")
 #'
-#' hs.data <- load.data.shp(sampling.file=hs.sampling.name,
-#'                          ssh.file=hs.ssh.name,
-#'                          reporting.file=hs.reporting.name)
+#' sim.data <- load.data.shp(sampling.file=hs.sampling.name,
+#'                           ssh.file=hs.ssh.name,
+#'                           reporting.file=hs.reporting.name)
 #'
 #' @name load.data.shp
 #'

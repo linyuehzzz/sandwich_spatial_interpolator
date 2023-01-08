@@ -27,14 +27,10 @@
 #' @examples
 #' library(sf)
 #' library(tools)
-#' data(hs.data)
-#' hs.ssh2.name <- system.file("extdata", "hs.ssh2.shapefile.shp",
-#'                             package="sandwichr")
-#' hs.ssh2 <- read_sf(dsn=dirname(hs.ssh2.name),
-#'                   layer=file_path_sans_ext(basename(hs.ssh2.name)))
-#' hs.join <- ssh.data.shp(object=hs.data[[1]], ssh.lyr=hs.data[[2]], ssh.id="STR_1")
-#' hs.join <- ssh.data.shp(object=hs.join, ssh.lyr=hs.ssh2, ssh.id="STR_2")
-#' ssh.test(object=hs.join, y="Population", x=c("STR_1", "STR_2"), test="factor")
+#' data(sim.data)
+#' sim.join <- ssh.data.shp(object=sim.data[[1]], ssh.lyr=sim.data[[2]], ssh.id="X")
+#' head(sim.join)
+#' ssh.test(object=sim.join, y="Value", x=c("X"), test="factor")
 #'
 #' @name ssh.test
 # ---- End of roxygen documentation ----

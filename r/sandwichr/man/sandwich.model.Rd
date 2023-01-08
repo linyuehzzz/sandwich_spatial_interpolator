@@ -28,8 +28,8 @@ A \code{sandwich.ci} object that contains the estimated mean and standard deviat
 Estimate the mean and standard error for each reporting unit using SSH-based spatial interpolation.
 }
 \examples{
-data(hs.data)
-hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+data(sim.data)
+sim.sw <- sandwich.model(object=sim.data, sampling.attr="Value", type="shp")
 
 }
 \references{

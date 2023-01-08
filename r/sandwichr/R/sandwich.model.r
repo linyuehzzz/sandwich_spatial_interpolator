@@ -28,8 +28,8 @@
 #' @seealso \code{\link{load.data.shp}}, \code{\link{load.data.txt}}
 #'
 #' @examples
-#' data(hs.data)
-#' hs.sw <- sandwich.model(object=hs.data, sampling.attr="Population", type="shp")
+#' data(sim.data)
+#' sim.sw <- sandwich.model(object=sim.data, sampling.attr="Value", type="shp")
 #'
 # ---- End of roxygen documentation ----
 
