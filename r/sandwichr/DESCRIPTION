@@ -1,6 +1,6 @@
 Package: sandwichr
-Version: 1.0.2
-Date: 2022-11-17
+Version: 1.0.3
+Date: 2023-1-8
 Title: Spatial Interpolation Based on Spatial Stratified Heterogeneity
 Authors@R: c(person("Yue Lin", role = c("aut", "cre"),
                      email = "lin.3326@osu.edu"),

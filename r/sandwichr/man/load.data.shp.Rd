@@ -29,8 +29,8 @@ sim.ssh.name <- system.file("extdata", "sim.ssh.shp",
 sim.reporting.name <- system.file("extdata", "sim.reporting.shp",
                                   package="sandwichr")
 
-sim.data <- load.data.shp(sampling.file=hs.sampling.name,
-                          ssh.file=hs.ssh.name,
-                          reporting.file=hs.reporting.name)
+sim.data <- load.data.shp(sampling.file=sim.sampling.name,
+                          ssh.file=sim.ssh.name,
+                          reporting.file=sim.reporting.name)
 
 }

@@ -227,12 +227,6 @@ head(bc.sw$object)
 summary(bc.sw)
 ```
 
-We examine the normality of the random sample.
-```{r}
-qqnorm(bc.data[[1]]$Incidence, pch=1, frame=FALSE)
-qqline(bc.data[[1]]$Incidence, col="steelblue", lwd=2)
-```
-
 
 ### Model validation
 To evaluate the overall accuracy of SSH-based spatial interpolation, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.

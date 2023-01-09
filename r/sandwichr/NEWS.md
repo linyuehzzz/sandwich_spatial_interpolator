@@ -1,3 +1,6 @@
+# sandwichr 1.0.3
+Fixed confidence interval. Update vignettes.
+
 # sandwichr 1.0.2
 Used stratified k-fold validation for model evaluation. Update vignettes.
 
