@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# sandwichr: Spatial interpolation based on spatial stratified heterogeneity
+# sandwichr: Spatial prediction based on spatial stratified heterogeneity
 
 <!-- badges: start -->
 
@@ -10,11 +10,11 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 <!-- [![R-CMD-check](https://github.com/linyuehzzz/sandwich_spatial_interpolator/workflows/R-CMD-check/badge.svg)](https://github.com/linyuehzzz/sandwich_spatial_interpolator/actions/) -->
 <!-- badges: end -->
 
-`sandwichr` is an R package for spatial interpolation based on the spatial stratified heterogeneity (SSH) theory, which enables users to:
+`sandwichr` is an R package for spatial prediction based on the spatial stratified heterogeneity (SSH) theory, which enables users to:
 
   - Interpolate the sampling attribute over the reporting units that
     does not rely on spatial autocorrelation;
-  - Assess the interpolation uncertainties through standard errors and
+  - Assess the prediction uncertainties through standard errors and
     confidence intervals;
   - Evaluate the overall accuracy using a diagnostic statistic called
     the k-fold cross validation estimate.

@@ -3,7 +3,7 @@
 \name{summary}
 \alias{summary}
 \alias{summary.sandwich.model}
-\title{Summarize interpolation results}
+\title{Summarize prediction results}
 \usage{
 \method{summary}{sandwich.model}(object, ...)
 }

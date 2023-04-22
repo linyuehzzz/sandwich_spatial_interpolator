@@ -3,7 +3,7 @@
 \name{autoplot}
 \alias{autoplot}
 \alias{autoplot.sandwich.model}
-\title{Plot interpolation results}
+\title{Plot prediction results}
 \usage{
 \method{autoplot}{sandwich.model}(
   object,

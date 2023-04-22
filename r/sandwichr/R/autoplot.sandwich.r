@@ -1,4 +1,4 @@
-#' Plot interpolation results
+#' Plot prediction results
 #'
 #' @description
 #' Plot the estimated mean and standard error for each reporting unit.

@@ -1,4 +1,4 @@
-#' Summarize interpolation results
+#' Summarize prediction results
 #'
 #' @description
 #' Summarize the estimated mean and standard error.

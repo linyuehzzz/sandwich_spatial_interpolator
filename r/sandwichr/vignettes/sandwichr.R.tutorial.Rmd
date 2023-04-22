@@ -19,7 +19,7 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, fig.cap = " ", fig.path='figs/')
 ```
 
-The `sandwichr` package performs spatial interpolation^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.] based on the spatial stratified heterogeneity (SSH) theory^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.]. Three inputs are required for this model: sampling, SSH, and reporting layers. By utilizing the known distribution of the population in the SSH layer, this model seeks to estimate the mean value of the sampling attribute and its standard error for each reporting unit. The Sandwich model is still applicable when the spatial dependence is weak because it does not rely on the spatial dependence, provided that the geospatial surface is properly stratified.
+The `sandwichr` package performs spatial prediction^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.] based on the spatial stratified heterogeneity (SSH) theory^[Wang, J. F., Haining, R., Liu, T. J., Li, L. F., & Jiang, C. S. (2013). Sandwich estimation for multi-unit reporting on a stratified heterogeneous surface. *Environment and Planning A*, 45(10), 2515-2534.]. Three inputs are required for this model: sampling, SSH, and reporting layers. By utilizing the known distribution of the population in the SSH layer, this model seeks to estimate the mean value of the sampling attribute and its standard error for each reporting unit. The Sandwich model is still applicable when the spatial dependence is weak because it does not rely on the spatial dependence, provided that the geospatial surface is properly stratified.
 
 First, we need to install the `sandwichr` package from [CRAN](https://cran.r-project.org/) (only do this once).
 ```{r}
@@ -40,7 +40,7 @@ library(ape)
 Here,we present two case studies to demonstrate the functionality of this package.
 
 ## Simulated data
-In the first case study, interpolation is performed on a simulated geospatial surface. The population data is organized as a 20*20 grid. This population is divided into four continuous strata. We generate 41 sampling units at random within the grid. Based on the sample, we would really like to infer the values of seven reporting units that make up the surface. The sampling, SSH, and reporting layers are all in the shapefile format.
+In the first case study, prediction is performed on a simulated geospatial surface. The population data is organized as a 20*20 grid. This population is divided into four continuous strata. We generate 41 sampling units at random within the grid. Based on the sample, we would really like to infer the values of seven reporting units that make up the surface. The sampling, SSH, and reporting layers are all in the shapefile format.
 
 ### Loading data
 To successfully run the model, the `load.data.shp` function is used to convert the shapefiles of sampling, stratification, and reporting layers into a list of `sf` (simple feature; see [Simple Features for R](https://r-spatial.github.io/sf/index.html) for references) objects for model input. You can specify the directory and names for your input files. It should be noted that these input files must be located in the same directory.
@@ -85,7 +85,7 @@ Moran.I(sim.data[[1]]$Value, sim.dists.inv)
 
 
 ### Selection of the stratification layer(s)
-The accuracy of SSH-based spatial interpolation is determined by the stratification layer. In an ideal stratification layer, values of the target attribute are expected to be homogeneous within each stratum and to differ between the strata. To determine a proper stratification layer for the Sandwich model, the geographical detector model^[Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. *International Journal of Geographical Information Science*, 24(1), 107-127.] is applied to quantify the SSH of the target attribute with regard to the candidate stratification(s). 
+The accuracy of SSH-based spatial prediction is determined by the stratification layer. In an ideal stratification layer, values of the target attribute are expected to be homogeneous within each stratum and to differ between the strata. To determine a proper stratification layer for the Sandwich model, the geographical detector model^[Wang, J. F., Li, X. H., Christakos, G., Liao, Y. L., Zhang, T., Gu, X., & Zheng, X. Y. (2010). Geographical detectors-based health risk assessment and its application in the neural tube defects study of the Heshun Region, China. *International Journal of Geographical Information Science*, 24(1), 107-127.] is applied to quantify the SSH of the target attribute with regard to the candidate stratification(s). 
 
 First, we combine the sampling and candidate stratification layers into a single data frame.
 ```{r}
@@ -94,7 +94,7 @@ sim.join <- ssh.data.shp(object=sim.data[[1]], ssh.lyr=sim.data[[2]], ssh.id="X"
 head(sim.join)
 ```
 
-The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sampling data in terms of different stratifications. This function takes a data frame generated by the `ssh.data.shp` (or `ssh.data.txt`, which will be introduced later) function (argument `object`), where the sampling attribute (argument `y`) and the strata ID(s) (argument `x`) must be specified. In this example, the output of `ssh.test` (*q* = .81) implies that the candidate stratification layer has a high determinant power over the attribute. Therefore, it will be reasonable to select the stratification layer for subsequent interpolation.
+The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sampling data in terms of different stratifications. This function takes a data frame generated by the `ssh.data.shp` (or `ssh.data.txt`, which will be introduced later) function (argument `object`), where the sampling attribute (argument `y`) and the strata ID(s) (argument `x`) must be specified. In this example, the output of `ssh.test` (*q* = .81) implies that the candidate stratification layer has a high determinant power over the attribute. Therefore, it will be reasonable to select the stratification layer for subsequent prediction.
 ```{r}
 # Calculate the geographical detector q-statistic
 ssh.test(object=sim.join, y="Value", x=c("X"), test="factor")
@@ -123,7 +123,7 @@ sim.join %>%
 ### Running the Sandwich mapping model
 The Sandwich mapping model is performed using the `sandwich.model` function, which returns the mean value of the sampling attribute and its standard error for each reporting unit.
 ```{r}
-# Perform the SSH based spatial interpolation
+# Perform the SSH based spatial prediction
 sim.sw <- sandwich.model(object=sim.data, sampling.attr="Value", type="shp")
 head(sim.sw$object)
 summary(sim.sw)
@@ -190,7 +190,7 @@ bc.join <- ssh.data.txt(object=bc.data)
 head(bc.join)
 ```
 
-The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sample regarding the urban-rural classification. In this example, the output of `ssh.test` implies a relatively high level of SSH in the distribution of breast cancer incidence concerning the given stratification (*q* = .52). Therefore, it is reasonable to select the urban-rural classification as the stratification layer for subsequent interpolation.
+The factor detector *q*-statistic in the geographical detector model is applied through the `ssh.test` function to measure the SSH of the sample regarding the urban-rural classification. In this example, the output of `ssh.test` implies a relatively high level of SSH in the distribution of breast cancer incidence concerning the given stratification (*q* = .52). Therefore, it is reasonable to select the urban-rural classification as the stratification layer for subsequent prediction.
 ```{r}
 # Calculate the geographical detector q-statistic
 ssh.test(object=bc.join, y="Incidence", x="SSHID", test="factor", type="txt")
@@ -220,7 +220,7 @@ bc.data[[1]] %>%
 ### Running the Sandwich mapping model
 The Sandwich mapping model is performed using the `sandwich.model` function, which outputs the mean value of the sampling attribute and its standard error for each reporting unit.
 ```{r}
-# Perform the SSH based spatial interpolation
+# Perform the SSH based spatial prediction
 bc.sw <- sandwich.model(object=bc.data, sampling.attr="Incidence", type="txt", 
                         ssh.id.col="SSHID", ssh.weights=list(c(1,2), c("W1","W2")))
 head(bc.sw$object)
@@ -229,7 +229,7 @@ summary(bc.sw)
 
 
 ### Model validation
-To evaluate the overall accuracy of SSH-based spatial interpolation, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
+To evaluate the overall accuracy of SSH-based spatial prediction, a *k*-fold cross validation can be performed using the `sandwich.cv` function. A diagnostic statistic called root mean square error (RMSE) will be calculated. Here, we present the result of a 5-fold cross validation.
 ```{r}
 # Perform k-fold cross validation
 set.seed(0)

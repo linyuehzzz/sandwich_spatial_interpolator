@@ -1,3 +1,6 @@
+# sandwichr 1.0.4
+Modified "spatial interpolation" into "spatial prediction" to avoid confusion.
+
 # sandwichr 1.0.3
 Fixed confidence interval. Update vignettes.
 
