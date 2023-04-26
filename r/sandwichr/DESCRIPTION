@@ -1,6 +1,6 @@
 Package: sandwichr
 Version: 1.0.4
-Date: 2023-1-8
+Date: 2023-4-26
 Title: Spatial Prediction Based on Spatial Stratified Heterogeneity
 Authors@R: c(person("Yue Lin", role = c("aut", "cre"),
                      email = "lin.3326@osu.edu"),
