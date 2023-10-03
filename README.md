@@ -20,15 +20,15 @@ Citation
 --------
 Please cite the following reference if you use the code. We are also working on an article about this particular software😎.
 ```
-@article{Wang+Haining+Liu+Li+Jiang:2013,
-    author = {Jin-Feng Wang and Robert Haining and Tie-Jun Liu and Lian-Fa Li and Cheng-Sheng Jiang},
-    title ={Sandwich Estimation for Multi-Unit Reporting on a Stratified Heterogeneous Surface},
-    journal = {Environment and Planning A: Economy and Space},
-    volume = {45},
-    number = {10},
-    pages = {2515-2534},
-    year = {2013},
-    doi = {10.1068/a44710}
+@article{lin2023sandwichr,
+  title={sandwichr: Spatial prediction in R based on spatial stratified heterogeneity},
+  author={Lin, Yue and Xu, Chengdong and Wang, Jinfeng},
+  journal={Transactions in GIS},
+  volume={27},
+  number={5},
+  pages={1579--1598},
+  year={2023},
+  publisher={Wiley Online Library}
 }
 ```
 
@@ -36,7 +36,7 @@ Contacts
 --------
 If there are any questions or suggestions (or anything else you want to talk about concerning this project), please feel free to let us know!
 
-**Email**: lin.3326@osu.edu (Ms. Yue Lin), xucd@lreis.ac.cn (Dr. Chengdong Xu), wangjf@lreis.ac.cn (Dr. Jinfeng Wang*)
+**Email**: liny2@uchicago.edu (Dr. Yue Lin), xucd@lreis.ac.cn (Dr. Chengdong Xu), wangjf@lreis.ac.cn (Dr. Jinfeng Wang*)
 
 State Key Laboratory of Resources and Environmental Information System  
 Institute of Geographic Sciences and Natural Resources Research  
